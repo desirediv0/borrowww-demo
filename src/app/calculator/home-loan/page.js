@@ -2,12 +2,25 @@
 
 import { useState } from 'react';
 import React from 'react';
-import { useRouter } from 'next/navigation';
+
 import Link from 'next/link';
+
 import {
-  ArrowRight, BadgeCheck, Building2, CalendarCheck2, ClipboardCheck,
-  FileCheck2, FileText, Handshake, Home, IndianRupee, MessageSquareMore,
-  Percent, Phone, ShieldCheck, Sparkles, Users,
+  ArrowRight,
+  BadgeCheck,
+  Building2,
+  CalendarCheck2,
+  ClipboardCheck,
+  FileCheck2,
+  Handshake,
+  Home,
+  IndianRupee,
+  MessageSquareMore,
+  Percent,
+  Phone,
+  ShieldCheck,
+  Sparkles,
+  Users,
 } from 'lucide-react';
 
 export default function HomeLoanServicesPage() {
@@ -23,27 +36,77 @@ export default function HomeLoanServicesPage() {
     remarks: '',
   });
 
-  const router = useRouter();
-
   const lenders = [
-    { name: 'HDFC Bank', rate: '8.50%*', badge: 'Popular', gradient: 'from-[#2D3E50] to-[#2D3E50]' },
-    { name: 'SBI', rate: '8.65%*', badge: 'Govt. Backed', gradient: 'from-green-500 to-emerald-600' },
-    { name: 'ICICI Bank', rate: '8.75%*', badge: 'Fast Processing', gradient: 'from-purple-500 to-violet-600' },
-    { name: 'Axis Bank', rate: '8.85%*', badge: 'Low Fees', gradient: 'from-orange-500 to-amber-600' },
+    {
+      name: 'HDFC Bank',
+      rate: '8.50%*',
+      badge: 'Popular',
+      gradient: 'from-[#2D3E50] to-[#2D3E50]',
+    },
+    {
+      name: 'SBI',
+      rate: '8.65%*',
+      badge: 'Govt. Backed',
+      gradient: 'from-green-500 to-emerald-600',
+    },
+    {
+      name: 'ICICI Bank',
+      rate: '8.75%*',
+      badge: 'Fast Processing',
+      gradient: 'from-purple-500 to-violet-600',
+    },
+    {
+      name: 'Axis Bank',
+      rate: '8.85%*',
+      badge: 'Low Fees',
+      gradient: 'from-orange-500 to-amber-600',
+    },
   ];
 
   const steps = [
-    { icon: ClipboardCheck, title: 'Free Consultation', desc: 'Understanding your needs and suggesting the right loan options.' },
-    { icon: FileCheck2, title: 'Document Pickup', desc: 'Hassle-free document pickup & verification from your doorstep.' },
-    { icon: Building2, title: 'Bank Selection', desc: 'Negotiate best rates & terms with multiple banks on your behalf.' },
-    { icon: CalendarCheck2, title: 'Quick Approval', desc: 'Full support from faster sanction to smooth disbursement.' },
+    {
+      icon: ClipboardCheck,
+      title: 'Free Consultation',
+      desc: 'Understanding your needs and suggesting the right loan options.',
+    },
+    {
+      icon: FileCheck2,
+      title: 'Document Pickup',
+      desc: 'Hassle-free document pickup & verification from your doorstep.',
+    },
+    {
+      icon: Building2,
+      title: 'Bank Selection',
+      desc: 'Negotiate best rates & terms with multiple banks on your behalf.',
+    },
+    {
+      icon: CalendarCheck2,
+      title: 'Quick Approval',
+      desc: 'Full support from faster sanction to smooth disbursement.',
+    },
   ];
 
   const features = [
-    { icon: Percent, title: 'Competitive Rates', desc: 'Access to the best interest rates available in the market.' },
-    { icon: ShieldCheck, title: 'End-to-End Support', desc: 'Dedicated assistance from application to disbursement.' },
-    { icon: Handshake, title: 'Multiple Banks', desc: 'Strong partnerships with top lenders for better offers.' },
-    { icon: BadgeCheck, title: 'Zero Hidden Charges', desc: 'Transparent process with no surprise fees or charges.' },
+    {
+      icon: Percent,
+      title: 'Competitive Rates',
+      desc: 'Access to the best interest rates available in the market.',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'End-to-End Support',
+      desc: 'Dedicated assistance from application to disbursement.',
+    },
+    {
+      icon: Handshake,
+      title: 'Multiple Banks',
+      desc: 'Strong partnerships with top lenders for better offers.',
+    },
+    {
+      icon: BadgeCheck,
+      title: 'Zero Hidden Charges',
+      desc: 'Transparent process with no surprise fees or charges.',
+    },
   ];
 
   const documents = [
@@ -55,59 +118,28 @@ export default function HomeLoanServicesPage() {
   ];
 
   const faqs = [
-    { q: 'What is the minimum down payment required?', a: 'Typically 10–25% of the property value. The exact percentage depends on bank policy and your credit profile.' },
-    { q: 'How long does the processing take?', a: 'Usually 5–12 working days. The process is faster with complete documentation and a clear credit profile.' },
-    { q: 'Floating vs Fixed rate — which is better?', a: 'Floating rates are commonly preferred for short to medium terms. Fixed rates provide stability. We advise based on your specific needs.' },
-    { q: 'Are there prepayment/foreclosure charges?', a: 'Most floating rate home loans have no prepayment charges. Fixed rate loans may have charges. Bank-specific rules apply.' },
+    {
+      q: 'What is the minimum down payment required?',
+      a: 'Typically 10–25% of the property value. The exact percentage depends on bank policy and your credit profile.',
+    },
+    {
+      q: 'How long does the processing take?',
+      a: 'Usually 5–12 working days. The process is faster with complete documentation and a clear credit profile.',
+    },
+    {
+      q: 'Floating vs Fixed rate — which is better?',
+      a: 'Floating rates are commonly preferred for short to medium terms. Fixed rates provide stability. We advise based on your specific needs.',
+    },
+    {
+      q: 'Are there prepayment/foreclosure charges?',
+      a: 'Most floating rate home loans have no prepayment charges. Fixed rate loans may have charges. Bank-specific rules apply.',
+    },
   ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
-      const res = await fetch(`${apiUrl}/loans/user`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          type: 'HOME',
-          amount: form.loanAmount ? Number(form.loanAmount) : undefined,
-          duration: form.duration ? Number(form.duration) : undefined,
-          monthlyIncome: form.monthlyIncome ? Number(form.monthlyIncome) : undefined,
-          employmentType: form.employmentType || undefined,
-          purpose: form.propertyType || undefined,
-          remarks: form.remarks || undefined,
-          isSubmitted: true,
-          tempFormData: {
-            name: form.name,
-            phone: form.phone,
-            city: form.city,
-          },
-        }),
-      });
-
-      if (res.ok) {
-        alert('Loan application submitted! Our team will contact you soon.');
-        setForm({
-          name: '',
-          phone: '',
-          city: '',
-          propertyType: 'Residential',
-          loanAmount: '',
-          duration: '',
-          monthlyIncome: '',
-          employmentType: '',
-          remarks: '',
-        });
-      } else {
-        const data = await res.json();
-        alert(data.message || 'Something went wrong!');
-      }
-    } catch (err) {
-      alert('Network error!');
-    }
+    console.log('Form submitted:', form);
   };
 
   return (
@@ -244,7 +276,7 @@ export default function HomeLoanServicesPage() {
                     <div>
                       <label className="text-sm text-gray-600">
                         Loan Duration:
-                        <span className='font-semibold text-[#3A6EA5] ml-1'>
+                        <span className="font-semibold text-[#3A6EA5] ml-1">
                           {(() => {
                             const months = Number(form.duration || 120);
                             const years = Math.floor(months / 12);
@@ -259,7 +291,7 @@ export default function HomeLoanServicesPage() {
                         max="360"
                         step="1"
                         value={form.duration || 120}
-                        onChange={e => setForm({ ...form, duration: e.target.value })}
+                        onChange={(e) => setForm({ ...form, duration: e.target.value })}
                         className="w-full accent-[#3A6EA5]"
                         aria-label="Loan Duration Slider"
                       />
@@ -270,7 +302,7 @@ export default function HomeLoanServicesPage() {
                           min="1"
                           max="600"
                           value={form.duration || ''}
-                          onChange={e => {
+                          onChange={(e) => {
                             let val = e.target.value;
                             if (val === '' || isNaN(val)) val = '';
                             else if (Number(val) < 1) val = '1';
@@ -302,7 +334,7 @@ export default function HomeLoanServicesPage() {
                       <select
                         className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all"
                         value={form.employmentType}
-                        onChange={e => setForm({ ...form, employmentType: e.target.value })}
+                        onChange={(e) => setForm({ ...form, employmentType: e.target.value })}
                       >
                         <option value="">Select</option>
                         <option value="Salaried">Salaried</option>
@@ -440,7 +472,6 @@ export default function HomeLoanServicesPage() {
               <li>• Co-applicant allowed for higher eligibility</li>
               <li>• FOIR/Obligation norms as per lender policy</li>
             </ul>
-
           </div>
 
           <div className="rounded-3xl border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-6 shadow">

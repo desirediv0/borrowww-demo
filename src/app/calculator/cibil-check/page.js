@@ -1,218 +1,241 @@
+'use client';
 
-"use client"
+import { useRef, useState } from 'react';
+import {
+  FaCalendarAlt,
+  FaChartLine,
+  FaCheckCircle,
+  FaLock,
+  FaShieldAlt,
+  FaUser,
+} from 'react-icons/fa';
 
-import { useState, useRef, useEffect } from "react"
-import { FaCalendarAlt, FaChartLine, FaCheckCircle, FaLock, FaShieldAlt, FaUser } from "react-icons/fa"
-import { motion } from "framer-motion"
-import { CalendarIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { motion } from 'framer-motion';
+import { CalendarIcon } from 'lucide-react';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+
+// const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const indianStates = [
-  "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"
-]
-const genderOptions = ["Male", "Female", "Transgender"]
+  'Andhra Pradesh',
+  'Arunachal Pradesh',
+  'Assam',
+  'Bihar',
+  'Chhattisgarh',
+  'Goa',
+  'Gujarat',
+  'Haryana',
+  'Himachal Pradesh',
+  'Jharkhand',
+  'Karnataka',
+  'Kerala',
+  'Madhya Pradesh',
+  'Maharashtra',
+  'Manipur',
+  'Meghalaya',
+  'Mizoram',
+  'Nagaland',
+  'Odisha',
+  'Punjab',
+  'Rajasthan',
+  'Sikkim',
+  'Tamil Nadu',
+  'Telangana',
+  'Tripura',
+  'Uttar Pradesh',
+  'Uttarakhand',
+  'West Bengal',
+  'Andaman and Nicobar Islands',
+  'Chandigarh',
+  'Dadra and Nagar Haveli and Daman and Diu',
+  'Delhi',
+  'Jammu and Kashmir',
+  'Ladakh',
+  'Lakshadweep',
+  'Puducherry',
+];
+const genderOptions = ['Male', 'Female', 'Transgender'];
 
 export default function CIBILCheck() {
   const [FormData, setFormData] = useState({
-    firstName: "",
-    middleName: "",
-    lastName: "",
-    dob: "",
-    gender: "",
-    mobileNumber: "",
-    address: "",
-    state: "",
-    pincode: "",
-    panNumber: "",
+    firstName: '',
+    middleName: '',
+    lastName: '',
+    dob: '',
+    gender: '',
+    mobileNumber: '',
+    address: '',
+    state: '',
+    pincode: '',
+    panNumber: '',
     consent: false,
-  })
+  });
 
-  const [errors, setErrors] = useState({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [cibilScore, setCibilScore] = useState(null)
-  const [showResults, setShowResults] = useState(false)
-  const [submittedData, setSubmittedData] = useState(null)
-  const [unsummitCalled, setUnsummitCalled] = useState(false)
-  const resultsRef = useRef(null)
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [cibilScore, setCibilScore] = useState(null);
+  const [showResults, setShowResults] = useState(false);
+  const [submittedData, setSubmittedData] = useState(null);
+  // const [unsummitCalled, setUnsummitCalled] = useState(false)
+  const resultsRef = useRef(null);
 
   // --- API CALL HELPERS ---
-  async function callApi(endpoint, body = {}) {
-    const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-    const headers = { "Content-Type": "application/json" };
-    if (token) headers["Authorization"] = `Bearer ${token}`;
-    const res = await fetch(`${API_URL}${endpoint}`, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(body),
-    });
-    return res.json();
-  }
+  // async function callApi(endpoint, body = {}) {
+  //   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+  //   const headers = { "Content-Type": "application/json" };
+  //   if (token) headers["Authorization"] = `Bearer ${token}`;
+  //   const res = await fetch(`${API_URL}${endpoint}`, {
+  //     method: "POST",
+  //     headers,
+  //     body: JSON.stringify(body),
+  //   });
+  //   return res.json();
+  // }
 
   // --- UNSUMMIT API ON MOBILE ENTRY ---
-  useEffect(() => {
-    async function handleUnsummit() {
-      if (
-        FormData.mobileNumber &&
-        /^\d{10}$/.test(FormData.mobileNumber) &&
-        FormData.firstName.trim() &&
-        FormData.gender &&
-        FormData.panNumber.trim() &&
-        !unsummitCalled
-      ) {
-        setUnsummitCalled(true);
-        await callApi("/cibil/user/unsummit", {
-          mobile: FormData.mobileNumber,
-          firstName: FormData.firstName,
-          gender: FormData.gender,
-          panNumber: FormData.panNumber,
-        });
-      }
-    }
-    handleUnsummit();
-    // eslint-disable-next-line
-  }, [FormData.mobileNumber, FormData.firstName, FormData.gender, FormData.panNumber]);
+  // useEffect(() => {
+  //   async function handleUnsummit() {
+  //     if (
+  //       FormData.mobileNumber &&
+  //       /^\d{10}$/.test(FormData.mobileNumber) &&
+  //       FormData.firstName.trim() &&
+  //       FormData.gender &&
+  //       FormData.panNumber.trim() &&
+  //       !unsummitCalled
+  //     ) {
+  //       setUnsummitCalled(true);
+  //       await callApi("/cibil/user/unsummit", {
+  //         mobile: FormData.mobileNumber,
+  //         firstName: FormData.firstName,
+  //         gender: FormData.gender,
+  //         panNumber: FormData.panNumber,
+  //       });
+  //     }
+  //   }
+  //   handleUnsummit();
+  //   // eslint-disable-next-line
+  // }, [FormData.mobileNumber, FormData.firstName, FormData.gender, FormData.panNumber]);
 
   // --- RESET unsummitCalled IF MOBILE CLEARED ---
-  useEffect(() => {
-    if (!FormData.mobileNumber || FormData.mobileNumber.length < 10) {
-      setUnsummitCalled(false);
-    }
-  }, [FormData.mobileNumber]);
+  // useEffect(() => {
+  //   if (!FormData.mobileNumber || FormData.mobileNumber.length < 10) {
+  //     setUnsummitCalled(false);
+  //   }
+  // }, [FormData.mobileNumber]);
 
-  const generateFakeCibilScore = () => {
-    return Math.floor(Math.random() * (850 - 300 + 1)) + 300
-  }
+  // const generateFakeCibilScore = () => {
+  //   return Math.floor(Math.random() * (850 - 300 + 1)) + 300
+  // }
 
   // Validation: Only PAN
   const validateBureauForm = () => {
-    const newErrors = {}
-    if (!FormData.firstName.trim()) newErrors.firstName = "First Name is required"
-    if (!FormData.lastName.trim()) newErrors.lastName = "Last Name is required"
-    if (!FormData.dob) newErrors.dob = "Date of Birth is required"
-    if (!FormData.gender) newErrors.gender = "Gender is required"
-    if (!FormData.mobileNumber.trim()) newErrors.mobileNumber = "Mobile Number is required"
-    if (!FormData.address.trim()) newErrors.address = "Address is required"
-    if (!FormData.state) newErrors.state = "State is required"
-    if (!FormData.pincode.trim()) newErrors.pincode = "Pincode is required"
-    if (!FormData.panNumber.trim()) newErrors.panNumber = "PAN Number is required"
-    if (!FormData.consent) newErrors.consent = "You must agree to the terms"
+    const newErrors = {};
+    if (!FormData.firstName.trim()) newErrors.firstName = 'First Name is required';
+    if (!FormData.lastName.trim()) newErrors.lastName = 'Last Name is required';
+    if (!FormData.dob) newErrors.dob = 'Date of Birth is required';
+    if (!FormData.gender) newErrors.gender = 'Gender is required';
+    if (!FormData.mobileNumber.trim()) newErrors.mobileNumber = 'Mobile Number is required';
+    if (!FormData.address.trim()) newErrors.address = 'Address is required';
+    if (!FormData.state) newErrors.state = 'State is required';
+    if (!FormData.pincode.trim()) newErrors.pincode = 'Pincode is required';
+    if (!FormData.panNumber.trim()) newErrors.panNumber = 'PAN Number is required';
+    if (!FormData.consent) newErrors.consent = 'You must agree to the terms';
     if (FormData.mobileNumber && !/^\d{10}$/.test(FormData.mobileNumber)) {
-      newErrors.mobileNumber = "Mobile Number must be 10 digits"
+      newErrors.mobileNumber = 'Mobile Number must be 10 digits';
     }
     if (FormData.pincode && !/^\d{6}$/.test(FormData.pincode)) {
-      newErrors.pincode = "Pincode must be 6 digits"
+      newErrors.pincode = 'Pincode must be 6 digits';
     }
     if (FormData.panNumber && !/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(FormData.panNumber)) {
-      newErrors.panNumber = "PAN must be in format: ABCDE1234F"
+      newErrors.panNumber = 'PAN must be in format: ABCDE1234F';
     }
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleInputChange = (field, value) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+    setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
-      setErrors((prev) => ({ ...prev, [field]: "" }))
+      setErrors((prev) => ({ ...prev, [field]: '' }));
     }
-  }
+  };
 
   // --- ON SUBMIT: DELETE UNSUMMIT, THEN SUMMIT ---
   const handleBureauSubmit = async (e) => {
     e.preventDefault();
     if (!validateBureauForm()) return;
 
-    // Check login
-    // const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
-    // if (!token) {
-    //   // Track anon session page view before redirect
-    //   // updateAnonSession('cibil-check-submit');
-    //   const redirectTo = encodeURIComponent(window.location.pathname);
-    //   window.location.href = `/auth?redirectTo=${redirectTo}`;
-    //   return;
-    // }
-
-    setIsSubmitting(true);
-
-    // 2. Call summit API (user route)
-    const summitRes = await callApi("/cibil/user/summit", FormData);
-
-    // 3. (Optional) Use summitRes for your result, or fallback to fake score
-    const generatedScore = summitRes?.score || generateFakeCibilScore();
-
-    setCibilScore(generatedScore);
-    setSubmittedData(FormData);
-    setShowResults(true);
-    setIsSubmitting(false);
-
-    // Scroll to results section
-    setTimeout(() => {
-      resultsRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  }
-
+    console.log('Form submitted:', FormData);
+  };
 
   const getScoreCategory = (score) => {
-    if (score >= 750) return { category: "Excellent", color: "text-green-600", bg: "bg-green-100" }
-    if (score >= 650) return { category: "Good", color: "text-[#2D3E50]", bg: "bg-blue-100" }
-    if (score >= 550) return { category: "Fair", color: "text-yellow-600", bg: "bg-yellow-100" }
-    return { category: "Poor", color: "text-red-600", bg: "bg-red-100" }
-  }
+    if (score >= 750) return { category: 'Excellent', color: 'text-green-600', bg: 'bg-green-100' };
+    if (score >= 650) return { category: 'Good', color: 'text-[#2D3E50]', bg: 'bg-blue-100' };
+    if (score >= 550) return { category: 'Fair', color: 'text-yellow-600', bg: 'bg-yellow-100' };
+    return { category: 'Poor', color: 'text-red-600', bg: 'bg-red-100' };
+  };
 
   const getScoreDescription = (score) => {
     if (score >= 750)
-      return "Excellent credit score! You are likely to get the best loan terms and lowest interest rates."
-    if (score >= 650) return "Good credit score. You should be able to get loans with competitive rates."
-    if (score >= 550) return "Fair credit score. You may get loans but with higher interest rates."
-    return "Poor credit score. You may face difficulties in getting loans. Consider improving your credit score."
-  }
+      return 'Excellent credit score! You are likely to get the best loan terms and lowest interest rates.';
+    if (score >= 650)
+      return 'Good credit score. You should be able to get loans with competitive rates.';
+    if (score >= 550) return 'Fair credit score. You may get loans but with higher interest rates.';
+    return 'Poor credit score. You may face difficulties in getting loans. Consider improving your credit score.';
+  };
 
   const factors = [
     {
-      factor: "Payment History",
-      impact: "35%",
-      description: "Timely payment of EMIs and credit card bills",
+      factor: 'Payment History',
+      impact: '35%',
+      description: 'Timely payment of EMIs and credit card bills',
       icon: FaCheckCircle,
     },
     {
-      factor: "Credit Utilization",
-      impact: "30%",
-      description: "How much of your available credit you use",
+      factor: 'Credit Utilization',
+      impact: '30%',
+      description: 'How much of your available credit you use',
       icon: FaChartLine,
     },
     {
-      factor: "Credit History Length",
-      impact: "15%",
-      description: "How long you have been using credit",
+      factor: 'Credit History Length',
+      impact: '15%',
+      description: 'How long you have been using credit',
       icon: FaCalendarAlt,
     },
     {
-      factor: "Credit Mix",
-      impact: "10%",
-      description: "Types of credit accounts you have",
+      factor: 'Credit Mix',
+      impact: '10%',
+      description: 'Types of credit accounts you have',
       icon: FaShieldAlt,
     },
     {
-      factor: "New Credit",
-      impact: "10%",
-      description: "Recent credit inquiries and new accounts",
+      factor: 'New Credit',
+      impact: '10%',
+      description: 'Recent credit inquiries and new accounts',
       icon: FaUser,
     },
-  ]
+  ];
 
   const tips = [
-    "Pay all your bills on time, every time",
-    "Keep your credit utilization below 30%",
+    'Pay all your bills on time, every time',
+    'Keep your credit utilization below 30%',
     "Don't close old credit accounts",
-    "Limit new credit applications",
-    "Monitor your credit report regularly",
-    "Dispute any errors in your credit report",
-  ]
+    'Limit new credit applications',
+    'Monitor your credit report regularly',
+    'Dispute any errors in your credit report',
+  ];
 
   return (
     <>
@@ -230,11 +253,12 @@ export default function CIBILCheck() {
               Free CIBIL Check
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-gray-900 mb-6 tracking-tighter">
-              Check Your <span className="text-[var(--primary-blue)] italic tiemposfine">CIBIL Score</span>
+              Check Your{' '}
+              <span className="text-[var(--primary-blue)] italic tiemposfine">CIBIL Score</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Get your free CIBIL score instantly. No hidden charges, no credit card required. Check your credit health
-              and improve your loan eligibility.
+              Get your free CIBIL score instantly. No hidden charges, no credit card required. Check
+              your credit health and improve your loan eligibility.
             </p>
           </motion.div>
         </div>
@@ -257,7 +281,9 @@ export default function CIBILCheck() {
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900">Secure CIBIL Check</h2>
-                  <p className="text-gray-600 text-sm">Your data is protected with bank-level security</p>
+                  <p className="text-gray-600 text-sm">
+                    Your data is protected with bank-level security
+                  </p>
                 </div>
               </div>
 
@@ -272,8 +298,8 @@ export default function CIBILCheck() {
                       id="firstName"
                       placeholder="Enter First Name"
                       value={FormData.firstName}
-                      onChange={(e) => handleInputChange("firstName", e.target.value)}
-                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.firstName ? "border-red-500" : ""}`}
+                      onChange={(e) => handleInputChange('firstName', e.target.value)}
+                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.firstName ? 'border-red-500' : ''}`}
                     />
                     {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName}</p>}
                   </div>
@@ -286,7 +312,7 @@ export default function CIBILCheck() {
                       id="middleName"
                       placeholder="Enter Middle Name"
                       value={FormData.middleName}
-                      onChange={(e) => handleInputChange("middleName", e.target.value)}
+                      onChange={(e) => handleInputChange('middleName', e.target.value)}
                       className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500`}
                     />
                   </div>
@@ -300,8 +326,8 @@ export default function CIBILCheck() {
                       id="lastName"
                       placeholder="Enter Last Name"
                       value={FormData.lastName}
-                      onChange={(e) => handleInputChange("lastName", e.target.value)}
-                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.lastName ? "border-red-500" : ""}`}
+                      onChange={(e) => handleInputChange('lastName', e.target.value)}
+                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.lastName ? 'border-red-500' : ''}`}
                     />
                     {errors.lastName && <p className="text-red-500 text-xs">{errors.lastName}</p>}
                   </div>
@@ -318,8 +344,8 @@ export default function CIBILCheck() {
                         id="dob"
                         type="date"
                         value={FormData.dob}
-                        onChange={(e) => handleInputChange("dob", e.target.value)}
-                        className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.dob ? "border-red-500" : ""}`}
+                        onChange={(e) => handleInputChange('dob', e.target.value)}
+                        className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.dob ? 'border-red-500' : ''}`}
                       />
                       <CalendarIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                     </div>
@@ -330,8 +356,13 @@ export default function CIBILCheck() {
                     <Label className="text-sm font-medium">
                       Gender <span className="text-red-500">*</span>
                     </Label>
-                    <Select value={FormData.gender} onValueChange={(value) => handleInputChange("gender", value)}>
-                      <SelectTrigger className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.gender ? "border-red-500" : ""}`}>
+                    <Select
+                      value={FormData.gender}
+                      onValueChange={(value) => handleInputChange('gender', value)}
+                    >
+                      <SelectTrigger
+                        className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.gender ? 'border-red-500' : ''}`}
+                      >
                         <SelectValue placeholder="-- Please Select --" />
                       </SelectTrigger>
                       <SelectContent className="bg-white text-black">
@@ -353,11 +384,13 @@ export default function CIBILCheck() {
                       id="mobileNumber"
                       placeholder="Enter Mobile Number"
                       value={FormData.mobileNumber}
-                      onChange={(e) => handleInputChange("mobileNumber", e.target.value)}
-                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.mobileNumber ? "border-red-500" : ""}`}
+                      onChange={(e) => handleInputChange('mobileNumber', e.target.value)}
+                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.mobileNumber ? 'border-red-500' : ''}`}
                       maxLength={10}
                     />
-                    {errors.mobileNumber && <p className="text-red-500 text-xs">{errors.mobileNumber}</p>}
+                    {errors.mobileNumber && (
+                      <p className="text-red-500 text-xs">{errors.mobileNumber}</p>
+                    )}
                   </div>
                 </div>
 
@@ -370,8 +403,8 @@ export default function CIBILCheck() {
                     id="address"
                     placeholder="Enter Address"
                     value={FormData.address}
-                    onChange={(e) => handleInputChange("address", e.target.value)}
-                    className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.address ? "border-red-500" : ""}`}
+                    onChange={(e) => handleInputChange('address', e.target.value)}
+                    className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.address ? 'border-red-500' : ''}`}
                   />
                   {errors.address && <p className="text-red-500 text-xs">{errors.address}</p>}
                 </div>
@@ -382,8 +415,13 @@ export default function CIBILCheck() {
                     <Label className="text-sm font-medium">
                       State <span className="text-red-500">*</span>
                     </Label>
-                    <Select value={FormData.state} onValueChange={(value) => handleInputChange("state", value)}>
-                      <SelectTrigger className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.state ? "border-red-500" : ""}`}>
+                    <Select
+                      value={FormData.state}
+                      onValueChange={(value) => handleInputChange('state', value)}
+                    >
+                      <SelectTrigger
+                        className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.state ? 'border-red-500' : ''}`}
+                      >
                         <SelectValue placeholder="-- Please Select --" />
                       </SelectTrigger>
                       <SelectContent className="max-h-60 bg-white text-black">
@@ -405,8 +443,8 @@ export default function CIBILCheck() {
                       id="pincode"
                       placeholder="Enter Pincode"
                       value={FormData.pincode}
-                      onChange={(e) => handleInputChange("pincode", e.target.value)}
-                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.pincode ? "border-red-500" : ""}`}
+                      onChange={(e) => handleInputChange('pincode', e.target.value)}
+                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.pincode ? 'border-red-500' : ''}`}
                       maxLength={6}
                     />
                     {errors.pincode && <p className="text-red-500 text-xs">{errors.pincode}</p>}
@@ -422,8 +460,8 @@ export default function CIBILCheck() {
                     id="panNumber"
                     placeholder="Enter PAN (e.g., ABCDE1234F)"
                     value={FormData.panNumber}
-                    onChange={(e) => handleInputChange("panNumber", e.target.value.toUpperCase())}
-                    className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.panNumber ? "border-red-500" : ""}`}
+                    onChange={(e) => handleInputChange('panNumber', e.target.value.toUpperCase())}
+                    className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.panNumber ? 'border-red-500' : ''}`}
                     maxLength={10}
                   />
                   {errors.panNumber && <p className="text-red-500 text-xs">{errors.panNumber}</p>}
@@ -434,13 +472,13 @@ export default function CIBILCheck() {
                   <Checkbox
                     id="consent"
                     checked={FormData.consent}
-                    onCheckedChange={(checked) => handleInputChange("consent", checked)}
-                    className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.consent ? "border-red-500" : ""}`}
+                    onCheckedChange={(checked) => handleInputChange('consent', checked)}
+                    className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.consent ? 'border-red-500' : ''}`}
                   />
                   <div className="space-y-1">
                     <Label htmlFor="consent" className="text-sm leading-relaxed cursor-pointer">
-                      I agree, all information mentioned above is true and I authorize Borrowww
-                      to fetch my data.
+                      I agree, all information mentioned above is true and I authorize Borrowww to
+                      fetch my data.
                     </Label>
                     {errors.consent && <p className="text-red-500 text-xs">{errors.consent}</p>}
                   </div>
@@ -459,7 +497,7 @@ export default function CIBILCheck() {
                         Submitting...
                       </>
                     ) : (
-                      "Submit"
+                      'Submit'
                     )}
                   </Button>
                 </div>
@@ -497,7 +535,9 @@ export default function CIBILCheck() {
                   transition={{ delay: 0.2 }}
                   className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100"
                 >
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">Submitted Information</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                    Submitted Information
+                  </h3>
                   <div className="overflow-x-auto">
                     <table className="w-full border-collapse">
                       <thead>
@@ -567,27 +607,35 @@ export default function CIBILCheck() {
                 {/* CIBIL Score Display */}
                 {/* Features */}
                 <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">Why Check CIBIL Score?</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                    Why Check CIBIL Score?
+                  </h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <FaCheckCircle className="text-green-500 mt-1 flex-shrink-0" />
                       <div>
                         <h4 className="font-semibold text-gray-900">Free & Instant</h4>
-                        <p className="text-gray-600 text-sm">Get your score instantly without any charges</p>
+                        <p className="text-gray-600 text-sm">
+                          Get your score instantly without any charges
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <FaCheckCircle className="text-green-500 mt-1 flex-shrink-0" />
                       <div>
                         <h4 className="font-semibold text-gray-900">Secure & Private</h4>
-                        <p className="text-gray-600 text-sm">Bank-level encryption protects your data</p>
+                        <p className="text-gray-600 text-sm">
+                          Bank-level encryption protects your data
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <FaCheckCircle className="text-green-500 mt-1 flex-shrink-0" />
                       <div>
                         <h4 className="font-semibold text-gray-900">Improve Score</h4>
-                        <p className="text-gray-600 text-sm">Get tips to improve your credit score</p>
+                        <p className="text-gray-600 text-sm">
+                          Get tips to improve your credit score
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -607,9 +655,12 @@ export default function CIBILCheck() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">What Affects Your CIBIL Score?</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              What Affects Your CIBIL Score?
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Understanding the factors that influence your credit score helps you make better financial decisions
+              Understanding the factors that influence your credit score helps you make better
+              financial decisions
             </p>
           </motion.div>
 
@@ -633,7 +684,9 @@ export default function CIBILCheck() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900">{factor.factor}</h3>
-                      <span className="text-[var(--primary-blue)] font-bold text-lg">{factor.impact}</span>
+                      <span className="text-[var(--primary-blue)] font-bold text-lg">
+                        {factor.impact}
+                      </span>
                     </div>
                   </div>
                   <p className="text-gray-600 leading-relaxed">{factor.description}</p>
@@ -653,7 +706,9 @@ export default function CIBILCheck() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Tips to Improve Your CIBIL Score</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Tips to Improve Your CIBIL Score
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Follow these simple steps to boost your credit score and improve your loan eligibility
             </p>
@@ -697,8 +752,8 @@ export default function CIBILCheck() {
           >
             <h3 className="text-3xl font-bold mb-4">Ready to Improve Your Credit Score?</h3>
             <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-              Get personalized advice and loan offers based on your credit score. Our experts will help you find the
-              best deals.
+              Get personalized advice and loan offers based on your credit score. Our experts will
+              help you find the best deals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
@@ -720,5 +775,5 @@ export default function CIBILCheck() {
         </div>
       </section>
     </>
-  )
+  );
 }

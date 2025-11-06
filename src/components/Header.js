@@ -1,45 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-// Helper to check login (token in cookie or localStorage)
-// function isLoggedIn() {
-//   if (typeof window === 'undefined') return false;
-//   if (localStorage.getItem('token')) return true;
-//   // Check cookie
-//   return document.cookie.split(';').some(c => c.trim().startsWith('token='));
-// }
-
-// function logout(router) {
-//   if (typeof window !== 'undefined') {
-//     localStorage.removeItem('token');
-//     localStorage.removeItem('sessionId');
-//     // Remove cookie
-//     document.cookie = 'token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-//     router.push('/auth');
-//   }
-// }
 
 import Image from 'next/image';
 import Link from 'next/link';
-// import { useRouter } from 'next/navigation';
 
 import { gif, logo } from '@/assets';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Header() {
-  // const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // const [loggedIn, setLoggedIn] = useState(false);
-
-  // useEffect(() => {
-  //   setLoggedIn(isLoggedIn());
-  //   // Listen for storage changes (logout in other tabs)
-  //   const onStorage = () => setLoggedIn(isLoggedIn());
-  //   window.addEventListener('storage', onStorage);
-  //   return () => window.removeEventListener('storage', onStorage);
-  // }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,13 +50,13 @@ export default function Header() {
           <span>Free CIBIL Score Check • Instant Loan Approval</span>
           <span className="text-pink-300">›</span>
         </div>
-
       </motion.div>
 
       {/* Main Header */}
       <motion.header
-        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
-          }`}
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
+        }`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
@@ -107,8 +79,6 @@ export default function Header() {
             </Link>
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-
-
               {/* Other Navigation Items */}
               {navItems.map((item, index) => (
                 <motion.div
@@ -134,35 +104,6 @@ export default function Header() {
               <Link href="/calculator/cibil-check">
                 <Image src={gif} alt="Borrowww" width={120} height={100} />
               </Link>
-              {/* {loggedIn ? (
-                <>
-                  <motion.button
-                    className="bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] text-white px-6 py-2 rounded-full font-medium hover:bg-[var(--primary-darkgreen)] transition-colors duration-200"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => router.push('/user/profile')}
-                  >
-                    <User size={16} />
-                  </motion.button>
-                  <motion.button
-                    className="bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] text-white px-6 py-2 rounded-full font-medium hover:bg-[var(--primary-darkgreen)] transition-colors duration-200"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => logout(router)}
-                  >
-                    <IconLogout size={16} />
-                  </motion.button>
-                </>
-              ) : (
-                <motion.button
-                  className="bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] text-white px-6 py-2 rounded-full font-medium hover:bg-[var(--primary-darkgreen)] transition-colors duration-200"
-                  whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(45, 90, 74, 0.3)' }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => router.push('/auth')}
-                >
-                  <IconUser size={16} />
-                </motion.button>
-              )} */}
             </div>
 
             {/* Mobile Menu Button */}
@@ -218,33 +159,6 @@ export default function Header() {
                     </Link>
                   ))}
                 </div>
-
-                {/* Auth/Profile Buttons */}
-                {/* <div className="pt-4 border-t  gap-5 flex items-center justify-center w-full">
-                  {loggedIn ? (
-                    <>
-                      <button
-                        className="bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] text-white w-full items-center flex justify-center px-4 py-2 rounded font-medium hover:bg-[var(--primary-darkgreen)] transition-colors duration-200"
-                        onClick={() => { setIsMobileMenuOpen(false); router.push('/user/profile'); }}
-                      >
-                        <User size={20} />
-                      </button>
-                      <button
-                        className="bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] text-white w-full items-center flex justify-center px-6 py-2 rounded font-medium hover:bg-[var(--primary-darkgreen)] transition-colors duration-200"
-                        onClick={() => { setIsMobileMenuOpen(false); logout(router); }}
-                      >
-                        <IconLogout size={20} />
-                      </button>
-                    </>
-                  ) : (
-                    <button
-                      className="block w-full bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] text-white px-4 py-2 rounded-full font-medium"
-                      onClick={() => { setIsMobileMenuOpen(false); router.push('/auth'); }}
-                    >
-                      <IconUser size={16} />
-                    </button>
-                  )}
-                </div> */}
               </div>
             </motion.div>
           )}

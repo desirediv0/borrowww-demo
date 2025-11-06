@@ -148,7 +148,7 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <p className="text-gray-500 text-sm mb-2 md:mb-0">
-            © 2024 Borrowww Finance. All rights reserved.
+            © 2025 Borrowww Finance. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6 text-sm">
