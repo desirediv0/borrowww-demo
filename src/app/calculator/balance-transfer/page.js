@@ -79,13 +79,24 @@ export default function BalanceTransferCalculator() {
     setSavings({
       monthly: monthlySavings,
       total: totalSavings,
-      percentage: ((currentTotalInterest - newTotalInterest) / currentTotalInterest) * 100,
+
+      percentage: currentTotalInterest
+        ? ((currentTotalInterest - newTotalInterest) / currentTotalInterest) * 100
+        : 0,
     });
   };
 
   useEffect(() => {
     calculateSavings();
-  }, [currentLoan, newLoan]);
+  }, [
+    currentLoan.amount,
+    currentLoan.rate,
+    currentLoan.tenure,
+    newLoan.amount,
+    newLoan.rate,
+    newLoan.tenure,
+    newLoan.transferFee,
+  ]);
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-IN', {
@@ -362,8 +373,6 @@ export default function BalanceTransferCalculator() {
                 <div className="text-white/90 font-medium">Interest Savings</div>
               </div>
             </div>
-
-
           </motion.div>
         </div>
       </section>
@@ -424,7 +433,7 @@ export default function BalanceTransferCalculator() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => window.location.href = '/auth'}
+                    onClick={() => (window.location.href = '/auth')}
                     className="w-full bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
                   >
                     Login to Apply

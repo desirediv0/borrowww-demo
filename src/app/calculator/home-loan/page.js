@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import React from 'react';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import {
   ArrowRight,
@@ -35,33 +35,7 @@ export default function HomeLoanServicesPage() {
     employmentType: '',
     remarks: '',
   });
-
-  const lenders = [
-    {
-      name: 'HDFC Bank',
-      rate: '8.50%*',
-      badge: 'Popular',
-      gradient: 'from-[#2D3E50] to-[#2D3E50]',
-    },
-    {
-      name: 'SBI',
-      rate: '8.65%*',
-      badge: 'Govt. Backed',
-      gradient: 'from-green-500 to-emerald-600',
-    },
-    {
-      name: 'ICICI Bank',
-      rate: '8.75%*',
-      badge: 'Fast Processing',
-      gradient: 'from-purple-500 to-violet-600',
-    },
-    {
-      name: 'Axis Bank',
-      rate: '8.85%*',
-      badge: 'Low Fees',
-      gradient: 'from-orange-500 to-amber-600',
-    },
-  ];
+  const router = useRouter();
 
   const steps = [
     {
@@ -138,8 +112,7 @@ export default function HomeLoanServicesPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log('Form submitted:', form);
+    console.log(form);
   };
 
   return (
@@ -371,29 +344,186 @@ export default function HomeLoanServicesPage() {
         </div>
       </section>
 
-      {/* LENDERS STRIP */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {lenders.map((l) => (
-              <div
-                key={l.name}
-                className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm hover:shadow-md transition-all"
+      {/* HOME LOAN SUMMARY - expanded content + apply flow */}
+      <section className="py-12 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-8 shadow text-left">
+            <h2 className="text-3xl font-bold text-gray-900">
+              Your Home, Your Future—Financed with Ease
+            </h2>
+            <p className="mt-3 text-gray-700 max-w-3xl">
+              Discover flexible home loan options, low interest rates, and expert support—all in one
+              place.
+            </p>
+
+            <p className="mt-4 text-gray-700 max-w-3xl">
+              A home loan is a type of secured financing offered based on the value of the property
+              you intend to purchase. Whether you&apos;re planning to buy a new home, build one from
+              the ground up, or upgrade your current space, a home loan can help you access the
+              funds you need. At BORROWWW, we make it easy to discover and choose the ideal home
+              loan tailored to your goals.
+            </p>
+
+            <div className="mt-6">
+              <h3 className="font-semibold text-gray-900">Home Loan Benefits Made Simple</h3>
+              <ul className="mt-2 text-gray-700 space-y-1 list-inside ml-4">
+                <li>
+                  ✅ Low Interest Rates: Cheaper than most other loans because of long repayment
+                  time.
+                </li>
+                <li>
+                  💰 Tax Savings: Get up to ₹2 lakh off yearly on interest and principal under
+                  Sections 80C &amp; 24.
+                </li>
+                <li>
+                  🔄 Loan Transfer Option: Switch to another bank for better rates and save money.
+                </li>
+                <li>📆 Flexible Tenure: Choose up to 30 years or repay early if eligible.</li>
+              </ul>
+            </div>
+
+            <div className="mt-6">
+              <h3 className="font-semibold text-gray-900">Why Borrowww</h3>
+              <p className="mt-2 text-gray-700">
+                Owning a home is a major life milestone. At BORROWWW, we’re here to make your home
+                loan journey simple and stress-free. Discover the best loan options and competitive
+                rates with us today!
+              </p>
+            </div>
+
+            <div className="mt-6 flex gap-4">
+              <button
+                onClick={() => {
+                  // client-side check and redirect: logged-in -> customer details page; otherwise -> auth with redirect
+                  const token =
+                    typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+                  const redirectTo = encodeURIComponent(window.location.pathname);
+                  if (token) {
+                    router.push('/calculator/home-loan/customer-details');
+                  } else {
+                    router.push(`/auth?redirectTo=${redirectTo}`);
+                  }
+                }}
+                className="rounded-xl bg-gradient-to-r from-[#2D3E50] to-[#3A6EA5] px-6 py-3 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
               >
-                <div
-                  className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${l.gradient} text-white text-xs font-semibold px-3 py-1`}
-                >
-                  {l.badge}
-                </div>
-                <div className="mt-3 text-lg font-semibold text-gray-900">{l.name}</div>
-                <div className="text-sm text-gray-600">Starting at</div>
-                <div className="text-2xl font-bold text-[#2D3E50]">{l.rate}</div>
+                Apply Loan
+              </button>
+
+              <a
+                href="#lead-form"
+                className="rounded-xl border border-gray-200 px-6 py-3 text-gray-700"
+              >
+                Get Free Consultation
+              </a>
+            </div>
+
+            <div className="mt-6 grid sm:grid-cols-2 gap-6">
+              <div>
+                <h3 className="font-semibold text-gray-900">
+                  Ready Property Loan – Move In, Stress-Free
+                </h3>
+                <p className="mt-2 text-gray-700">
+                  Found your perfect home? We’ll help you move in—fast and easy.
+                </p>
+                <ul className="mt-2 text-gray-700 space-y-1">
+                  <li>
+                    • Up to 90% Loan Coverage – Get quick funding for your ready-to-move property.
+                  </li>
+                  <li>• Fast Disbursement – Immediate loan release for faster possession.</li>
+                  <li>• Flexible Tenure – Repay over up to 30 years—your way.</li>
+                  <li>• Interest-Only Option – Pay just the interest in the beginning.</li>
+                </ul>
               </div>
-            ))}
+
+              <div>
+                <h3 className="font-semibold text-gray-900">
+                  Under-Construction Property Loan – Build Your Future Home
+                </h3>
+                <p className="mt-2 text-gray-700">
+                  Buying a home that&apos;s still being built? We’ve got you covered.
+                </p>
+                <ul className="mt-2 text-gray-700 space-y-1">
+                  <li>
+                    • Stage-Wise Loan Disbursement – Funds released as construction progresses.
+                  </li>
+                  <li>• Lower Property Costs – Buy early and save more.</li>
+                  <li>
+                    • Interest-Only EMIs – Pay just the interest during the construction phase.
+                  </li>
+                  <li>• Tax Benefits After Possession – Enjoy savings once you move in.</li>
+                  <li>• Trusted Builders – Choose RERA-approved projects for peace of mind.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <h3 className="font-semibold text-gray-900">
+                Home Loan Balance Transfer – Save More Every Month
+              </h3>
+              <p className="mt-2 text-gray-700">
+                Switch your existing home loan through BORROWWW and enjoy lower EMIs. With
+                attractive interest rates and easy transfer options, you can reduce your monthly
+                payments and free up funds for what truly matters—your family, your future, your
+                dreams.
+              </p>
+              <ul className="mt-2 text-gray-700 space-y-1">
+                <li>• Lower Interest Rates – Cut down your monthly instalments</li>
+                <li>• Easy Transfer Process – Hassle-free and quick</li>
+                <li>• More Savings – Use the extra cash for life’s priorities</li>
+              </ul>
+            </div>
+
+            <div className="mt-6 grid sm:grid-cols-2 gap-6">
+              <div>
+                <h3 className="font-semibold text-gray-900">
+                  Plot + Construction Loan – Build Your Way
+                </h3>
+                <p className="mt-2 text-gray-700">
+                  Design your dream home from scratch with our Plot + Construction Loan. It covers
+                  both land purchase and building costs in one easy plan.
+                </p>
+                <ul className="mt-2 text-gray-700 space-y-1">
+                  <li>• 💸 Staged payments as construction progresses</li>
+                  <li>• 🏡 Full freedom to customize your home</li>
+                  <li>• 📅 Ideal if you plan to start building within 2–3 years</li>
+                  <li>• 💰 Tax benefits under Sections 80C &amp; 24B</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-gray-900">Plot Loan</h3>
+                <p className="mt-2 text-gray-700">
+                  Turn your dream home into reality—starting with the perfect plot. With BORROWWW,
+                  you can finance the land you need to build your future.
+                </p>
+                <ul className="mt-2 text-gray-700 space-y-1">
+                  <li>• 💸 Cheapest Interest Rates – Options comparison amongst top banks</li>
+                  <li>• 🛠️ Build When You&apos;re Ready – Up to 3 years to start construction</li>
+                  <li>
+                    • 🤝 Local Support – Our experts guide you through every step of the loan
+                    process
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <h3 className="font-semibold text-gray-900">Loan Types We Offer</h3>
+              <div className="mt-2 grid sm:grid-cols-3 gap-4 text-gray-700">
+                <ul className="space-y-1">
+                  <li>Ready-to-Move Home Loans — Quick disbursement, up to 90% financing</li>
+                  <li>Plot + Construction Loans — Covers land and building costs</li>
+                </ul>
+                <ul className="space-y-1">
+                  <li>Under-Construction Property Loans — Interest-only EMIs during build phase</li>
+                  <li>Home Loan Balance Transfer — Switch and save on EMIs</li>
+                </ul>
+                <ul className="space-y-1">
+                  <li>Why Choose BORROWWW? — Competitive rates, simple docs, expert guidance</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <p className="mt-3 text-xs text-gray-500">
-            *Rates are indicative & subject to lender policy, credit profile, and market conditions.
-          </p>
         </div>
       </section>
 

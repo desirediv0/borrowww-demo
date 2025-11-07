@@ -11,74 +11,16 @@ import {
 } from 'react-icons/fa';
 
 import { motion } from 'framer-motion';
-import { CalendarIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-
-// const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
-const indianStates = [
-  'Andhra Pradesh',
-  'Arunachal Pradesh',
-  'Assam',
-  'Bihar',
-  'Chhattisgarh',
-  'Goa',
-  'Gujarat',
-  'Haryana',
-  'Himachal Pradesh',
-  'Jharkhand',
-  'Karnataka',
-  'Kerala',
-  'Madhya Pradesh',
-  'Maharashtra',
-  'Manipur',
-  'Meghalaya',
-  'Mizoram',
-  'Nagaland',
-  'Odisha',
-  'Punjab',
-  'Rajasthan',
-  'Sikkim',
-  'Tamil Nadu',
-  'Telangana',
-  'Tripura',
-  'Uttar Pradesh',
-  'Uttarakhand',
-  'West Bengal',
-  'Andaman and Nicobar Islands',
-  'Chandigarh',
-  'Dadra and Nagar Haveli and Daman and Diu',
-  'Delhi',
-  'Jammu and Kashmir',
-  'Ladakh',
-  'Lakshadweep',
-  'Puducherry',
-];
-const genderOptions = ['Male', 'Female', 'Transgender'];
 
 export default function CIBILCheck() {
   const [FormData, setFormData] = useState({
     firstName: '',
-    middleName: '',
-    lastName: '',
-    dob: '',
-    gender: '',
     mobileNumber: '',
-    address: '',
-    state: '',
-    pincode: '',
-    panNumber: '',
     consent: false,
   });
 
@@ -86,79 +28,20 @@ export default function CIBILCheck() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [cibilScore, setCibilScore] = useState(null);
   const [showResults, setShowResults] = useState(false);
-  const [submittedData, setSubmittedData] = useState(null);
-  // const [unsummitCalled, setUnsummitCalled] = useState(false)
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [sessionUrl, setSessionUrl] = useState(null);
+  const [fromCache, setFromCache] = useState(false);
+  const [pdfUrl, setPdfUrl] = useState(null);
   const resultsRef = useRef(null);
 
-  // --- API CALL HELPERS ---
-  // async function callApi(endpoint, body = {}) {
-  //   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-  //   const headers = { "Content-Type": "application/json" };
-  //   if (token) headers["Authorization"] = `Bearer ${token}`;
-  //   const res = await fetch(`${API_URL}${endpoint}`, {
-  //     method: "POST",
-  //     headers,
-  //     body: JSON.stringify(body),
-  //   });
-  //   return res.json();
-  // }
-
-  // --- UNSUMMIT API ON MOBILE ENTRY ---
-  // useEffect(() => {
-  //   async function handleUnsummit() {
-  //     if (
-  //       FormData.mobileNumber &&
-  //       /^\d{10}$/.test(FormData.mobileNumber) &&
-  //       FormData.firstName.trim() &&
-  //       FormData.gender &&
-  //       FormData.panNumber.trim() &&
-  //       !unsummitCalled
-  //     ) {
-  //       setUnsummitCalled(true);
-  //       await callApi("/cibil/user/unsummit", {
-  //         mobile: FormData.mobileNumber,
-  //         firstName: FormData.firstName,
-  //         gender: FormData.gender,
-  //         panNumber: FormData.panNumber,
-  //       });
-  //     }
-  //   }
-  //   handleUnsummit();
-  //   // eslint-disable-next-line
-  // }, [FormData.mobileNumber, FormData.firstName, FormData.gender, FormData.panNumber]);
-
-  // --- RESET unsummitCalled IF MOBILE CLEARED ---
-  // useEffect(() => {
-  //   if (!FormData.mobileNumber || FormData.mobileNumber.length < 10) {
-  //     setUnsummitCalled(false);
-  //   }
-  // }, [FormData.mobileNumber]);
-
-  // const generateFakeCibilScore = () => {
-  //   return Math.floor(Math.random() * (850 - 300 + 1)) + 300
-  // }
-
-  // Validation: Only PAN
+  // Simple Validation: Only required fields
   const validateBureauForm = () => {
     const newErrors = {};
     if (!FormData.firstName.trim()) newErrors.firstName = 'First Name is required';
-    if (!FormData.lastName.trim()) newErrors.lastName = 'Last Name is required';
-    if (!FormData.dob) newErrors.dob = 'Date of Birth is required';
-    if (!FormData.gender) newErrors.gender = 'Gender is required';
     if (!FormData.mobileNumber.trim()) newErrors.mobileNumber = 'Mobile Number is required';
-    if (!FormData.address.trim()) newErrors.address = 'Address is required';
-    if (!FormData.state) newErrors.state = 'State is required';
-    if (!FormData.pincode.trim()) newErrors.pincode = 'Pincode is required';
-    if (!FormData.panNumber.trim()) newErrors.panNumber = 'PAN Number is required';
     if (!FormData.consent) newErrors.consent = 'You must agree to the terms';
     if (FormData.mobileNumber && !/^\d{10}$/.test(FormData.mobileNumber)) {
       newErrors.mobileNumber = 'Mobile Number must be 10 digits';
-    }
-    if (FormData.pincode && !/^\d{6}$/.test(FormData.pincode)) {
-      newErrors.pincode = 'Pincode must be 6 digits';
-    }
-    if (FormData.panNumber && !/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(FormData.panNumber)) {
-      newErrors.panNumber = 'PAN must be in format: ABCDE1234F';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -171,12 +54,11 @@ export default function CIBILCheck() {
     }
   };
 
-  // --- ON SUBMIT: DELETE UNSUMMIT, THEN SUMMIT ---
+  // --- ON SUBMIT: SECURE CIBIL CHECK ---
   const handleBureauSubmit = async (e) => {
     e.preventDefault();
+    console.log('on Submit', FormData);
     if (!validateBureauForm()) return;
-
-    console.log('Form submitted:', FormData);
   };
 
   const getScoreCategory = (score) => {
@@ -288,92 +170,20 @@ export default function CIBILCheck() {
               </div>
 
               <form onSubmit={handleBureauSubmit} className="space-y-6">
-                {/* Name Fields */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Simplified Form - Only Essential Fields */}
+                <div className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName" className="text-sm font-medium">
-                      First Name <span className="text-red-500">*</span>
+                      Full Name <span className="text-red-500">*</span>
                     </Label>
                     <Input
                       id="firstName"
-                      placeholder="Enter First Name"
+                      placeholder="Enter Your Full Name"
                       value={FormData.firstName}
                       onChange={(e) => handleInputChange('firstName', e.target.value)}
-                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.firstName ? 'border-red-500' : ''}`}
+                      className={`rounded-md border border-gray-600 transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.firstName ? 'border-red-500' : ''}`}
                     />
                     {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName}</p>}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="middleName" className="text-sm font-medium">
-                      Middle Name
-                    </Label>
-                    <Input
-                      id="middleName"
-                      placeholder="Enter Middle Name"
-                      value={FormData.middleName}
-                      onChange={(e) => handleInputChange('middleName', e.target.value)}
-                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500`}
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName" className="text-sm font-medium">
-                      Last Name <span className="text-red-500">*</span>
-                    </Label>
-
-                    <Input
-                      id="lastName"
-                      placeholder="Enter Last Name"
-                      value={FormData.lastName}
-                      onChange={(e) => handleInputChange('lastName', e.target.value)}
-                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.lastName ? 'border-red-500' : ''}`}
-                    />
-                    {errors.lastName && <p className="text-red-500 text-xs">{errors.lastName}</p>}
-                  </div>
-                </div>
-
-                {/* DOB, Gender, Mobile */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="dob" className="text-sm font-medium">
-                      D.O.B (Date of Birth) <span className="text-red-500">*</span>
-                    </Label>
-                    <div className="relative">
-                      <Input
-                        id="dob"
-                        type="date"
-                        value={FormData.dob}
-                        onChange={(e) => handleInputChange('dob', e.target.value)}
-                        className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.dob ? 'border-red-500' : ''}`}
-                      />
-                      <CalendarIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
-                    </div>
-                    {errors.dob && <p className="text-red-500 text-xs">{errors.dob}</p>}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label className="text-sm font-medium">
-                      Gender <span className="text-red-500">*</span>
-                    </Label>
-                    <Select
-                      value={FormData.gender}
-                      onValueChange={(value) => handleInputChange('gender', value)}
-                    >
-                      <SelectTrigger
-                        className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.gender ? 'border-red-500' : ''}`}
-                      >
-                        <SelectValue placeholder="-- Please Select --" />
-                      </SelectTrigger>
-                      <SelectContent className="bg-white text-black">
-                        {genderOptions.map((option) => (
-                          <SelectItem key={option} value={option}>
-                            {option}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    {errors.gender && <p className="text-red-500 text-xs">{errors.gender}</p>}
                   </div>
 
                   <div className="space-y-2">
@@ -382,127 +192,98 @@ export default function CIBILCheck() {
                     </Label>
                     <Input
                       id="mobileNumber"
-                      placeholder="Enter Mobile Number"
+                      placeholder="Enter Your 10-digit Mobile Number"
                       value={FormData.mobileNumber}
                       onChange={(e) => handleInputChange('mobileNumber', e.target.value)}
-                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.mobileNumber ? 'border-red-500' : ''}`}
-                      maxLength={10}
+                      className={`rounded-md border border-gray-600 transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.mobileNumber ? 'border-red-500' : ''}`}
+                      type="tel"
+                      maxLength="10"
                     />
                     {errors.mobileNumber && (
                       <p className="text-red-500 text-xs">{errors.mobileNumber}</p>
                     )}
                   </div>
-                </div>
 
-                {/* Address */}
-                <div className="space-y-2">
-                  <Label htmlFor="address" className="text-sm font-medium">
-                    Address <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="address"
-                    placeholder="Enter Address"
-                    value={FormData.address}
-                    onChange={(e) => handleInputChange('address', e.target.value)}
-                    className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.address ? 'border-red-500' : ''}`}
-                  />
-                  {errors.address && <p className="text-red-500 text-xs">{errors.address}</p>}
-                </div>
-
-                {/* State, Pincode */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label className="text-sm font-medium">
-                      State <span className="text-red-500">*</span>
-                    </Label>
-                    <Select
-                      value={FormData.state}
-                      onValueChange={(value) => handleInputChange('state', value)}
-                    >
-                      <SelectTrigger
-                        className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.state ? 'border-red-500' : ''}`}
-                      >
-                        <SelectValue placeholder="-- Please Select --" />
-                      </SelectTrigger>
-                      <SelectContent className="max-h-60 bg-white text-black">
-                        {indianStates.map((state) => (
-                          <SelectItem key={state} value={state}>
-                            {state}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    {errors.state && <p className="text-red-500 text-xs">{errors.state}</p>}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="pincode" className="text-sm font-medium">
-                      Pincode <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="pincode"
-                      placeholder="Enter Pincode"
-                      value={FormData.pincode}
-                      onChange={(e) => handleInputChange('pincode', e.target.value)}
-                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.pincode ? 'border-red-500' : ''}`}
-                      maxLength={6}
+                  {/* Consent Checkbox */}
+                  <div className="flex items-start space-x-3 pt-4">
+                    <Checkbox
+                      id="consent"
+                      checked={FormData.consent}
+                      onCheckedChange={(checked) => handleInputChange('consent', checked)}
+                      className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.consent ? 'border-red-500' : ''}`}
                     />
-                    {errors.pincode && <p className="text-red-500 text-xs">{errors.pincode}</p>}
+                    <div className="space-y-1">
+                      <Label htmlFor="consent" className="text-sm leading-relaxed cursor-pointer">
+                        I agree, all information mentioned above is true and I authorize Borrowww to
+                        fetch my data.
+                      </Label>
+                      {errors.consent && <p className="text-red-500 text-xs">{errors.consent}</p>}
+                    </div>
                   </div>
-                </div>
 
-                {/* PAN Number Only */}
-                <div className="space-y-2">
-                  <Label htmlFor="panNumber" className="text-sm font-medium">
-                    PAN Number <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="panNumber"
-                    placeholder="Enter PAN (e.g., ABCDE1234F)"
-                    value={FormData.panNumber}
-                    onChange={(e) => handleInputChange('panNumber', e.target.value.toUpperCase())}
-                    className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.panNumber ? 'border-red-500' : ''}`}
-                    maxLength={10}
-                  />
-                  {errors.panNumber && <p className="text-red-500 text-xs">{errors.panNumber}</p>}
-                </div>
-
-                {/* Consent Checkbox */}
-                <div className="flex items-start space-x-3 pt-4">
-                  <Checkbox
-                    id="consent"
-                    checked={FormData.consent}
-                    onCheckedChange={(checked) => handleInputChange('consent', checked)}
-                    className={`rounded-md border border-gray-600  transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 ${errors.consent ? 'border-red-500' : ''}`}
-                  />
-                  <div className="space-y-1">
-                    <Label htmlFor="consent" className="text-sm leading-relaxed cursor-pointer">
-                      I agree, all information mentioned above is true and I authorize Borrowww to
-                      fetch my data.
-                    </Label>
-                    {errors.consent && <p className="text-red-500 text-xs">{errors.consent}</p>}
+                  {/* Submit Button */}
+                  <div className="pt-6">
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full md:w-auto px-12 py-3 bg-[var(--primary-blue)]  hover:bg-[var(--primary-blue)]  text-white font-medium rounded-lg transition-colors duration-200"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          Submitting...
+                        </>
+                      ) : (
+                        'Submit'
+                      )}
+                    </Button>
                   </div>
-                </div>
-
-                {/* Submit Button */}
-                <div className="pt-6">
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full md:w-auto px-12 py-3 bg-[var(--primary-blue)]  hover:bg-[var(--primary-blue)]  text-white font-medium rounded-lg transition-colors duration-200"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                        Submitting...
-                      </>
-                    ) : (
-                      'Submit'
-                    )}
-                  </Button>
                 </div>
               </form>
             </motion.div>
+
+            {isProcessing && (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-8"
+              >
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl p-8 text-white text-center shadow-2xl"
+                >
+                  <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mx-auto mb-4"></div>
+                  <h3 className="text-2xl font-bold mb-4">Processing Your CIBIL Report</h3>
+                  <p className="text-white/90 mb-4">
+                    Please complete the verification process in the new tab that opened. Your report
+                    will appear here automatically once verified.
+                  </p>
+                  <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                    <p className="text-sm">
+                      <FaLock className="inline mr-2" />
+                      Your data is secured with bank-level encryption
+                    </p>
+                  </div>
+                  {sessionUrl && (
+                    <div className="mt-4 space-y-2">
+                      <button
+                        onClick={() => window.open(sessionUrl, '_blank')}
+                        className="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+                      >
+                        Reopen Verification Tab
+                      </button>
+                      {/* {sessionUrl.includes('mock-session') && (
+                        <p className="text-xs text-yellow-300">
+                          ⚠️ Development Mode: Mock session for testing purposes
+                        </p>
+                      )} */}
+                    </div>
+                  )}
+                </motion.div>
+              </motion.div>
+            )}
 
             {showResults && (
               <motion.div
@@ -518,79 +299,62 @@ export default function CIBILCheck() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white shadow-2xl"
                 >
-                  <h3 className="text-2xl font-bold mb-6">Your CIBIL Score</h3>
+                  <div className="flex justify-between items-start mb-6">
+                    <h3 className="text-2xl font-bold">Your CIBIL Score</h3>
+                    {fromCache && (
+                      <div className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        <FaShieldAlt className="inline mr-1" />
+                        Cached Result (28-day validity)
+                      </div>
+                    )}
+                  </div>
                   <div className="text-6xl font-bold mb-4">{cibilScore}</div>
                   <div
                     className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 ${getScoreCategory(cibilScore).bg} ${getScoreCategory(cibilScore).color}`}
                   >
                     {getScoreCategory(cibilScore).category}
                   </div>
-                  <p className="text-white/90">{getScoreDescription(cibilScore)}</p>
-                </motion.div>
+                  <p className="text-white/90 mb-6">{getScoreDescription(cibilScore)}</p>
 
-                {/* Submitted Data Table */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100"
-                >
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                    Submitted Information
-                  </h3>
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse">
-                      <thead>
-                        <tr className="border-b border-gray-200">
-                          <th className="text-left py-3 px-4 font-semibold text-gray-900">Field</th>
-                          <th className="text-left py-3 px-4 font-semibold text-gray-900">Value</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-3 px-4 text-gray-600">First Name</td>
-                          <td className="py-3 px-4 text-gray-900">{submittedData?.firstName}</td>
-                        </tr>
-                        {submittedData?.middleName && (
-                          <tr className="border-b border-gray-100">
-                            <td className="py-3 px-4 text-gray-600">Middle Name</td>
-                            <td className="py-3 px-4 text-gray-900">{submittedData?.middleName}</td>
-                          </tr>
-                        )}
-                        <tr className="border-b border-gray-100">
-                          <td className="py-3 px-4 text-gray-600">Last Name</td>
-                          <td className="py-3 px-4 text-gray-900">{submittedData?.lastName}</td>
-                        </tr>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-3 px-4 text-gray-600">Date of Birth</td>
-                          <td className="py-3 px-4 text-gray-900">{submittedData?.dob}</td>
-                        </tr>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-3 px-4 text-gray-600">Gender</td>
-                          <td className="py-3 px-4 text-gray-900">{submittedData?.gender}</td>
-                        </tr>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-3 px-4 text-gray-600">Mobile Number</td>
-                          <td className="py-3 px-4 text-gray-900">{submittedData?.mobileNumber}</td>
-                        </tr>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-3 px-4 text-gray-600">Address</td>
-                          <td className="py-3 px-4 text-gray-900">{submittedData?.address}</td>
-                        </tr>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-3 px-4 text-gray-600">State</td>
-                          <td className="py-3 px-4 text-gray-900">{submittedData?.state}</td>
-                        </tr>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-3 px-4 text-gray-600">Pincode</td>
-                          <td className="py-3 px-4 text-gray-900">{submittedData?.pincode}</td>
-                        </tr>
-                        <tr className="border-b border-gray-100">
-                          <td className="py-3 px-4 text-gray-600">PAN Number</td>
-                          <td className="py-3 px-4 text-gray-900">{submittedData?.panNumber}</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div className="flex flex-wrap gap-3">
+                    {pdfUrl && (
+                      <button
+                        onClick={() => window.open(pdfUrl, '_blank')}
+                        className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold transition-colors flex items-center gap-2"
+                      >
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                          />
+                        </svg>
+                        Download PDF Report
+                      </button>
+                    )}
+                    <button
+                      onClick={() => {
+                        setShowResults(false);
+                        setFromCache(false);
+                        setCibilScore(null);
+                        setPdfUrl(null);
+                        setFormData({ firstName: '', mobileNumber: '', consent: false });
+                      }}
+                      className="bg-white/20 hover:bg-white/30 text-white px-6 py-2 rounded-full font-semibold transition-colors backdrop-blur-sm"
+                    >
+                      Check Fresh CIBIL
+                    </button>
+                    {fromCache && (
+                      <span className="text-white/70 text-sm py-2 px-3">
+                        💡 Fresh check will use API credits
+                      </span>
+                    )}
                   </div>
                 </motion.div>
               </motion.div>
