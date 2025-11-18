@@ -9,9 +9,9 @@
   --ascone-gray: #6b7280;
   --ascone-dark: #1f2937;
 
-  --primary-blue: #3A6EA5;
-  --primary-blue-light: #C4D7E0;
-  --primary-blue-dark: #2D3E50;
+  --primary-blue: #3a6ea5;
+  --primary-blue-light: #c4d7e0;
+  --primary-blue-dark: #2d3e50;
   /* --primary-blue: #1465bf; */
   --primary-green: #35a446;
   --primary-darkgreen: #266c2f;
@@ -20,9 +20,8 @@
 html {
   scroll-behavior: smooth;
 }
-body{
+body {
   font-family: 'Neuemontreal', sans-serif;
-
 }
 
 /* @font-face {
@@ -56,7 +55,7 @@ body{
 
 @font-face {
   font-family: 'Tiemposfine';
-  src: url("/font/tiemposfine.otf") format("opentype");
+  src: url('/font/tiemposfine.otf') format('opentype');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -64,7 +63,7 @@ body{
 
 @font-face {
   font-family: 'Neuemontreal';
-  src: url("/font/neuemontreal-medium.otf") format("opentype");
+  src: url('/font/neuemontreal-medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
   /* font-display: swap; */
@@ -72,7 +71,7 @@ body{
 
 @font-face {
   font-family: 'Neuemontreal';
-  src: url("/font/neuemontreal-light.otf") format("opentype");
+  src: url('/font/neuemontreal-light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   /* font-display: swap; */
@@ -80,7 +79,7 @@ body{
 
 @font-face {
   font-family: 'Neuemontreal';
-  src: url("/font/neuemontreal-regular.otf") format("opentype");
+  src: url('/font/neuemontreal-regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   /* font-display: swap; */
@@ -88,12 +87,11 @@ body{
 
 @font-face {
   font-family: 'Neuemontreal';
-  src: url("/font/neuemontreal-bold.otf") format("opentype");
+  src: url('/font/neuemontreal-bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   /* font-display: swap; */
 }
-
 
 @layer base {
   * {
@@ -165,7 +163,8 @@ html {
 }
 
 @keyframes breathing {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -192,6 +191,23 @@ html {
   animation: drawChart 3s ease-in-out infinite;
 }
 
-.bg{
-  background-image: radial-gradient(circle at 45%, #ab40ff33 6%, #fff0 41%), radial-gradient(circle at 30% 40%, #ff007a33, #fff0 33%);
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.bg {
+  background-image:
+    radial-gradient(circle at 45%, #ab40ff33 6%, #fff0 41%),
+    radial-gradient(circle at 30% 40%, #ff007a33, #fff0 33%);
 }
