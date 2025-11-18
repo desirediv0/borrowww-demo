@@ -140,10 +140,11 @@ export default function AboutPage() {
           >
             <div className="inline-flex items-center px-4 py-2 bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] rounded-full text-sm font-medium mb-6">
               <FaStar className="mr-2" />
-              About Borrowww
+              About Premier Penny
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-gray-900 mb-6 tracking-tighter">
-              About <span className="text-[var(--primary-blue)] italic tiemposfine">Borrowww</span>
+              About{' '}
+              <span className="text-[var(--primary-blue)] italic tiemposfine">Premier Penny</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               India&apos;s leading digital lending platform, revolutionizing the way people access
@@ -268,7 +269,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Choose Borrowww?</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Choose Premier Penny?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We combine cutting-edge technology with human touch to deliver exceptional financial
               services
@@ -309,7 +310,7 @@ export default function AboutPage() {
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Core Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The principles that guide everything we do at Borrowww
+              The principles that guide everything we do at Premier Penny
             </p>
           </motion.div>
 
@@ -350,11 +351,11 @@ export default function AboutPage() {
                 <FaRocket className="mr-2" />
                 Our Journey
               </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">The Borrowww Story</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">The Premier Penny Story</h2>
               <div className="space-y-6 text-gray-600 leading-relaxed">
                 <p>
-                  Founded in 2020, Borrowww emerged from a simple observation: millions of Indians
-                  were struggling to access credit due to traditional banking barriers.
+                  Founded in 2020, Premier Penny emerged from a simple observation: millions of
+                  Indians were struggling to access credit due to traditional banking barriers.
                 </p>
                 <p>
                   Our founders, having experienced these challenges firsthand, decided to build a
@@ -411,7 +412,7 @@ export default function AboutPage() {
             <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Join thousands of satisfied customers who have already achieved their financial goals
-              with Borrowww
+              with Premier Penny
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button

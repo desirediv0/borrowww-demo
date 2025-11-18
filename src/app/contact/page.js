@@ -65,8 +65,8 @@ export default function ContactPage() {
     {
       icon: FaEnvelope,
       title: 'Email Us',
-      details: ['support@borrowww.com', 'info@borrowww.com'],
-      action: 'mailto:support@borrowww.com',
+      details: ['support@Premier Penny.com', 'info@Premier Penny.com'],
+      action: 'mailto:support@Premier Penny.com',
       bgColor: 'bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)]',
     },
     {
@@ -79,7 +79,7 @@ export default function ContactPage() {
     {
       icon: FaMapMarkerAlt,
       title: 'Visit Us',
-      details: ['Borrowww Tower, Financial District', 'Mumbai, Maharashtra 400001'],
+      details: ['Premier Penny Tower, Financial District', 'Mumbai, Maharashtra 400001'],
       action: '#',
       bgColor: 'bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)]',
     },

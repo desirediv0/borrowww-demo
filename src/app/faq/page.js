@@ -156,7 +156,7 @@ export default function FAQPage() {
       category: 'technical',
       question: 'The app is not working properly. What should I do?',
       answer:
-        'Try these steps: Clear app cache and data, update to the latest version, restart your device, check internet connection. If issues persist, contact our technical support at support@borrowww.com or call +91 9560069525.',
+        'Try these steps: Clear app cache and data, update to the latest version, restart your device, check internet connection. If issues persist, contact our technical support at support@Premier Penny.com or call +91 9560069525.',
     },
     {
       id: 18,

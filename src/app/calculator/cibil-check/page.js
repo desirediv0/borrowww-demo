@@ -214,8 +214,8 @@ export default function CIBILCheck() {
                     />
                     <div className="space-y-1">
                       <Label htmlFor="consent" className="text-sm leading-relaxed cursor-pointer">
-                        I agree, all information mentioned above is true and I authorize Borrowww to
-                        fetch my data.
+                        I agree, all information mentioned above is true and I authorize Premier
+                        Penny to fetch my data.
                       </Label>
                       {errors.consent && <p className="text-red-500 text-xs">{errors.consent}</p>}
                     </div>

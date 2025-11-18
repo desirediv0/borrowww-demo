@@ -360,8 +360,8 @@ export default function HomeLoanServicesPage() {
               A home loan is a type of secured financing offered based on the value of the property
               you intend to purchase. Whether you&apos;re planning to buy a new home, build one from
               the ground up, or upgrade your current space, a home loan can help you access the
-              funds you need. At BORROWWW, we make it easy to discover and choose the ideal home
-              loan tailored to your goals.
+              funds you need. At Premier Penny, we make it easy to discover and choose the ideal
+              home loan tailored to your goals.
             </p>
 
             <div className="mt-6">
@@ -383,11 +383,11 @@ export default function HomeLoanServicesPage() {
             </div>
 
             <div className="mt-6">
-              <h3 className="font-semibold text-gray-900">Why Borrowww</h3>
+              <h3 className="font-semibold text-gray-900">Why Premier Penny</h3>
               <p className="mt-2 text-gray-700">
-                Owning a home is a major life milestone. At BORROWWW, we’re here to make your home
-                loan journey simple and stress-free. Discover the best loan options and competitive
-                rates with us today!
+                Owning a home is a major life milestone. At Premier Penny, we’re here to make your
+                home loan journey simple and stress-free. Discover the best loan options and
+                competitive rates with us today!
               </p>
             </div>
 
@@ -461,7 +461,7 @@ export default function HomeLoanServicesPage() {
                 Home Loan Balance Transfer – Save More Every Month
               </h3>
               <p className="mt-2 text-gray-700">
-                Switch your existing home loan through BORROWWW and enjoy lower EMIs. With
+                Switch your existing home loan through Premier Penny and enjoy lower EMIs. With
                 attractive interest rates and easy transfer options, you can reduce your monthly
                 payments and free up funds for what truly matters—your family, your future, your
                 dreams.
@@ -493,8 +493,8 @@ export default function HomeLoanServicesPage() {
               <div>
                 <h3 className="font-semibold text-gray-900">Plot Loan</h3>
                 <p className="mt-2 text-gray-700">
-                  Turn your dream home into reality—starting with the perfect plot. With BORROWWW,
-                  you can finance the land you need to build your future.
+                  Turn your dream home into reality—starting with the perfect plot. With Premier
+                  Penny, you can finance the land you need to build your future.
                 </p>
                 <ul className="mt-2 text-gray-700 space-y-1">
                   <li>• 💸 Cheapest Interest Rates – Options comparison amongst top banks</li>
@@ -519,7 +519,9 @@ export default function HomeLoanServicesPage() {
                   <li>Home Loan Balance Transfer — Switch and save on EMIs</li>
                 </ul>
                 <ul className="space-y-1">
-                  <li>Why Choose BORROWWW? — Competitive rates, simple docs, expert guidance</li>
+                  <li>
+                    Why Choose Premier Penny? — Competitive rates, simple docs, expert guidance
+                  </li>
                 </ul>
               </div>
             </div>

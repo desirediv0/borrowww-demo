@@ -70,12 +70,12 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
-                <Image src={logo} alt="Borrowww" width={200} height={80} />
+                <Image src={logo} alt="Premier Penny" width={200} height={80} />
               </motion.div>
             </Link>
 
             <Link href="/calculator/cibil-check" className="md:hidden flex">
-              <Image src={gif} alt="Borrowww" width={120} height={100} />
+              <Image src={gif} alt="Premier Penny" width={120} height={100} />
             </Link>
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
@@ -102,7 +102,7 @@ export default function Header() {
             {/* Auth/Profile Buttons */}
             <div className="hidden md:flex items-center space-x-4">
               <Link href="/calculator/cibil-check">
-                <Image src={gif} alt="Borrowww" width={120} height={100} />
+                <Image src={gif} alt="Premier Penny" width={120} height={100} />
               </Link>
             </div>
 

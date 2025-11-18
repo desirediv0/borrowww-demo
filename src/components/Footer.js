@@ -60,12 +60,12 @@ export default function Footer() {
               <div className="flex items-center gap-3 mb-2">
                 <Image
                   src={logo}
-                  alt="Borrowww Logo"
+                  alt="Premier Penny Logo"
                   width={200}
                   height={40}
                   className="rounded-lg p-1"
                 />
-                {/* <span className="text-2xl font-bold tracking-tight text-blue-700">Borrowww</span> */}
+                {/* <span className="text-2xl font-bold tracking-tight text-blue-700">Premier Penny</span> */}
               </div>
             </Link>
             <span className="text-[#396A9F] font-medium text-sm mb-1">
@@ -148,7 +148,7 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <p className="text-gray-500 text-sm mb-2 md:mb-0">
-            © 2025 Borrowww Finance. All rights reserved.
+            © 2025 Premier Penny Finance. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6 text-sm">
