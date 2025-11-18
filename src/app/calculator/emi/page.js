@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   FaArrowRight,
   FaBuilding,
@@ -15,8 +15,9 @@ import {
   FaUser,
 } from 'react-icons/fa';
 
-import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+
+import { motion } from 'framer-motion';
 
 export default function EMICalculator() {
   const [loanAmount, setLoanAmount] = useState(1000000);
@@ -27,29 +28,29 @@ export default function EMICalculator() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalInterest, setTotalInterest] = useState(0);
 
-  const router = useRouter()
+  const router = useRouter();
 
-  useEffect(() => {
-    calculateEMI();
-  }, [loanAmount, interestRate, tenureYears, tenureMonths]);
-
-  const calculateEMI = () => {
+  const calculateEMI = useCallback(() => {
     const principal = loanAmount;
     const rate = interestRate / 12 / 100; // Monthly interest rate
     const time = tenureYears * 12 + tenureMonths; // Total months
 
+    let emiValue;
     if (rate === 0) {
-      setEmi(principal / time);
+      emiValue = principal / time;
     } else {
-      const emiValue =
-        (principal * rate * Math.pow(1 + rate, time)) / (Math.pow(1 + rate, time) - 1);
-      setEmi(emiValue);
+      emiValue = (principal * rate * Math.pow(1 + rate, time)) / (Math.pow(1 + rate, time) - 1);
     }
 
-    const totalAmountValue = emi * time;
+    setEmi(emiValue);
+    const totalAmountValue = emiValue * time;
     setTotalAmount(totalAmountValue);
     setTotalInterest(totalAmountValue - principal);
-  };
+  }, [loanAmount, interestRate, tenureYears, tenureMonths]);
+
+  useEffect(() => {
+    calculateEMI();
+  }, [calculateEMI]);
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-IN', {
@@ -59,8 +60,6 @@ export default function EMICalculator() {
       maximumFractionDigits: 0,
     }).format(amount);
   };
-
-
 
   const loanTypes = [
     {
@@ -92,9 +91,6 @@ export default function EMICalculator() {
       color: 'from-orange-500 to-orange-600',
     },
   ];
-
-
-
 
   return (
     <>
@@ -143,9 +139,7 @@ export default function EMICalculator() {
               <div className="space-y-5">
                 {/* Loan Amount */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 ">
-                    Loan Amount
-                  </label>
+                  <label className="block text-sm font-medium text-gray-700 ">Loan Amount</label>
                   <div className="relative">
                     <FaRupeeSign className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
                     <input
@@ -186,7 +180,6 @@ export default function EMICalculator() {
                       onChange={(e) => setInterestRate(Number(e.target.value))}
                       className="w-full pl-12 pr-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-lg bg-gray-50 focus:bg-white"
                       placeholder="Enter interest rate"
-
                     />
                   </div>
                   <div className="mt-3">
@@ -194,7 +187,6 @@ export default function EMICalculator() {
                       type="range"
                       min="5"
                       max="25"
-
                       value={interestRate}
                       onChange={(e) => setInterestRate(Number(e.target.value))}
                       className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
@@ -208,9 +200,7 @@ export default function EMICalculator() {
 
                 {/* Tenure */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 ">
-                    Loan Tenure
-                  </label>
+                  <label className="block text-sm font-medium text-gray-700 ">Loan Tenure</label>
                   <div className="grid grid-cols-2 gap-4">
                     {/* Years Input */}
                     <div>
@@ -491,7 +481,7 @@ export default function EMICalculator() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => (router.push('/auth'))}
+                onClick={() => router.push('/auth')}
                 className="bg-white text-[var(--primary-blue)] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 shadow-lg"
               >
                 Login to Apply
@@ -499,7 +489,7 @@ export default function EMICalculator() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => (router.push('/auth'))}
+                onClick={() => router.push('/auth')}
                 className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[var(--primary-blue)] transition-all duration-200"
               >
                 Register Now

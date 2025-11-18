@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   FaArrowRight,
   FaCalendarAlt,
@@ -50,7 +50,7 @@ export default function BalanceTransferCalculator() {
     );
   };
 
-  const calculateSavings = () => {
+  const calculateSavings = useCallback(() => {
     // Calculate current loan EMI and total interest
     const currentEMI = calculateEMI(currentLoan.amount, currentLoan.rate, currentLoan.tenure);
     const currentTotalInterest = currentEMI * currentLoan.tenure * 12 - currentLoan.amount;
@@ -84,10 +84,6 @@ export default function BalanceTransferCalculator() {
         ? ((currentTotalInterest - newTotalInterest) / currentTotalInterest) * 100
         : 0,
     });
-  };
-
-  useEffect(() => {
-    calculateSavings();
   }, [
     currentLoan.amount,
     currentLoan.rate,
@@ -97,6 +93,10 @@ export default function BalanceTransferCalculator() {
     newLoan.tenure,
     newLoan.transferFee,
   ]);
+
+  useEffect(() => {
+    calculateSavings();
+  }, [calculateSavings]);
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-IN', {

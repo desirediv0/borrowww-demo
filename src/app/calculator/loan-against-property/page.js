@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   FaArrowRight,
   FaBuilding,
@@ -23,28 +23,29 @@ export default function LoanAgainstPropertyCalculator() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalInterest, setTotalInterest] = useState(0);
 
-  useEffect(() => {
-    calculateEMI();
-  }, [loanAmount, interestRate, tenureYears, tenureMonths]);
-
-  const calculateEMI = () => {
+  const calculateEMI = useCallback(() => {
     const principal = loanAmount;
     const rate = interestRate / 12 / 100; // Monthly interest rate
     const totalMonths = tenureYears * 12 + tenureMonths; // Total months
 
+    let emiValue;
     if (rate === 0) {
-      setEmi(principal / totalMonths);
+      emiValue = principal / totalMonths;
     } else {
-      const emiValue =
+      emiValue =
         (principal * rate * Math.pow(1 + rate, totalMonths)) /
         (Math.pow(1 + rate, totalMonths) - 1);
-      setEmi(emiValue);
     }
 
-    const totalAmountValue = emi * totalMonths;
+    setEmi(emiValue);
+    const totalAmountValue = emiValue * totalMonths;
     setTotalAmount(totalAmountValue);
     setTotalInterest(totalAmountValue - principal);
-  };
+  }, [loanAmount, interestRate, tenureYears, tenureMonths]);
+
+  useEffect(() => {
+    calculateEMI();
+  }, [calculateEMI]);
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-IN', {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { motion } from 'framer-motion';
 import { Calculator, Calendar, IndianRupee, Percent, RefreshCw } from 'lucide-react';
@@ -55,36 +55,39 @@ export default function LoanCalculator() {
   const totalPayment = loanDetails.totalPayment;
 
   // Loan type configurations
-  const loanTypes = {
-    emi: {
-      name: 'EMI Calculator',
-      icon: Calculator,
-      minAmount: 100000,
-      maxAmount: 50000000,
-      minRate: 6.5,
-      maxRate: 12,
-      minTerm: 5,
-      maxTerm: 30,
-      description: 'Calculate your monthly EMI for any loan amount',
-      color: 'from-[#2D3E50] to-blue-700',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200',
-    },
-    bt: {
-      name: 'BT Calculator',
-      icon: RefreshCw,
-      minAmount: 100000,
-      maxAmount: 50000000,
-      minRate: 6.5,
-      maxRate: 12,
-      minTerm: 5,
-      maxTerm: 30,
-      description: 'Balance Transfer Calculator for better rates',
-      color: 'from-[#2D3E50] to-blue-700',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200',
-    },
-  };
+  const loanTypes = useMemo(
+    () => ({
+      emi: {
+        name: 'EMI Calculator',
+        icon: Calculator,
+        minAmount: 100000,
+        maxAmount: 50000000,
+        minRate: 6.5,
+        maxRate: 12,
+        minTerm: 5,
+        maxTerm: 30,
+        description: 'Calculate your monthly EMI for any loan amount',
+        color: 'from-[#2D3E50] to-blue-700',
+        bgColor: 'bg-blue-50',
+        borderColor: 'border-blue-200',
+      },
+      bt: {
+        name: 'BT Calculator',
+        icon: RefreshCw,
+        minAmount: 100000,
+        maxAmount: 50000000,
+        minRate: 6.5,
+        maxRate: 12,
+        minTerm: 5,
+        maxTerm: 30,
+        description: 'Balance Transfer Calculator for better rates',
+        color: 'from-[#2D3E50] to-blue-700',
+        bgColor: 'bg-blue-50',
+        borderColor: 'border-blue-200',
+      },
+    }),
+    []
+  );
 
   const currentLoanType = loanTypes[activeTab];
 

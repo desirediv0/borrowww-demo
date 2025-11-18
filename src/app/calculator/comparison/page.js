@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   FaArrowRight,
   FaBalanceScale,
@@ -70,10 +70,6 @@ export default function LoanComparisonCalculator() {
     },
   ];
 
-  useEffect(() => {
-    calculateComparison();
-  }, [loanAmount, tenure, selectedLoans]);
-
   const calculateEMI = (principal, rate, time) => {
     const monthlyRate = rate / 12 / 100;
     const months = time * 12;
@@ -86,7 +82,7 @@ export default function LoanComparisonCalculator() {
     );
   };
 
-  const calculateComparison = () => {
+  const calculateComparison = useCallback(() => {
     const results = selectedLoans.map((loanId) => {
       const loan = loanTypes.find((l) => l.id === loanId);
       const emi = calculateEMI(loanAmount, loan.rate, tenure);
@@ -110,7 +106,11 @@ export default function LoanComparisonCalculator() {
     }));
 
     setComparisonResults(updatedResults);
-  };
+  }, [loanAmount, tenure, selectedLoans]);
+
+  useEffect(() => {
+    calculateComparison();
+  }, [calculateComparison]);
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-IN', {
