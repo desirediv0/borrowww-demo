@@ -3,6 +3,7 @@ import ConcernsSection from '@/components/ConcernsSection';
 import FAQSection from '@/components/FAQSection';
 import HeroSection from '@/components/HeroSection';
 // import LogoSlider from '@/components/LogoSlider';
+import LoanToolsSection from '@/components/LoanToolsSection';
 import PropertyCheckSection from '@/components/PropertyCheckSection';
 import TransparencySection from '@/components/TransparencySection';
 import ValuesSection from '@/components/ValuesSection';
@@ -19,6 +20,7 @@ export default function Home() {
       <VideoSection />
       <TransparencySection />
       <PropertyCheckSection />
+      <LoanToolsSection />
       {/* <LogoSlider /> */}
 
       <HomeLoanSections />
