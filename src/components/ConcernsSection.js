@@ -32,7 +32,7 @@ export default function ConcernsSection() {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 ">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 ">
           {/* Zero Commission Card */}
           <div className="bg-white rounded-2xl p-3  hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:border border-gray-100">
             <div className="flex items-center gap-4 sm:gap-5 flex-col">
@@ -64,7 +64,7 @@ export default function ConcernsSection() {
           </div>
 
           {/* Complete Support Card */}
-          <div className="bg-white rounded-2xl p-3  hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:border border-gray-100">
+          <div className="bg-white rounded-2xl p-3 col-span-2 md:col-span-1  hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:border border-gray-100">
             <div className="flex items-center gap-4 sm:gap-5 flex-col">
               <div className="flex-shrink-0 w-16 h-16  bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
                 <FaHandHoldingHeart className="text-white text-2xl font-extrabold" />
