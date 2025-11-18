@@ -292,15 +292,15 @@ export default function TransparencySection() {
                                         .
                                       </p>
                                       <p className="text-sm text-gray-700">
-                                        Visit the bank's website to make an online payment or reach
-                                        out to us if you got any questions!
+                                        Visit the bank&apos;s website to make an online payment or
+                                        reach out to us if you got any questions!
                                       </p>
                                       <p className="text-sm text-gray-700 font-medium">
-                                        We'll always keep you updated on all your loan details!
+                                        We&apos;ll always keep you updated on all your loan details!
                                       </p>
                                       <p className="text-sm text-gray-700">
                                         <span className="font-semibold text-blue-600">
-                                          Premier Penny's
+                                          Premier Penny&apos;s
                                         </span>{' '}
                                         team is always here to support you!
                                       </p>
