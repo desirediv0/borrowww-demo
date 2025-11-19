@@ -433,10 +433,10 @@ export default function BalanceTransferCalculator() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => (window.location.href = '/auth')}
+                    onClick={() => (window.location.href = '/calculator/home-loan')}
                     className="w-full bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
                   >
-                    Login to Apply
+                    Apply Loan
                     <FaArrowRight className="text-sm" />
                   </motion.button>
                 </motion.div>

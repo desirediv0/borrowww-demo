@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { gif, logo } from '@/assets';
+import { gif } from '@/assets';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -70,7 +70,7 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
-                <Image src={'/newlogo.png'} alt="Premier Penny" width={70} height={80} />
+                <Image src={'/newlogo.png'} alt="Premier Penny" width={150} height={80} />
               </motion.div>
             </Link>
 

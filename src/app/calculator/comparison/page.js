@@ -474,18 +474,18 @@ export default function LoanComparisonCalculator() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => (window.location.href = '/auth')}
+                onClick={() => (window.location.href = '/calculator/home-loan')}
                 className="bg-white text-[var(--primary-blue)] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 shadow-lg"
               >
-                Login to Apply
+                Apply Loan
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => (window.location.href = '/auth')}
+                onClick={() => (window.location.href = '/contact')}
                 className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[var(--primary-blue)] transition-all duration-200"
               >
-                Register Now
+                Contact an Expert
               </motion.button>
             </div>
           </motion.div>

@@ -3,7 +3,6 @@
 import { useState } from 'react';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 import {
   ArrowRight,
@@ -35,7 +34,6 @@ export default function HomeLoanServicesPage() {
     employmentType: '',
     remarks: '',
   });
-  const router = useRouter();
 
   const steps = [
     {
@@ -124,12 +122,7 @@ export default function HomeLoanServicesPage() {
           <div className="absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-[#3A6EA5]/10 blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="grid lg:grid-cols-12 gap-10 items-center"
-          >
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2D3E50]/10 text-black text-sm font-medium mb-5">
                 <Home className="h-4 w-4" /> Home Loan Assistance
@@ -170,13 +163,7 @@ export default function HomeLoanServicesPage() {
             </div>
 
             {/* Lead Form Card */}
-            <div
-              id="lead-form"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="lg:col-span-5"
-            >
+            <div id="lead-form" className="lg:col-span-5">
               <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-xl">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#2D3E50] to-[#3A6EA5] flex items-center justify-center text-white">
@@ -392,20 +379,7 @@ export default function HomeLoanServicesPage() {
             </div>
 
             <div className="mt-6 flex gap-4">
-              <button
-                onClick={() => {
-                  // client-side check and redirect: logged-in -> customer details page; otherwise -> auth with redirect
-                  const token =
-                    typeof window !== 'undefined' ? localStorage.getItem('token') : null;
-                  const redirectTo = encodeURIComponent(window.location.pathname);
-                  if (token) {
-                    router.push('/calculator/home-loan/customer-details');
-                  } else {
-                    router.push(`/auth?redirectTo=${redirectTo}`);
-                  }
-                }}
-                className="rounded-xl bg-gradient-to-r from-[#2D3E50] to-[#3A6EA5] px-6 py-3 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
-              >
+              <button className="rounded-xl bg-gradient-to-r from-[#2D3E50] to-[#3A6EA5] px-6 py-3 text-white font-semibold shadow-lg hover:shadow-xl transition-all">
                 Apply Loan
               </button>
 
@@ -714,10 +688,10 @@ export default function HomeLoanServicesPage() {
                 Get Loan Offers
               </Link>
               <Link
-                href="/auth"
+                href="/contact"
                 className="rounded-xl border-2 border-white px-8 py-3 font-semibold hover:bg-white hover:text-[#3A6EA5] transition-all"
               >
-                Login / Register
+                Contact an Expert
               </Link>
             </div>
           </div>

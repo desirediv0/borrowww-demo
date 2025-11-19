@@ -119,11 +119,11 @@ export default function PropertyCheckSection() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-row items-stretch sm:items-center justify-center gap-2 sm:gap-5 lg:gap-6 max-w-2xl mx-auto">
+        <div className="flex flex-row items-stretch sm:items-center justify-center gap-2 sm:gap-5 lg:gap-6 max-w-md mx-auto">
           {/* WhatsApp Button */}
           <button
             onClick={handleWhatsApp}
-            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-medium text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
+            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-2 md:px-6 py-3 md:py-4  rounded-lg md:font-semibold lg:font-medium text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
           >
             <div className="w-8 h-8  bg-green-500 group-hover:bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg transition-colors duration-300">
               <FaWhatsapp className="w-5 h-5 text-white" />
@@ -134,7 +134,7 @@ export default function PropertyCheckSection() {
           {/* Schedule a Call Button */}
           <button
             onClick={handleCall}
-            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-medium text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
+            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-lg md:font-semibold lg:font-medium text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
           >
             <div className="w-8 h-8  bg-white group-hover:bg-gray-50 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg transition-colors duration-300">
               <FaPhone className="w-5 h-5  text-[var(--primary-blue-dark)]" />

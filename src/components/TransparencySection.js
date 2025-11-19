@@ -391,13 +391,15 @@ function SlideTwoContent({ slide }) {
       </div>
 
       {/* Message Card */}
-      <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-200 flex-1 flex flex-col justify-center">
+      <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-200 flex-1 flex  justify-center">
         <div className="space-y-1.5 text-xs sm:text-sm break-words">
           <p className="text-gray-800 font-medium break-words">Hi Gautam,</p>
           <p className="text-gray-700 break-words">Hope you are doing well.</p>
           <p className="text-gray-700 break-words">
             Your next{' '}
-            <span className="font-semibold text-orange-600">EMI due date is 26th Dec, 2025</span>
+            <span className="font-semibold text-[var(--primary-blue)]">
+              EMI due date is 26th Dec, 2025
+            </span>
           </p>
           <p className="text-gray-700 break-words">
             Visit the bank&apos;s website to make an online payment or reach out to us!
@@ -422,7 +424,7 @@ function SlideTwoContent({ slide }) {
 
 function SlideThreeContent({ slide }) {
   return (
-    <div className="bg-gradient-to-b from-[var(--primary-blue-dark)] via-blue-600 to-blue-500 min-h-full flex flex-col items-center justify-center p-4">
+    <div className="bg-gradient-to-b from-[var(--primary-blue-dark)] via-blue-600 to-blue-500 min-h-[55dvh] flex flex-col items-center justify-center p-4">
       {/* Lock Icon */}
       <div className="mb-4">
         <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">

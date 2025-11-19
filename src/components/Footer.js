@@ -61,11 +61,10 @@ export default function Footer() {
                 <Image
                   src={'/newlogo.png'}
                   alt="Premier Penny Logo"
-                  width={100}
+                  width={170}
                   height={40}
                   className="rounded-lg p-1"
                 />
-                {/* <span className="text-2xl font-medium tracking-tight text-blue-700">Premier Penny</span> */}
               </div>
             </Link>
             <span className="text-[#396A9F] font-medium text-sm mb-1">

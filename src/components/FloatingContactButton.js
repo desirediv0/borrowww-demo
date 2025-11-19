@@ -34,7 +34,7 @@ const FloatingContactButton = () => {
             {/* Call Button */}
             <button
               onClick={() => setShowCallDialog(true)}
-              className="flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-xl"
+              className="flex items-center justify-center w-14 h-14 bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-dark)] text-white rounded-full shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-xl"
               title="Call Us"
             >
               <FaPhone size={20} />
