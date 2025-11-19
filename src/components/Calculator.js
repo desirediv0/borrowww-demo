@@ -76,7 +76,7 @@ export default function Calculator() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Financial Calculators</h2>
+          <h2 className="text-4xl font-medium text-gray-900 mb-6">Financial Calculators</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Use our comprehensive financial tools to make informed decisions about your loans and
             credit
@@ -125,7 +125,7 @@ export default function Calculator() {
         >
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-3xl font-bold mb-4">Quick EMI Calculator</h3>
+              <h3 className="text-3xl font-medium mb-4">Quick EMI Calculator</h3>
               <p className="text-white/90 mb-6">
                 Get instant EMI calculations for your loan. Enter the loan amount, interest rate,
                 and tenure to see your monthly EMI.
@@ -181,7 +181,7 @@ export default function Calculator() {
                 <div className="bg-white/20 rounded-lg p-4">
                   <div className="flex justify-between items-center">
                     <span className="text-white/90">Monthly EMI:</span>
-                    <span className="text-2xl font-bold">₹15,000</span>
+                    <span className="text-2xl font-medium">₹15,000</span>
                   </div>
                 </div>
               </div>

@@ -26,7 +26,7 @@ export default function ConcernsSection() {
           <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-3 sm:mb-4 font-medium ">
             Concerned about
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold text-gray-900  leading-tight px-4 capitalize">
+          <h2 className="text-4xl lg:text-5xl font-medium text-gray-900 leading-tight px-4 capitalize">
             Unexpected fees? Rising EMIs? Navigating alone?
           </h2>
         </div>
@@ -40,7 +40,7 @@ export default function ConcernsSection() {
                 <span className="text-white text-2xl font-extrabold">0%</span>
               </div>
               <div className="flex-1">
-                <h3 className="text-base font-bold text-gray-900 mb-1.5 text-center">
+                <h3 className="text-base font-medium text-gray-900 mb-1.5 text-center">
                   Zero Commission
                 </h3>
                 <p className="text-sm  text-gray-500 font-medium text-center">
@@ -57,7 +57,7 @@ export default function ConcernsSection() {
                 <FaPercent className="text-white text-2xl font-extrabold" />
               </div>
               <div className="flex-1">
-                <h3 className="text-base font-bold text-gray-900 mb-1.5">Best Interest Rates</h3>
+                <h3 className="text-base font-medium text-gray-900 mb-1.5">Best Interest Rates</h3>
                 <p className="text-sm font-medium text-gray-500">Starting from 7.35% p.a.</p>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default function ConcernsSection() {
                 <FaHandHoldingHeart className="text-white text-2xl font-extrabold" />
               </div>
               <div className="flex-1">
-                <h3 className="text-base font-bold text-gray-900 mb-1.5">Complete Support</h3>
+                <h3 className="text-base font-medium text-gray-900 mb-1.5">Complete Support</h3>
                 <p className="text-sm font-medium text-gray-500">Before, during & after loan</p>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function ConcernsSection() {
           {/* WhatsApp Button */}
           <button
             onClick={handleWhatsApp}
-            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-semibold lg:font-bold text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
+            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-semibold lg:font-medium text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
           >
             <div className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-green-500 group-hover:bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg transition-colors duration-300">
               <FaWhatsapp className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
@@ -93,7 +93,7 @@ export default function ConcernsSection() {
           {/* Schedule a Call Button */}
           <button
             onClick={handleCall}
-            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-semibold lg:font-bold text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
+            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-semibold lg:font-medium text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
           >
             <div className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white group-hover:bg-gray-50 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg transition-colors duration-300">
               <FaPhone className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary-blue-dark)]" />

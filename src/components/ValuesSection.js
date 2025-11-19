@@ -188,7 +188,7 @@ export default function ValuesSection() {
                   transition={{ duration: 0.25, ease: 'easeInOut' }}
                 >
                   <motion.div
-                    className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-[var(--primary-blue-dark)] to-[var(--primary-blue)] cursor-pointer"
+                    className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-[var(--primary-blue-dark)] to-[var(--primary-blue)] cursor-pointer text-white"
                     initial={{
                       scale: 1,
                     }}

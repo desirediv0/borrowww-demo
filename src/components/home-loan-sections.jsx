@@ -21,7 +21,7 @@ export default function HomeLoanSections() {
               />
             </div>
             <div className="space-y-6 py-16 px-4 md:px-10 ">
-              <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-medium leading-tight">
                 Find out if your home loan is competitive
               </h2>
 
@@ -54,13 +54,13 @@ export default function HomeLoanSections() {
               />
             </div>
             <div className="space-y-8 py-16 px-10">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-medium text-gray-800 leading-tight">
                 A rate cut is here. Here&apos;s how we can help
               </h2>
 
               <div className="space-y-6">
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#3A6EA5] text-white rounded-full flex items-center justify-center font-bold">
+                  <div className="flex-shrink-0 w-8 h-8 bg-[#3A6EA5] text-white rounded-full flex items-center justify-center font-medium">
                     1
                   </div>
                   <div>
@@ -75,7 +75,7 @@ export default function HomeLoanSections() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#3A6EA5] text-white rounded-full flex items-center justify-center font-bold">
+                  <div className="flex-shrink-0 w-8 h-8 bg-[#3A6EA5] text-white rounded-full flex items-center justify-center font-medium">
                     2
                   </div>
                   <div>
@@ -90,7 +90,7 @@ export default function HomeLoanSections() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#3A6EA5] text-white rounded-full flex items-center justify-center font-bold">
+                  <div className="flex-shrink-0 w-8 h-8 bg-[#3A6EA5] text-white rounded-full flex items-center justify-center font-medium">
                     3
                   </div>
                   <div>
@@ -119,7 +119,7 @@ export default function HomeLoanSections() {
         <div className="mx-auto">
           <div className="grid lg:grid-cols-2  items-center">
             <div className="rounded-2xl space-y-6 py-7 px-10">
-              <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-medium leading-tight">
                 Check your credit score for free, in minutes
               </h2>
 

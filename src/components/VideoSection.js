@@ -48,7 +48,7 @@ export default function VideoSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Header Section */}
         <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 tracking-tight capitalize">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 mb-3 sm:mb-4 tracking-tight capitalize">
             Success Stories That Inspire
           </h2>
           <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold  mb-2">
@@ -96,7 +96,7 @@ export default function VideoSection() {
 
               {/* Logo and Brand */}
               <div className="absolute bottom-3 left-3  z-10 flex items-center gap-2">
-                <span className="text-white text-xs sm:text-sm font-bold drop-shadow-lg bg-black/30 px-2 py-1 rounded backdrop-blur-sm">
+                <span className="text-white text-xs sm:text-sm font-medium drop-shadow-lg bg-black/30 px-2 py-1 rounded backdrop-blur-sm">
                   Premier Penny
                 </span>
               </div>

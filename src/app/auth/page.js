@@ -85,7 +85,7 @@ export default function AuthPage() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${data.data.token}`,
+            Authorization: `Bearer ${data.data.token}`,
           },
           body: JSON.stringify({
             sessionId: `${phone}-${Date.now()}`,
@@ -163,7 +163,7 @@ export default function AuthPage() {
                 <FaEnvelope className="text-white text-2xl" />
               )}
             </motion.div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-medium text-gray-900 mb-2">
               {isLogin ? 'Welcome Back' : 'Create Account'}
             </h1>
             <p className="text-gray-600">
@@ -175,10 +175,11 @@ export default function AuthPage() {
           <div className="flex bg-gray-100 rounded-xl p-1 mb-8">
             <motion.button
               onClick={() => setIsLogin(true)}
-              className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all ${isLogin
-                ? 'bg-white text-[var(--primary-blue)] shadow-sm'
-                : 'text-gray-600 hover:text-gray-900'
-                }`}
+              className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all ${
+                isLogin
+                  ? 'bg-white text-[var(--primary-blue)] shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -186,10 +187,11 @@ export default function AuthPage() {
             </motion.button>
             <motion.button
               onClick={() => setIsLogin(false)}
-              className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all ${!isLogin
-                ? 'bg-white text-[var(--primary-blue)] shadow-sm'
-                : 'text-gray-600 hover:text-gray-900'
-                }`}
+              className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all ${
+                !isLogin
+                  ? 'bg-white text-[var(--primary-blue)] shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -231,10 +233,11 @@ export default function AuthPage() {
                 <motion.button
                   type="submit"
                   disabled={isLoading || phone.length !== 10}
-                  className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-200 flex items-center justify-center gap-2 ${isLoading || phone.length !== 10
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] hover:shadow-lg hover:scale-105'
-                    }`}
+                  className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-200 flex items-center justify-center gap-2 ${
+                    isLoading || phone.length !== 10
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] hover:shadow-lg hover:scale-105'
+                  }`}
                   whileHover={!isLoading && phone.length === 10 ? { scale: 1.02 } : {}}
                   whileTap={!isLoading && phone.length === 10 ? { scale: 0.98 } : {}}
                 >
@@ -282,10 +285,11 @@ export default function AuthPage() {
                 <motion.button
                   type="submit"
                   disabled={isLoading || otp.length !== 6}
-                  className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-200 flex items-center justify-center gap-2 ${isLoading || otp.length !== 6
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] hover:shadow-lg hover:scale-105'
-                    }`}
+                  className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-200 flex items-center justify-center gap-2 ${
+                    isLoading || otp.length !== 6
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] hover:shadow-lg hover:scale-105'
+                  }`}
                   whileHover={!isLoading && otp.length === 6 ? { scale: 1.02 } : {}}
                   whileTap={!isLoading && otp.length === 6 ? { scale: 0.98 } : {}}
                 >

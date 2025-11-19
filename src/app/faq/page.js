@@ -325,7 +325,7 @@ export default function FAQPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Still Have Questions?</h2>
+            <h2 className="text-3xl font-medium text-gray-900 mb-6">Still Have Questions?</h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Our support team is here to help you 24/7. Get in touch with us for personalized
               assistance.
@@ -363,7 +363,7 @@ export default function FAQPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Popular Topics</h2>
+            <h2 className="text-3xl font-medium text-gray-900 mb-6">Popular Topics</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Quick access to the most commonly asked questions
             </p>

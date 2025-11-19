@@ -348,7 +348,7 @@ export default function HomeLoanServicesPage() {
       <section className="py-12 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-8 shadow text-left">
-            <h2 className="text-3xl font-bold text-gray-900">
+            <h2 className="text-3xl font-medium text-gray-900">
               Your Home, Your Future—Financed with Ease
             </h2>
             <p className="mt-3 text-gray-700 max-w-3xl">
@@ -533,7 +533,7 @@ export default function HomeLoanServicesPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-gray-900">
               Why Choose Our Services
             </h2>
             <p className="mt-3 text-gray-600">
@@ -562,7 +562,7 @@ export default function HomeLoanServicesPage() {
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-gray-900">
               How It Works
             </h2>
             <p className="mt-3 text-gray-600">4 simple steps from start to sanction.</p>
@@ -573,7 +573,7 @@ export default function HomeLoanServicesPage() {
                 key={s.title}
                 className="relative rounded-3xl border border-gray-100 bg-white p-6 shadow-md"
               >
-                <div className="absolute -top-3 -left-3 h-8 w-8 rounded-xl bg-[#3A6EA5] text-white flex items-center justify-center text-sm font-bold">
+                <div className="absolute -top-3 -left-3 h-8 w-8 rounded-xl bg-[#3A6EA5] text-white flex items-center justify-center text-sm font-medium">
                   {i + 1}
                 </div>
                 <div className="h-12 w-12 rounded-2xl bg-gray-100 text-[#3A6EA5] flex items-center justify-center mb-4">
@@ -629,7 +629,7 @@ export default function HomeLoanServicesPage() {
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-gray-900">
               Happy Homeowners
             </h2>
             <p className="mt-3 text-gray-600">
@@ -675,7 +675,7 @@ export default function HomeLoanServicesPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-gray-900">
               Frequently Asked Questions
             </h2>
           </div>
@@ -702,7 +702,7 @@ export default function HomeLoanServicesPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-gradient-to-r from-[#3A6EA5] to-[#3A6EA5] p-8 text-white text-center shadow-2xl">
-            <h3 className="text-3xl font-bold">Ready to Get Started?</h3>
+            <h3 className="text-3xl font-medium">Ready to Get Started?</h3>
             <p className="mt-2 text-white/90">
               Free consultation • Multiple banks • Faster approvals
             </p>

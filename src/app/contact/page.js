@@ -170,7 +170,7 @@ export default function ContactPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">Get in Touch</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Choose your preferred way to connect with us. We&apos;re here to help you 24/7.
             </p>
@@ -229,7 +229,7 @@ export default function ContactPage() {
               className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-3xl shadow-xl border border-gray-100"
             >
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Send us a Message</h2>
+                <h2 className="text-3xl font-medium text-gray-900 mb-4">Send us a Message</h2>
                 <p className="text-gray-600">We&apos;ll get back to you within 24 hours</p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -343,7 +343,7 @@ export default function ContactPage() {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+                <h2 className="text-3xl font-medium text-gray-900 mb-6">Get in Touch</h2>
                 <p className="text-gray-600 leading-relaxed mb-8 text-lg">
                   Our team is here to help you with any questions about our services, loan
                   applications, or general inquiries. We typically respond within 24 hours.
@@ -409,7 +409,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white text-center shadow-2xl"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+            <h2 className="text-4xl font-medium text-white mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Don&apos;t wait! Contact us today and take the first step towards achieving your
               financial goals.

@@ -74,12 +74,12 @@ export default function PropertyCheckSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
         <div className="text-center mb-8 ">
           {/* Main Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 ">
+          <h2 className="text-4xl lg:text-5xl font-medium text-gray-900 leading-tight  mb-4 ">
             Get a Full Property Check For Free
           </h2>
 
           {/* Subheading 1 */}
-          <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-3 font-medium">
+          <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-3">
             Unsure about things like
           </p>
 
@@ -91,7 +91,7 @@ export default function PropertyCheckSection() {
                 className="text-lg sm:text-xl md:text-2xl  text-gray-800  text-center px-4 animate-fade-in"
               >
                 {questions[currentQuestionIndex].text}{' '}
-                <span className=" font-semibold ">{questions[currentQuestionIndex].highlight}</span>
+                <span className=" font-medium ">{questions[currentQuestionIndex].highlight}</span>
                 {questions[currentQuestionIndex].suffix && (
                   <span> {questions[currentQuestionIndex].suffix}</span>
                 )}
@@ -116,7 +116,9 @@ export default function PropertyCheckSection() {
                 {/* <div className="w-14 h-14 sm:w-16 sm:h-16  bg-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mb-4 sm:mb-5 shadow-lg">
                   <feature.icon className="w-7 h-7 sm:w-8 sm:h-8  text-white" />
                 </div> */}
-                <h3 className="text-base  font-bold text-gray-900 mb-2 sm:mb-3">{feature.title}</h3>
+                <h3 className="text-base  font-medium text-gray-900 mb-2 sm:mb-3">
+                  {feature.title}
+                </h3>
                 <p className="text-xs sm:text-sm text-gray-600 font-medium">
                   {feature.description}
                 </p>
@@ -130,7 +132,7 @@ export default function PropertyCheckSection() {
           {/* WhatsApp Button */}
           <button
             onClick={handleWhatsApp}
-            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-semibold lg:font-bold text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
+            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-medium text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
           >
             <div className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-green-500 group-hover:bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg transition-colors duration-300">
               <FaWhatsapp className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
@@ -141,7 +143,7 @@ export default function PropertyCheckSection() {
           {/* Schedule a Call Button */}
           <button
             onClick={handleCall}
-            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-semibold lg:font-bold text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
+            className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-medium text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
           >
             <div className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white group-hover:bg-gray-50 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg transition-colors duration-300">
               <FaPhone className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary-blue-dark)]" />

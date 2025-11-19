@@ -133,9 +133,9 @@ export default function TransparencySection() {
     <section className="relative overflow-hidden bg-white py-8 sm:py-12 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
         <div className="text-center mb-8 sm:mb-10 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 text-balance capitalize">
+          <h2 className="text-4xl lg:text-5xl font-medium text-gray-900 leading-tight mb-4 text-balance capitalize">
             Complete transparency with <br />
-            <span className="text-gray-900 font-semibold ">round-the-clock support</span>
+            <span>round-the-clock support</span>
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-2">
             Premier Penny keeps you informed every step of the way - your dream home journey stays
@@ -163,7 +163,7 @@ export default function TransparencySection() {
                       {/* Content */}
                       <div className="flex flex-col gap-4 text-center w-full">
                         <div className="w-full">
-                          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 break-words">
+                          <h3 className="text-xl sm:text-2xl font-medium text-gray-900 mb-2 break-words">
                             {slideItem.title}
                           </h3>
                           <p className="text-sm sm:text-base text-gray-600 leading-relaxed break-words px-2">
@@ -191,7 +191,7 @@ export default function TransparencySection() {
                       {/* Left Content */}
                       <div className="flex flex-col justify-center gap-6 w-full overflow-hidden">
                         <div className="w-full">
-                          <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-4 break-words">
+                          <h3 className="text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-900 mb-4 break-words">
                             {slideItem.title}
                           </h3>
                           <p className="text-sm lg:text-base text-gray-600 leading-relaxed break-words">
@@ -301,10 +301,10 @@ function SlideOneContent({ slide }) {
       <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
         <div className="flex items-start gap-3 mb-3">
           <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-            <span className="text-lg font-bold text-blue-600">KY</span>
+            <span className="text-lg font-medium text-blue-600">KY</span>
           </div>
           <div className="flex-1 min-w-0">
-            <h5 className="font-bold text-sm text-gray-900 mb-0.5">
+            <h5 className="font-medium text-sm text-gray-900 mb-0.5">
               {slide.phoneContent.advisor.name}
             </h5>
             <p className="text-xs text-gray-600 mb-0.5">{slide.phoneContent.advisor.role}</p>
@@ -358,7 +358,7 @@ function SlideTwoContent({ slide }) {
       {/* Header */}
       <div className="flex items-center gap-2">
         <div className="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-          <span className="text-blue-600 text-xs font-bold">PP</span>
+          <span className="text-blue-600 text-xs font-medium">PP</span>
         </div>
         <h4 className="font-semibold text-sm sm:text-base text-gray-900 truncate">
           Premier Penny Help Center
@@ -414,7 +414,7 @@ function SlideThreeContent({ slide }) {
 
       {/* Time Display */}
       <div className="text-white text-center mb-6">
-        <div className="text-4xl sm:text-5xl font-bold mb-1 drop-shadow-lg">10:00</div>
+        <div className="text-4xl sm:text-5xl font-medium mb-1 drop-shadow-lg">10:00</div>
         <div className="text-xs sm:text-sm opacity-90">Friday 18 June</div>
       </div>
 
@@ -426,7 +426,7 @@ function SlideThreeContent({ slide }) {
               <notif.icon className="w-4 h-4 text-white" />
             </div>
             <div className="flex-1 min-w-0">
-              <h5 className="font-bold text-xs sm:text-sm text-gray-900 mb-0.5 line-clamp-1">
+              <h5 className="font-medium text-xs sm:text-sm text-gray-900 mb-0.5 line-clamp-1">
                 {notif.title}
               </h5>
               <p className="text-xs text-gray-600 line-clamp-2">{notif.message}</p>
@@ -451,9 +451,9 @@ function SlideFourContent({ slide }) {
             <div className="w-3 h-0.5 bg-gray-600"></div>
           </div>
           <div className="w-7 h-7 bg-blue-600 rounded-md flex items-center justify-center flex-shrink-0">
-            <span className="text-white text-xs font-bold">PP</span>
+            <span className="text-white text-xs font-medium">PP</span>
           </div>
-          <span className="text-sm font-bold text-gray-900 truncate">Premier Penny</span>
+          <span className="text-sm font-medium text-gray-900 truncate">Premier Penny</span>
         </div>
         <button className="text-xs text-white font-semibold flex items-center gap-1 bg-green-500 px-2 py-1 rounded">
           <FaPhone className="w-3 h-3" />
@@ -462,13 +462,13 @@ function SlideFourContent({ slide }) {
       </div>
 
       {/* Status Heading */}
-      <h4 className="text-sm font-bold text-gray-900">{slide.phoneContent.status}</h4>
+      <h4 className="text-sm font-medium text-gray-900">{slide.phoneContent.status}</h4>
 
       {/* Loan Card */}
       <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-200">
         <div className="flex justify-between items-start mb-1">
           <div>
-            <h5 className="font-bold text-sm text-gray-900 mb-0.5">
+            <h5 className="font-medium text-sm text-gray-900 mb-0.5">
               {slide.phoneContent.loanCard.number}
             </h5>
             <div className="flex items-center gap-1">
@@ -483,7 +483,7 @@ function SlideFourContent({ slide }) {
         <p className="text-xs text-gray-500 mb-0.5">
           Requested On: {slide.phoneContent.loanCard.requestedOn}
         </p>
-        <p className="text-base font-bold text-gray-900">{slide.phoneContent.loanCard.amount}</p>
+        <p className="text-base font-medium text-gray-900">{slide.phoneContent.loanCard.amount}</p>
       </div>
 
       {/* Progress Card */}
@@ -491,7 +491,7 @@ function SlideFourContent({ slide }) {
         <div className="flex items-start gap-2 mb-1">
           <FaCheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
           <div className="flex-1 min-w-0">
-            <h5 className="font-bold text-xs sm:text-sm text-gray-900 mb-0.5">
+            <h5 className="font-medium text-xs sm:text-sm text-gray-900 mb-0.5">
               {slide.phoneContent.progress.title}
             </h5>
             <p className="text-xs text-gray-600 mb-0.5">{slide.phoneContent.progress.date}</p>

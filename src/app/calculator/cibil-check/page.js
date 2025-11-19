@@ -255,7 +255,7 @@ export default function CIBILCheck() {
                   className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl p-8 text-white text-center shadow-2xl"
                 >
                   <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mx-auto mb-4"></div>
-                  <h3 className="text-2xl font-bold mb-4">Processing Your CIBIL Report</h3>
+                  <h3 className="text-2xl font-medium mb-4">Processing Your CIBIL Report</h3>
                   <p className="text-white/90 mb-4">
                     Please complete the verification process in the new tab that opened. Your report
                     will appear here automatically once verified.
@@ -300,7 +300,7 @@ export default function CIBILCheck() {
                   className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white shadow-2xl"
                 >
                   <div className="flex justify-between items-start mb-6">
-                    <h3 className="text-2xl font-bold">Your CIBIL Score</h3>
+                    <h3 className="text-2xl font-medium">Your CIBIL Score</h3>
                     {fromCache && (
                       <div className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium">
                         <FaShieldAlt className="inline mr-1" />
@@ -308,7 +308,7 @@ export default function CIBILCheck() {
                       </div>
                     )}
                   </div>
-                  <div className="text-6xl font-bold mb-4">{cibilScore}</div>
+                  <div className="text-6xl font-medium mb-4">{cibilScore}</div>
                   <div
                     className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 ${getScoreCategory(cibilScore).bg} ${getScoreCategory(cibilScore).color}`}
                   >
@@ -419,7 +419,7 @@ export default function CIBILCheck() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">
               What Affects Your CIBIL Score?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -448,7 +448,7 @@ export default function CIBILCheck() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900">{factor.factor}</h3>
-                      <span className="text-[var(--primary-blue)] font-bold text-lg">
+                      <span className="text-[var(--primary-blue)] font-medium text-lg">
                         {factor.impact}
                       </span>
                     </div>
@@ -470,7 +470,7 @@ export default function CIBILCheck() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">
               Tips to Improve Your CIBIL Score
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -493,7 +493,7 @@ export default function CIBILCheck() {
                   className="bg-gradient-to-br from-[var(--primary-blue)]/5 to-white p-8 rounded-3xl border border-[var(--primary-blue)]/10 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-full flex items-center justify-center text-white text-sm font-medium shadow-lg">
                       {index + 1}
                     </div>
                     <p className="text-gray-700 leading-relaxed font-medium">{tip}</p>
@@ -514,7 +514,7 @@ export default function CIBILCheck() {
             viewport={{ once: true }}
             className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white text-center shadow-2xl"
           >
-            <h3 className="text-3xl font-bold mb-4">Ready to Improve Your Credit Score?</h3>
+            <h3 className="text-3xl font-medium mb-4">Ready to Improve Your Credit Score?</h3>
             <p className="text-white/90 mb-8 max-w-2xl mx-auto">
               Get personalized advice and loan offers based on your credit score. Our experts will
               help you find the best deals.

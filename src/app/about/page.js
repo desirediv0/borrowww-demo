@@ -172,7 +172,7 @@ export default function AboutPage() {
                 >
                   <stat.icon className="text-white text-3xl" />
                 </div>
-                <div className="text-4xl font-bold text-gray-900 mb-2">{stat.number}</div>
+                <div className="text-4xl font-medium text-gray-900 mb-2">{stat.number}</div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
               </motion.div>
             ))}
@@ -194,7 +194,7 @@ export default function AboutPage() {
                 <FaHeart className="mr-2" />
                 Our Mission
               </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl font-medium text-gray-900 mb-6">
                 Democratizing Access to Credit
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -234,7 +234,7 @@ export default function AboutPage() {
                 <FaStar className="mr-2" />
                 Our Vision
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
+              <h3 className="text-3xl font-medium text-gray-900 mb-6">
                 India&apos;s Most Trusted Digital Lender
               </h3>
               <p className="text-gray-600 leading-relaxed mb-8">
@@ -269,7 +269,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Choose Premier Penny?</h2>
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">Why Choose Premier Penny?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We combine cutting-edge technology with human touch to deliver exceptional financial
               services
@@ -308,7 +308,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Core Values</h2>
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">Our Core Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               The principles that guide everything we do at Premier Penny
             </p>
@@ -351,7 +351,7 @@ export default function AboutPage() {
                 <FaRocket className="mr-2" />
                 Our Journey
               </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">The Premier Penny Story</h2>
+              <h2 className="text-4xl font-medium text-gray-900 mb-6">The Premier Penny Story</h2>
               <div className="space-y-6 text-gray-600 leading-relaxed">
                 <p>
                   Founded in 2020, Premier Penny emerged from a simple observation: millions of
@@ -375,17 +375,17 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               className="bg-gradient-to-br from-[var(--primary-blue)]/5 to-white p-8 rounded-3xl shadow-xl border border-[var(--primary-blue)]/10"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Key Milestones</h3>
+              <h3 className="text-2xl font-medium text-gray-900 mb-8">Key Milestones</h3>
               <div className="space-y-6">
                 {milestones.map((milestone, index) => (
                   <div key={milestone.year} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[var(--primary-blue)] rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                    <div className="w-12 h-12 bg-[var(--primary-blue)] rounded-2xl flex items-center justify-center text-white font-medium text-lg shadow-lg">
                       <milestone.icon className="text-xl" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <h4 className="font-semibold text-gray-900">{milestone.title}</h4>
-                        <span className="text-[var(--primary-blue)] font-bold">
+                        <span className="text-[var(--primary-blue)] font-medium">
                           {milestone.year}
                         </span>
                       </div>
@@ -409,7 +409,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white text-center shadow-2xl"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+            <h2 className="text-4xl font-medium text-white mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Join thousands of satisfied customers who have already achieved their financial goals
               with Premier Penny

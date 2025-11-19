@@ -142,7 +142,7 @@ export default function Loans() {
         <div className="text-center relative w-full h-full">
           {/* Background heading - always visible but dimmed */}
           <h1
-            className="text-9xl font-bold transition-all duration-500 ease-out absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 text-purple-300/40"
+            className="text-9xl font-medium transition-all duration-500 ease-out absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 text-purple-300/40"
             style={{
               transform: `translate(-50%, -50%) scale(${scale})`,
               opacity: opacity,
@@ -174,8 +174,8 @@ export default function Loans() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{card.title}</h3>
-                <div className="text-2xl font-bold text-gray-800 mb-4">{card.amount}</div>
+                <h3 className="text-xl font-medium text-gray-800 mb-2">{card.title}</h3>
+                <div className="text-2xl font-medium text-gray-800 mb-4">{card.amount}</div>
 
                 <div className="h-2 bg-gray-200 rounded-full mb-4">
                   <div

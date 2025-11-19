@@ -351,8 +351,8 @@ export default function LoanAgainstPropertyCalculator() {
             >
               {/* EMI Result */}
               <div className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white shadow-2xl">
-                <h3 className="text-2xl font-bold mb-6">Your Monthly EMI</h3>
-                <div className="text-5xl font-bold mb-4">{formatCurrency(emi)}</div>
+                <h3 className="text-2xl font-medium mb-6">Your Monthly EMI</h3>
+                <div className="text-5xl font-medium mb-4">{formatCurrency(emi)}</div>
                 <p className="text-white/90 mb-8 font-medium">
                   Monthly payment for {tenureYears} years {tenureMonths} months at {interestRate}%
                   interest rate
@@ -360,11 +360,11 @@ export default function LoanAgainstPropertyCalculator() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
                     <div className="text-sm text-white/80 font-medium">Total Amount</div>
-                    <div className="text-lg font-bold">{formatCurrency(totalAmount)}</div>
+                    <div className="text-lg font-medium">{formatCurrency(totalAmount)}</div>
                   </div>
                   <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
                     <div className="text-sm text-white/80 font-medium">Total Interest</div>
-                    <div className="text-lg font-bold">{formatCurrency(totalInterest)}</div>
+                    <div className="text-lg font-medium">{formatCurrency(totalInterest)}</div>
                   </div>
                 </div>
               </div>
@@ -375,29 +375,29 @@ export default function LoanAgainstPropertyCalculator() {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-4 border-b border-gray-100">
                     <span className="text-gray-700 font-medium">Property Value</span>
-                    <span className="font-bold text-lg">{formatCurrency(propertyValue)}</span>
+                    <span className="font-medium text-lg">{formatCurrency(propertyValue)}</span>
                   </div>
                   <div className="flex justify-between items-center py-4 border-b border-gray-100">
                     <span className="text-gray-700 font-medium">Loan Amount</span>
-                    <span className="font-bold text-lg text-[var(--primary-blue)]">
+                    <span className="font-medium text-lg text-[var(--primary-blue)]">
                       {formatCurrency(loanAmount)}
                     </span>
                   </div>
                   <div className="flex justify-between items-center py-4 border-b border-gray-100">
                     <span className="text-gray-700 font-medium">Loan to Value Ratio</span>
-                    <span className="font-bold text-lg text-green-600">
+                    <span className="font-medium text-lg text-green-600">
                       {((loanAmount / propertyValue) * 100).toFixed(1)}%
                     </span>
                   </div>
                   <div className="flex justify-between items-center py-4 border-b border-gray-100">
                     <span className="text-gray-700 font-medium">Interest Amount</span>
-                    <span className="font-bold text-lg text-red-600">
+                    <span className="font-medium text-lg text-red-600">
                       {formatCurrency(totalInterest)}
                     </span>
                   </div>
                   <div className="flex justify-between items-center py-4">
                     <span className="text-gray-700 font-medium">Number of EMIs</span>
-                    <span className="font-bold text-lg">{tenureYears * 12 + tenureMonths}</span>
+                    <span className="font-medium text-lg">{tenureYears * 12 + tenureMonths}</span>
                   </div>
                 </div>
               </div>
@@ -415,7 +415,7 @@ export default function LoanAgainstPropertyCalculator() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Top Bank Offers</h2>
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">Top Bank Offers</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Compare LAP offers from leading banks with competitive rates
             </p>
@@ -447,7 +447,7 @@ export default function LoanAgainstPropertyCalculator() {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600 font-medium">Interest Rate:</span>
-                      <span className="font-bold text-[var(--primary-blue)] text-lg">
+                      <span className="font-medium text-[var(--primary-blue)] text-lg">
                         {bank.rate}
                       </span>
                     </div>
@@ -486,7 +486,7 @@ export default function LoanAgainstPropertyCalculator() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">
               Why Choose Loan Against Property?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -529,7 +529,7 @@ export default function LoanAgainstPropertyCalculator() {
             viewport={{ once: true }}
             className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white text-center shadow-2xl"
           >
-            <h3 className="text-3xl font-bold mb-4">Ready to Get Funds Against Your Property?</h3>
+            <h3 className="text-3xl font-medium mb-4">Ready to Get Funds Against Your Property?</h3>
             <p className="text-white/90 mb-8 max-w-2xl mx-auto">
               Get personalized LAP offers from top banks. Our experts will help you find the best
               deal with competitive rates.

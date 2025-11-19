@@ -147,7 +147,7 @@ export default function LoanCalculator() {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
+            className="text-3xl lg:text-4xl font-medium text-gray-900 mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -368,7 +368,7 @@ export default function LoanCalculator() {
                     transition={{ duration: 0.5 }}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <Label className="text-base font-bold flex items-center gap-2 text-blue-700">
+                      <Label className="text-base font-medium flex items-center gap-2 text-blue-700">
                         <IndianRupee className="w-4 h-4 text-[#2D3E50]" />
                         Loan Amount
                       </Label>
@@ -411,7 +411,7 @@ export default function LoanCalculator() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <Label className="text-base font-bold flex items-center gap-2 text-blue-700">
+                      <Label className="text-base font-medium flex items-center gap-2 text-blue-700">
                         <Percent className="w-4 h-4 text-[#2D3E50]" />
                         Interest Rate (% per annum)
                       </Label>
@@ -453,7 +453,7 @@ export default function LoanCalculator() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <Label className="text-base font-bold flex items-center gap-2 text-blue-700">
+                      <Label className="text-base font-medium flex items-center gap-2 text-blue-700">
                         <Calendar className="w-4 h-4 text-[#2D3E50]" />
                         Loan Term (Years)
                       </Label>
@@ -479,7 +479,7 @@ export default function LoanCalculator() {
                     {/* BT Period Selection (only for BT Calculator) */}
                     {activeTab === 'bt' && (
                       <div className="mt-4">
-                        <Label className="text-base font-bold flex items-center gap-2 text-blue-700 mb-2">
+                        <Label className="text-base font-medium flex items-center gap-2 text-blue-700 mb-2">
                           <RefreshCw className="w-4 h-4 text-[#2D3E50]" />
                           BT Period
                         </Label>
@@ -517,7 +517,7 @@ export default function LoanCalculator() {
                     >
                       <Button
                         onClick={handleApply}
-                        className="bg-gradient-to-r from-[#2D3E50] to-blue-700 hover:opacity-90 text-white py-4 md:py-6 px-8 text-lg font-bold rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+                        className="bg-gradient-to-r from-[#2D3E50] to-blue-700 hover:opacity-90 text-white py-4 md:py-6 px-8 text-lg font-medium rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
                       >
                         Apply
                       </Button>
@@ -532,14 +532,14 @@ export default function LoanCalculator() {
                   >
                     <Card className=" bg-white border-none shadow-none overflow-hidden h-full flex flex-col justify-center p-6">
                       <CardHeader className="bg-transparent p-0 mb-2 w-full text-center">
-                        <CardTitle className="text-black text-2xl font-bold">
+                        <CardTitle className="text-black text-2xl font-medium">
                           Loan Summary
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="p-0 w-full flex flex-col gap-4 items-center">
                         <div className="grid grid-cols-2 gap-4 w-full">
                           <div className="text-center p-3 bg-blue-50 rounded-xl border border-blue-200">
-                            <div className="text-lg font-bold text-blue-700">
+                            <div className="text-lg font-medium text-blue-700">
                               ₹
                               {(
                                 loanAmount - (activeTab === 'home' ? downPayment : 0)
@@ -548,21 +548,21 @@ export default function LoanCalculator() {
                             <div className="text-xs text-[#2D3E50]">Principal</div>
                           </div>
                           <div className="text-center p-3 bg-blue-50 rounded-xl border border-blue-200">
-                            <div className="text-lg font-bold text-blue-700">
+                            <div className="text-lg font-medium text-blue-700">
                               ₹{totalInterest.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                             </div>
                             <div className="text-xs text-[#2D3E50]">Total Interest</div>
                           </div>
                         </div>
                         <div className="text-center p-3 bg-blue-100 rounded-xl border border-blue-300 w-full">
-                          <div className="text-lg font-bold text-blue-800">
+                          <div className="text-lg font-medium text-blue-800">
                             ₹{totalPayment.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                           </div>
                           <div className="text-xs text-blue-700">Total Payment</div>
                         </div>
                         {activeTab === 'bt' && (
                           <div className="text-center p-3 bg-green-50 rounded-xl border border-green-200 w-full">
-                            <div className="text-lg font-bold text-green-700">
+                            <div className="text-lg font-medium text-green-700">
                               {btPeriod === 'monthly' ? 'Monthly' : 'Yearly'} BT Period
                             </div>
                             <div className="text-xs text-green-600">Balance Transfer Option</div>

@@ -277,8 +277,8 @@ export default function EMICalculator() {
             >
               {/* EMI Result */}
               <div className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white shadow-2xl">
-                <h3 className="text-2xl font-bold mb-3">Your Monthly EMI</h3>
-                <div className="text-5xl font-bold mb-4">{formatCurrency(emi)}</div>
+                <h3 className="text-2xl font-medium mb-3">Your Monthly EMI</h3>
+                <div className="text-5xl font-medium mb-4">{formatCurrency(emi)}</div>
                 <p className="text-white/90 mb-4 font-medium">
                   Monthly payment for {tenureYears} years{' '}
                   {tenureMonths > 0 ? `${tenureMonths} months` : ''} at {interestRate}% interest
@@ -287,11 +287,11 @@ export default function EMICalculator() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
                     <div className="text-sm text-white/80 font-medium">Total Amount</div>
-                    <div className="text-lg font-bold">{formatCurrency(totalAmount)}</div>
+                    <div className="text-lg font-medium">{formatCurrency(totalAmount)}</div>
                   </div>
                   <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
                     <div className="text-sm text-white/80 font-medium">Total Interest</div>
-                    <div className="text-lg font-bold">{formatCurrency(totalInterest)}</div>
+                    <div className="text-lg font-medium">{formatCurrency(totalInterest)}</div>
                   </div>
                 </div>
               </div>
@@ -302,23 +302,23 @@ export default function EMICalculator() {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-1 border-b border-gray-100">
                     <span className="text-gray-700 font-medium">Principal Amount</span>
-                    <span className="font-bold text-lg">{formatCurrency(loanAmount)}</span>
+                    <span className="font-medium text-lg">{formatCurrency(loanAmount)}</span>
                   </div>
                   <div className="flex justify-between items-center py-1 border-b border-gray-100">
                     <span className="text-gray-700 font-medium">Interest Amount</span>
-                    <span className="font-bold text-lg text-red-600">
+                    <span className="font-medium text-lg text-red-600">
                       {formatCurrency(totalInterest)}
                     </span>
                   </div>
                   <div className="flex justify-between items-center py-1 border-b border-gray-100">
                     <span className="text-gray-700 font-medium">Total Amount</span>
-                    <span className="font-bold text-lg text-[var(--primary-blue)]">
+                    <span className="font-medium text-lg text-[var(--primary-blue)]">
                       {formatCurrency(totalAmount)}
                     </span>
                   </div>
                   <div className="flex justify-between items-center py-1">
                     <span className="text-gray-700 font-medium">Number of EMIs</span>
-                    <span className="font-bold text-lg">
+                    <span className="font-medium text-lg">
                       {tenureYears * 12 + tenureMonths} ({tenureYears} years {tenureMonths} months)
                     </span>
                   </div>
@@ -338,7 +338,7 @@ export default function EMICalculator() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Popular Loan Types</h2>
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">Popular Loan Types</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Explore different loan options with their typical interest rates and amounts
             </p>
@@ -370,7 +370,7 @@ export default function EMICalculator() {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600 font-medium">Interest Rate:</span>
-                      <span className="font-bold text-[var(--primary-blue)] text-lg">
+                      <span className="font-medium text-[var(--primary-blue)] text-lg">
                         {loan.rate}
                       </span>
                     </div>
@@ -404,7 +404,7 @@ export default function EMICalculator() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">
               Why Choose Our EMI Calculator?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -472,7 +472,7 @@ export default function EMICalculator() {
             viewport={{ once: true }}
             className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white text-center shadow-2xl"
           >
-            <h3 className="text-3xl font-bold mb-4">Ready to Apply for a Loan?</h3>
+            <h3 className="text-3xl font-medium mb-4">Ready to Apply for a Loan?</h3>
             <p className="text-white/90 mb-8 max-w-2xl mx-auto">
               Get personalized loan offers from top banks. Our experts will help you find the best
               deal with competitive rates.

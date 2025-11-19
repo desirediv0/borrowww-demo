@@ -65,7 +65,7 @@ export default function Footer() {
                   height={40}
                   className="rounded-lg p-1"
                 />
-                {/* <span className="text-2xl font-bold tracking-tight text-blue-700">Premier Penny</span> */}
+                {/* <span className="text-2xl font-medium tracking-tight text-blue-700">Premier Penny</span> */}
               </div>
             </Link>
             <span className="text-[#396A9F] font-medium text-sm mb-1">

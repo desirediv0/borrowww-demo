@@ -7,7 +7,8 @@ import LoanToolsSection from '@/components/LoanToolsSection';
 import PropertyCheckSection from '@/components/PropertyCheckSection';
 import TransparencySection from '@/components/TransparencySection';
 import ValuesSection from '@/components/ValuesSection';
-import VideoSection from '@/components/VideoSection';
+
+// import VideoSection from '@/components/VideoSection';
 
 // import HomeLoanSections from '@/components/home-loan-sections';
 
@@ -18,7 +19,7 @@ export default function Home() {
     <main className="min-h-screen">
       <HeroSection />
       <ConcernsSection />
-      <VideoSection />
+      {/* <VideoSection /> */}
       <TransparencySection />
       <PropertyCheckSection />
       <LoanToolsSection />

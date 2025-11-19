@@ -222,13 +222,13 @@ export default function BalanceTransferCalculator() {
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700 font-medium">Monthly EMI:</span>
-                      <span className="text-xl font-bold text-red-600">
+                      <span className="text-xl font-medium text-red-600">
                         {formatCurrency(currentLoan.emi)}
                       </span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700 font-medium">Total Interest:</span>
-                      <span className="text-xl font-bold text-red-600">
+                      <span className="text-xl font-medium text-red-600">
                         {formatCurrency(currentLoan.totalInterest)}
                       </span>
                     </div>
@@ -335,13 +335,13 @@ export default function BalanceTransferCalculator() {
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700 font-medium">Monthly EMI:</span>
-                      <span className="text-xl font-bold text-green-600">
+                      <span className="text-xl font-medium text-green-600">
                         {formatCurrency(newLoan.emi)}
                       </span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700 font-medium">Total Interest:</span>
-                      <span className="text-xl font-bold text-green-600">
+                      <span className="text-xl font-medium text-green-600">
                         {formatCurrency(newLoan.totalInterest)}
                       </span>
                     </div>
@@ -358,18 +358,18 @@ export default function BalanceTransferCalculator() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-16 bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white shadow-2xl"
           >
-            <h3 className="text-3xl font-bold mb-8 text-center">Your Savings Summary</h3>
+            <h3 className="text-3xl font-medium mb-8 text-center">Your Savings Summary</h3>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="text-4xl font-bold mb-2">{formatCurrency(savings.monthly)}</div>
+                <div className="text-4xl font-medium mb-2">{formatCurrency(savings.monthly)}</div>
                 <div className="text-white/90 font-medium">Monthly Savings</div>
               </div>
               <div className="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="text-4xl font-bold mb-2">{formatCurrency(savings.total)}</div>
+                <div className="text-4xl font-medium mb-2">{formatCurrency(savings.total)}</div>
                 <div className="text-white/90 font-medium">Total Savings</div>
               </div>
               <div className="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="text-4xl font-bold mb-2">{savings.percentage.toFixed(1)}%</div>
+                <div className="text-4xl font-medium mb-2">{savings.percentage.toFixed(1)}%</div>
                 <div className="text-white/90 font-medium">Interest Savings</div>
               </div>
             </div>
@@ -386,7 +386,7 @@ export default function BalanceTransferCalculator() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Top Bank Offers</h2>
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">Top Bank Offers</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Compare balance transfer offers from leading banks with competitive rates
             </p>
@@ -416,7 +416,7 @@ export default function BalanceTransferCalculator() {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600 font-medium">Interest Rate:</span>
-                      <span className="font-bold text-[var(--primary-blue)] text-lg">
+                      <span className="font-medium text-[var(--primary-blue)] text-lg">
                         {bank.rate}
                       </span>
                     </div>
@@ -452,7 +452,7 @@ export default function BalanceTransferCalculator() {
             transition={{ delay: 0.6 }}
             className="mt-16 bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white text-center"
           >
-            <h3 className="text-3xl font-bold mb-4">Ready to Save on Your Loan?</h3>
+            <h3 className="text-3xl font-medium mb-4">Ready to Save on Your Loan?</h3>
             <p className="text-white/90 mb-8 max-w-2xl mx-auto">
               Get personalized balance transfer offers from top banks. Our experts will help you
               find the best deal.

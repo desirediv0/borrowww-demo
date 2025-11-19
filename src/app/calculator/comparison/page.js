@@ -287,7 +287,7 @@ export default function LoanComparisonCalculator() {
               {/* Best Loan Highlight */}
               {bestLoan && (
                 <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-3xl p-8 text-white shadow-2xl">
-                  <h3 className="text-2xl font-bold mb-4">Best Option</h3>
+                  <h3 className="text-2xl font-medium mb-4">Best Option</h3>
                   <div className="flex items-center gap-4 mb-4">
                     <div
                       className={`w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center`}
@@ -295,11 +295,11 @@ export default function LoanComparisonCalculator() {
                       <bestLoan.icon className="text-white text-xl" />
                     </div>
                     <div>
-                      <div className="text-xl font-bold">{bestLoan.name}</div>
+                      <div className="text-xl font-medium">{bestLoan.name}</div>
                       <div className="text-white/80">{bestLoan.rate}% interest rate</div>
                     </div>
                   </div>
-                  <div className="text-3xl font-bold mb-2">{formatCurrency(bestLoan.emi)}</div>
+                  <div className="text-3xl font-medium mb-2">{formatCurrency(bestLoan.emi)}</div>
                   <div className="text-white/80">Lowest monthly EMI</div>
                 </div>
               )}
@@ -330,7 +330,7 @@ export default function LoanComparisonCalculator() {
                             </div>
                           </div>
                           <div className="text-right">
-                            <div className="text-2xl font-bold text-[var(--primary-blue)]">
+                            <div className="text-2xl font-medium text-[var(--primary-blue)]">
                               {formatCurrency(loan.emi)}
                             </div>
                             <div className="text-sm text-gray-600">Monthly EMI</div>
@@ -392,7 +392,7 @@ export default function LoanComparisonCalculator() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Loan Types Explained</h2>
+            <h2 className="text-4xl font-medium text-gray-900 mb-6">Loan Types Explained</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Understand different loan types and their features to make an informed decision
             </p>
@@ -424,7 +424,7 @@ export default function LoanComparisonCalculator() {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600 font-medium">Interest Rate:</span>
-                      <span className="font-bold text-[var(--primary-blue)] text-lg">
+                      <span className="font-medium text-[var(--primary-blue)] text-lg">
                         {loan.rate}%
                       </span>
                     </div>
@@ -466,7 +466,7 @@ export default function LoanComparisonCalculator() {
             viewport={{ once: true }}
             className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white text-center shadow-2xl"
           >
-            <h3 className="text-3xl font-bold mb-4">Ready to Apply for the Best Loan?</h3>
+            <h3 className="text-3xl font-medium mb-4">Ready to Apply for the Best Loan?</h3>
             <p className="text-white/90 mb-8 max-w-2xl mx-auto">
               Get personalized loan offers from top banks based on your comparison. Our experts will
               help you find the best deal.

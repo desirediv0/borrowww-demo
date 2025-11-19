@@ -255,7 +255,7 @@ export default function CibilCheckSection() {
           </motion.div>
 
           <motion.h2
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            className="text-4xl lg:text-5xl font-medium text-gray-900 mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -306,7 +306,7 @@ export default function CibilCheckSection() {
                     x="50"
                     y="45"
                     textAnchor="middle"
-                    className="text-xs font-bold fill-gray-100"
+                    className="text-xs font-medium fill-gray-100"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
@@ -336,7 +336,7 @@ export default function CibilCheckSection() {
                   >
                     <CreditCard className="w-6 h-6" />
                   </motion.div>
-                  <CardTitle className="text-2xl font-bold">Free CIBIL Score Check</CardTitle>
+                  <CardTitle className="text-2xl font-medium">Free CIBIL Score Check</CardTitle>
                 </div>
                 <CardDescription className="text-blue-100 text-lg">
                   Enter your details to get your credit score instantly
@@ -451,7 +451,7 @@ export default function CibilCheckSection() {
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-[#2D3E50] to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-4 text-lg font-bold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 focus:ring-2 focus:ring-blue-300 focus:outline-none"
+                      className="w-full bg-gradient-to-r from-[#2D3E50] to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-4 text-lg font-medium rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 focus:ring-2 focus:ring-blue-300 focus:outline-none"
                     >
                       Check CIBIL Score Now
                     </Button>
@@ -570,7 +570,9 @@ export default function CibilCheckSection() {
                   <CheckCircle className="w-8 h-8 text-white" />
                 </motion.div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Check CIBIL Score?</h3>
+                  <h3 className="text-2xl font-medium text-gray-900 mb-4">
+                    Why Check CIBIL Score?
+                  </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[
                       'Understand your creditworthiness',
@@ -626,7 +628,7 @@ export default function CibilCheckSection() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <motion.div
-                      className="text-2xl font-bold text-[#2D3E50] mb-1 flex items-center justify-center gap-1"
+                      className="text-2xl font-medium text-[#2D3E50] mb-1 flex items-center justify-center gap-1"
                       animate={{
                         y: [0, -2, 0],
                       }}
