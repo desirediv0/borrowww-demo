@@ -44,14 +44,14 @@ export default function VideoSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20">
+    <section className="relative overflow-hidden bg-white py-12 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Header Section */}
         <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 tracking-tight capitalize">
             Success Stories That Inspire
           </h2>
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold italic tiemposfine text-[var(--primary-blue-dark)] mb-2">
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold  mb-2">
             Over ₹3,000 Crores+ in Loans Disbursed
           </p>
           <p className="text-sm sm:text-base text-gray-600 mt-4 max-w-2xl mx-auto">
@@ -61,11 +61,11 @@ export default function VideoSection() {
         </div>
 
         {/* Video Cards Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 ">
           {videos.map((video) => (
             <div
               key={video.id}
-              className="group relative aspect-[9/16] rounded-lg sm:rounded-xl overflow-hidden cursor-pointer transform transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:z-10"
+              className="group relative aspect-[9/16] rounded-xl overflow-hidden cursor-pointer transform transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:z-10"
               onMouseEnter={() => setHoveredCard(video.id)}
               onMouseLeave={() => setHoveredCard(null)}
               onClick={() => handleVideoClick(video.youtubeId)}
@@ -103,7 +103,7 @@ export default function VideoSection() {
 
               {/* Video Title Overlay */}
               <div className="absolute top-2 left-0 right-0 px-4 sm:px-5 z-10">
-                <h3 className="text-white text-sm  font-semibold text-center leading-tight line-clamp-3 drop-shadow-lg bg-black/40 px-3 py-2 rounded-lg backdrop-blur-sm">
+                <h3 className="text-white text-sm   text-center leading-tight line-clamp-3 drop-shadow-lg bg-black/40 px-3 py-2 rounded-xl backdrop-blur-sm">
                   {video.title}
                 </h3>
               </div>
@@ -111,8 +111,8 @@ export default function VideoSection() {
               {/* Play Button (when not hovered) */}
               {hoveredCard !== video.id && (
                 <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 transform hover:scale-110">
-                    <FaPlay className="w-6 h-6 sm:w-8 sm:h-8 text-white ml-1" />
+                  <div className="w-16 h-16  bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 transform hover:scale-110">
+                    <FaPlay className="w-6 h-6  text-white ml-1" />
                   </div>
                 </div>
               )}

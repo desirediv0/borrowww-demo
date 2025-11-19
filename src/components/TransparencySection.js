@@ -130,14 +130,12 @@ export default function TransparencySection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white py-8 sm:py-12 md:py-16">
+    <section className="relative overflow-hidden bg-white py-8 sm:py-12 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
         <div className="text-center mb-8 sm:mb-10 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 text-balance">
-            Complete transparency with{' '}
-            <span className="text-gray-700 italic tiemposfine text-[var(--primary-blue-dark)]">
-              round-the-clock support
-            </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 text-balance capitalize">
+            Complete transparency with <br />
+            <span className="text-gray-900 font-semibold ">round-the-clock support</span>
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-2">
             Premier Penny keeps you informed every step of the way - your dream home journey stays

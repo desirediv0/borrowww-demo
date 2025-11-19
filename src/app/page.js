@@ -1,4 +1,4 @@
-import Calculator from '@/components/Calculator';
+// import Calculator from '@/components/Calculator';
 import ConcernsSection from '@/components/ConcernsSection';
 import FAQSection from '@/components/FAQSection';
 import HeroSection from '@/components/HeroSection';
@@ -8,7 +8,8 @@ import PropertyCheckSection from '@/components/PropertyCheckSection';
 import TransparencySection from '@/components/TransparencySection';
 import ValuesSection from '@/components/ValuesSection';
 import VideoSection from '@/components/VideoSection';
-import HomeLoanSections from '@/components/home-loan-sections';
+
+// import HomeLoanSections from '@/components/home-loan-sections';
 
 // Note: This implementation was requested by client despite being non-compliant with DPDP Act.
 
@@ -23,9 +24,9 @@ export default function Home() {
       <LoanToolsSection />
       {/* <LogoSlider /> */}
 
-      <HomeLoanSections />
+      {/* <HomeLoanSections /> */}
       <ValuesSection />
-      <Calculator />
+      {/* <Calculator /> */}
       <FAQSection />
     </main>
   );

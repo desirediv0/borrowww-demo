@@ -70,7 +70,7 @@ export default function ValuesSection() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-12 bg-white">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-24">
         {/* Section Header */}
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
@@ -188,15 +188,11 @@ export default function ValuesSection() {
                   transition={{ duration: 0.25, ease: 'easeInOut' }}
                 >
                   <motion.div
-                    className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg"
+                    className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-[var(--primary-blue-dark)] to-[var(--primary-blue)] cursor-pointer"
                     initial={{
-                      backgroundColor: '#2158DE',
-                      color: '#ffffff',
                       scale: 1,
                     }}
                     whileHover={{
-                      backgroundColor: '#1a332e',
-                      color: '#ffffff',
                       scale: 1.12,
                     }}
                     transition={{ duration: 0.4, ease: 'easeInOut' }}

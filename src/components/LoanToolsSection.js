@@ -441,13 +441,12 @@ export default function LoanToolsSection() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl  font-bold text-gray-900 mb-2">
-              <span className="text-[var(--primary-blue-dark)] italic tiemposfine">Tools</span> to
-              Plan Your Home Loan
+            <h2 className="text-3xl sm:text-4xl md:text-5xl  font-bold text-gray-900 mb-2 capitalize">
+              Tools to Plan Your Home Loan
             </h2>
             <p className="text-sm sm:text-base text-gray-600 mt-3">
               Calculate your loan details with our smart calculators

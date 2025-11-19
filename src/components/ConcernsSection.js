@@ -26,7 +26,7 @@ export default function ConcernsSection() {
           <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-3 sm:mb-4 font-medium ">
             Concerned about
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold text-gray-900  leading-tight px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold text-gray-900  leading-tight px-4 capitalize">
             Unexpected fees? Rising EMIs? Navigating alone?
           </h2>
         </div>

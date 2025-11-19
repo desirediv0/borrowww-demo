@@ -70,31 +70,28 @@ export default function PropertyCheckSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-white py-12 sm:py-16">
+    <section className="relative overflow-hidden bg-white py-12 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
         <div className="text-center mb-8 ">
           {/* Main Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Get a Full Property Check{' '}
-            <span className="text-[var(--primary-blue-dark)] italic tiemposfine">For Free</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 ">
+            Get a Full Property Check For Free
           </h2>
 
           {/* Subheading 1 */}
-          <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-3 sm:mb-4 font-medium">
+          <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-3 font-medium">
             Unsure about things like
           </p>
 
           {/* Key Question - Rotating */}
-          <div className="min-h-[80px]  flex items-center justify-center mb-6">
+          <div className="min-h-[80px]  flex items-center justify-center mb-2">
             <div className="relative w-full">
               <p
                 key={currentQuestionIndex}
-                className="text-lg sm:text-xl md:text-2xl  text-gray-800 italic text-center px-4 animate-fade-in"
+                className="text-lg sm:text-xl md:text-2xl  text-gray-800  text-center px-4 animate-fade-in"
               >
                 {questions[currentQuestionIndex].text}{' '}
-                <span className="text-[var(--primary-blue-dark)] font-semibold not-italic">
-                  {questions[currentQuestionIndex].highlight}
-                </span>
+                <span className=" font-semibold ">{questions[currentQuestionIndex].highlight}</span>
                 {questions[currentQuestionIndex].suffix && (
                   <span> {questions[currentQuestionIndex].suffix}</span>
                 )}
@@ -103,25 +100,23 @@ export default function PropertyCheckSection() {
           </div>
 
           {/* Subheading 2 */}
-          <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-8 sm:mb-10 lg:mb-12 font-medium">
+          <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-8  font-medium">
             Avoid regret later. We help you with
           </p>
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 mb-10 sm:mb-12 lg:mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 mb-10 ">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-200"
+              className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-200"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16  bg-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mb-4 sm:mb-5 shadow-lg">
+                {/* <div className="w-14 h-14 sm:w-16 sm:h-16  bg-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mb-4 sm:mb-5 shadow-lg">
                   <feature.icon className="w-7 h-7 sm:w-8 sm:h-8  text-white" />
-                </div>
-                <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3">
-                  {feature.title}
-                </h3>
+                </div> */}
+                <h3 className="text-base  font-bold text-gray-900 mb-2 sm:mb-3">{feature.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-600 font-medium">
                   {feature.description}
                 </p>

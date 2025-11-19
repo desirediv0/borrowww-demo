@@ -42,19 +42,19 @@ export default function HeroSection() {
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               {/* Buttons with Links */}
               <Link href="/calculator/home-loan">
-                <button className="text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
+                <button className="text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
                   Apply for Home Loan
                 </button>
               </Link>
 
               <Link href="/calculator/balance-transfer">
-                <button className="text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
+                <button className="text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
                   Balance Transfer
                 </button>
               </Link>
 
               <Link href="/calculator/loan-against-property">
-                <button className="text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
+                <button className="text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
                   Loan Against Property
                 </button>
               </Link>
