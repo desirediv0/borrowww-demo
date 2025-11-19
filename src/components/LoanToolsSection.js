@@ -442,7 +442,7 @@ export default function LoanToolsSection() {
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 w-full">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-10 lg:mb-12">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight capitalize">
@@ -464,7 +464,7 @@ export default function LoanToolsSection() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-5 sm:px-6 py-3 sm:py-4 rounded-xl font-medium uppercase text-sm transition-all duration-300 transform ${
+                className={`px-3 sm:px-6 py-3 sm:py-4 rounded-xl font-medium uppercase text-xs md:text-sm transition-all duration-300 transform ${
                   activeTab === tab.id
                     ? 'bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] text-white shadow-lg scale-105'
                     : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-[var(--primary-blue)] hover:shadow-md'
