@@ -1,4 +1,3 @@
-// import { Inter } from 'next/font/google';
 import FloatingContactButton from '@/components/FloatingContactButton';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
@@ -6,8 +5,6 @@ import LenisProvider from '@/components/LenisProvider';
 import { Toaster } from '@/components/ui/sonner';
 
 import './globals.css';
-
-// const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Premier Penny - CIBIL Check & Instant Loan Provider',
@@ -18,8 +15,6 @@ export const metadata = {
 };
 
 // Note: This implementation was requested by client despite being non-compliant with DPDP Act.
-
-// import SessionTrackerProvider from '../hooks/SessionTrackerProvider';
 
 export default function RootLayout({ children }) {
   return (

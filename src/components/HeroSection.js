@@ -40,19 +40,19 @@ export default function HeroSection() {
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               {/* Buttons with Links */}
               <Link href="/calculator/home-loan">
-                <button className="text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
+                <button className="text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl md:font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
                   Apply for Home Loan
                 </button>
               </Link>
 
               <Link href="/calculator/balance-transfer">
-                <button className="text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
+                <button className="text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl md:font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
                   Balance Transfer
                 </button>
               </Link>
 
               <Link href="/calculator/loan-against-property">
-                <button className="text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
+                <button className="text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl md:font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
                   Loan Against Property
                 </button>
               </Link>
@@ -90,7 +90,7 @@ export default function HeroSection() {
               {/* Loan Amount Card */}
               <div className="p-4 sm:p-6 lg:p-8 aspect-square grid grid-cols-2 bg-[#90d2bf] overflow-hidden rounded-l-full">
                 <div className="flex flex-col justify-center">
-                  <p className="text-[#2D3E50] text-sm sm:text-lg md:text-xl lg:text-2xl font-medium">
+                  <p className="text-[#2D3E50] text-sm sm:text-lg md:text-xl lg:text-2xl font-medium hidden sm:block">
                     Loans
                   </p>
                 </div>
@@ -98,7 +98,7 @@ export default function HeroSection() {
                   <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#2D3E50] mb-2">
                     ₹50L Amount+
                   </h3>
-                  <div className="flex justify-end w-full">
+                  <div className="flex md:justify-end w-full">
                     <RotatingSVG />
                   </div>
                 </div>

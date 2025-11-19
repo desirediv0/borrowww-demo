@@ -2,8 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { FaPhone, FaWhatsapp } from 'react-icons/fa';
-import { FaCheckCircle, FaFileContract, FaSearch } from 'react-icons/fa';
-import { FaIndianRupeeSign } from 'react-icons/fa6';
 
 export default function PropertyCheckSection() {
   const phoneNumber = '9560069525';
@@ -30,7 +28,7 @@ export default function PropertyCheckSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentQuestionIndex((prev) => (prev + 1) % questions.length);
-    }, 3000); // Change question every 3 seconds
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [questions.length]);
@@ -48,22 +46,18 @@ export default function PropertyCheckSection() {
 
   const features = [
     {
-      icon: FaFileContract,
       title: 'Verify legal papers & title chain',
       description: 'Complete document verification',
     },
     {
-      icon: FaSearch,
       title: 'Check for missing documents',
       description: 'Ensure all paperwork is complete',
     },
     {
-      icon: FaIndianRupeeSign,
       title: 'Evaluate fair market price',
       description: 'Get accurate property valuation',
     },
     {
-      icon: FaCheckCircle,
       title: 'Check if project is bank-approved',
       description: 'Verify lender approval status',
     },
@@ -74,7 +68,7 @@ export default function PropertyCheckSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
         <div className="text-center mb-8 ">
           {/* Main Heading */}
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight  mb-4 ">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight  mb-4">
             Get a Full Property Check For Free
           </h2>
 
@@ -110,13 +104,10 @@ export default function PropertyCheckSection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-200"
+              className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-3 md:p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-200"
             >
               <div className="flex flex-col items-center text-center">
-                {/* <div className="w-14 h-14 sm:w-16 sm:h-16  bg-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mb-4 sm:mb-5 shadow-lg">
-                  <feature.icon className="w-7 h-7 sm:w-8 sm:h-8  text-white" />
-                </div> */}
-                <h3 className="text-base  font-medium text-gray-900 mb-2 sm:mb-3">
+                <h3 className="text-sm md:text-base  font-medium text-gray-900 mb-2 sm:mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 font-medium">

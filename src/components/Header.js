@@ -75,7 +75,7 @@ export default function Header() {
             </Link>
 
             <Link href="/calculator/cibil-check" className="md:hidden flex">
-              <Image src={gif} alt="Premier Penny" width={120} height={100} />
+              <Image src={gif} alt="Premier Penny" width={100} height={100} />
             </Link>
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">

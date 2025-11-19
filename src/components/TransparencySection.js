@@ -164,16 +164,10 @@ export default function TransparencySection() {
                   {/* Mobile: Stacked layout */}
                   <div className="block lg:hidden">
                     <div className="flex flex-col gap-4 p-4 sm:p-6 w-full">
-                      {/* Phone Mockup - Centered & Cropped to ~60% height */}
                       <div className="flex items-center justify-center w-full pt-2">
-                        {/* 
-                           Height calculation: 
-                           Full phone height for 240px width is ~520px. 60% is ~312px.
-                           Full phone height for 280px width is ~600px. 60% is ~360px.
-                        */}
                         <div className="relative w-full max-w-[240px] sm:max-w-[280px] h-[320px] sm:h-[380px] overflow-hidden">
                           <MobilePhonePreview slide={slideItem} />
-                          {/* Gradient fade at the bottom to show it continues */}
+
                           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50 to-transparent z-10 pointer-events-none" />
                         </div>
                       </div>
@@ -190,7 +184,7 @@ export default function TransparencySection() {
                         </div>
 
                         {/* Buttons */}
-                        <div className="flex flex-col gap-2 w-full max-w-sm mx-auto">
+                        <div className="flex gap-2 w-full max-w-sm mx-auto">
                           <button
                             onClick={() => router.push('/contact')}
                             className="flex items-center justify-center gap-2 bg-white border-2 border-[var(--primary-blue-dark)] text-[var(--primary-blue-dark)] px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-gray-50 transition-all duration-300 w-full"

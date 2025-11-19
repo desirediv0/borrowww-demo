@@ -63,7 +63,7 @@ export default function ValuesSection() {
       ),
       title: 'Competitive Rates',
       description:
-        'Access to the best loan rates starting from 8.5% with flexible repayment options. We partner with leading banks to offer you the most competitive terms.',
+        'Access to the best loan rates starting from 7.35%* with flexible repayment options. We partner with leading banks to offer you the most competitive terms.',
       bgColor: 'bg-[#f5f2e8]',
       textColor: 'text-gray-900',
     },
@@ -122,17 +122,14 @@ export default function ValuesSection() {
         </div>
 
         {/* Values Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {values.map((value, index) => (
             <motion.div
               key={index}
               className={`relative overflow-hidden shadow-lg cursor-pointer group border-2 border-blue-100 hover:bg-blue-50 hover:border-blue-50  ${index === 1 ? 'hover:rounded-br-[80px]' : 'hover:rounded-tr-[80px]'} duration-300 ease-in-out`}
-              // style={{ borderTopRightRadius: '180px', borderRadius: '32px' }}
               initial={{ scale: 1 }}
-              // whileHover={{ scale: 1.04 }}
               transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              {/* Curved background element that appears on hover */}
               <motion.div
                 className="absolute inset-0 z-0"
                 initial={{
@@ -146,22 +143,19 @@ export default function ValuesSection() {
                 style={{ borderTopRightRadius: '180px', borderRadius: '32px' }}
               />
 
-              <div className="relative z-10 p-10 md:p-12 flex flex-col h-full justify-between">
-                {/* Icon with smooth transitions */}
+              <div className="relative z-10 p-5 md:p-10 flex flex-col h-full justify-between">
                 <motion.div
                   className="mb-8"
                   initial={{ scale: 1, rotate: 0 }}
                   whileHover={{ scale: 1.13, rotate: 8 }}
                   transition={{ duration: 0.4, ease: 'easeInOut' }}
                 >
-                  <div className="w-16 h-16 flex items-center justify-center text-gray-700">
+                  <div className="md:w-16 md:h-16 w-12 h-12 flex items-center justify-center text-gray-700">
                     {value?.icon}
                   </div>
                 </motion.div>
-
-                {/* Title with subtle animation */}
                 <motion.h3
-                  className="text-xl md:text-2xl font-semibold text-gray-900 mb-4"
+                  className="text-xl md:text-2xl font-semibold text-gray-900 mb-2 md:mb-4"
                   initial={{ y: 0 }}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.25, ease: 'easeInOut' }}
@@ -171,7 +165,7 @@ export default function ValuesSection() {
 
                 {/* Description */}
                 <motion.p
-                  className="text-gray-600 leading-relaxed mb-8"
+                  className="text-gray-600 leading-relaxed mb-8 text-sm md:text-base"
                   initial={{ opacity: 0.8 }}
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.25 }}
@@ -188,7 +182,7 @@ export default function ValuesSection() {
                   transition={{ duration: 0.25, ease: 'easeInOut' }}
                 >
                   <motion.div
-                    className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-[var(--primary-blue-dark)] to-[var(--primary-blue)] cursor-pointer text-white"
+                    className="md:w-14 md:h-14 w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-[var(--primary-blue-dark)] to-[var(--primary-blue)] cursor-pointer text-white"
                     initial={{
                       scale: 1,
                     }}
