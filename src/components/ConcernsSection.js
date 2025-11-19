@@ -22,17 +22,17 @@ export default function ConcernsSection() {
     <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-14 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Question Section */}
-        <div className="text-center mb-12 sm:mb-16 ">
+        <div className="text-center mb-10  ">
           <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-3 sm:mb-4 font-medium ">
             Concerned about
           </p>
-          <h2 className="text-4xl lg:text-5xl font-medium text-gray-900 leading-tight px-4 capitalize">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight px-4 capitalize">
             Unexpected fees? Rising EMIs? Navigating alone?
           </h2>
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 ">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mb-12">
           {/* Zero Commission Card */}
           <div className="bg-white rounded-2xl p-3  hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:border border-gray-100">
             <div className="flex items-center gap-4 sm:gap-5 flex-col">

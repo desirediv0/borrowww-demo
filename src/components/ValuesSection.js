@@ -90,7 +90,7 @@ export default function ValuesSection() {
               Values
             </motion.p>
             <motion.h2
-              className="text-4xl lg:text-5xl font-medium text-gray-900 leading-tight"
+              className="text-2xl md:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -161,7 +161,7 @@ export default function ValuesSection() {
 
                 {/* Title with subtle animation */}
                 <motion.h3
-                  className="text-2xl font-semibold text-gray-900 mb-4"
+                  className="text-xl md:text-2xl font-semibold text-gray-900 mb-4"
                   initial={{ y: 0 }}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.25, ease: 'easeInOut' }}

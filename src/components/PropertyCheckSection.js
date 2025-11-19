@@ -74,7 +74,7 @@ export default function PropertyCheckSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
         <div className="text-center mb-8 ">
           {/* Main Heading */}
-          <h2 className="text-4xl lg:text-5xl font-medium text-gray-900 leading-tight  mb-4 ">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight  mb-4 ">
             Get a Full Property Check For Free
           </h2>
 

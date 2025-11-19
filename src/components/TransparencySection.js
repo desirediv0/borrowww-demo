@@ -139,10 +139,9 @@ export default function TransparencySection() {
   return (
     <section className="relative overflow-hidden bg-white py-8 sm:py-12 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
-        <div className="text-center mb-8 sm:mb-10 md:mb-12">
-          <h2 className="text-4xl lg:text-5xl font-medium text-gray-900 leading-tight mb-4 text-balance capitalize">
-            Complete transparency with <br />
-            <span>round-the-clock support</span>
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight mb-4 text-balance capitalize">
+            Always transparent, always available
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-2">
             Premier Penny keeps you informed every step of the way - your dream home journey stays
@@ -244,17 +243,17 @@ export default function TransparencySection() {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 sm:p-3 shadow-lg hover:bg-gray-50 transition-all duration-300 z-20 hidden lg:flex items-center justify-center"
+            className="absolute left-2 sm:left-1 top-1/2 -translate-y-1/2 bg-white rounded-full p-2  shadow-lg hover:bg-gray-50 transition-all duration-300 z-20 hidden lg:flex items-center justify-center"
             aria-label="Previous slide"
           >
-            <FaArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
+            <FaArrowLeft className="w-4 h-4  text-gray-700" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 sm:p-3 shadow-lg hover:bg-gray-50 transition-all duration-300 z-20 hidden lg:flex items-center justify-center"
+            className="absolute right-2 sm:right-1 top-1/2 -translate-y-1/2 bg-white rounded-full p-2  shadow-lg hover:bg-gray-50 transition-all duration-300 z-20 hidden lg:flex items-center justify-center"
             aria-label="Next slide"
           >
-            <FaArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
+            <FaArrowRight className="w-4 h-4  text-gray-700" />
           </button>
         </div>
 
@@ -282,15 +281,15 @@ function MobilePhonePreview({ slide }) {
   return (
     <div className="relative w-full max-w-[240px] sm:max-w-[280px] lg:max-w-[300px] mx-auto">
       {/* Phone Frame */}
-      <div className="bg-black rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 shadow-2xl">
+      <div className="bg-black rounded-3xl p-1.5 sm:p-2 shadow-2xl">
         {/* Phone Screen */}
-        <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden aspect-[9/19.5] flex flex-col">
+        <div className="bg-white rounded-[1.5rem] sm:rounded-[1.5rem] overflow-hidden aspect-[9/19.5] flex flex-col">
           {/* Status Bar */}
           <div className="bg-gray-800 text-white text-xs px-3 py-1 sm:py-1.5 flex justify-between items-center flex-shrink-0">
-            <span>9:41</span>
+            <span>{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
             <div className="flex gap-1">
-              <div className="w-3 h-1.5 border border-white rounded-sm"></div>
-              <div className="w-5 h-2.5 border-2 border-white rounded-sm"></div>
+              <div className="w-3 h-1.5 border border-white rounded-full"></div>
+              <div className="w-5 h-2.5 border-2 border-white rounded-full"></div>
             </div>
           </div>
 
