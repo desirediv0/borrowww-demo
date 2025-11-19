@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-12 pb-8 sm:pt-16 sm:pb-12 lg:pt-20 lg:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-6 sm:space-y-8 lg:space-y-10 order-2 lg:order-1">
+          <div className="space-y-6 sm:space-y-8 lg:space-y-10 ">
             <div>
               <p className="font-medium text-xs sm:text-sm tracking-wider uppercase mb-3 sm:mb-4 text-[var(--primary-blue)]">
                 Fast APPROVAL!
@@ -74,7 +74,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Content */}
-          <div className="relative order-1 lg:order-2 lg:mt-0">
+          <div className="relative  lg:mt-0">
             <div className="grid grid-cols-2 gap-0 max-w-md mx-auto lg:max-w-none">
               {/* Top Left Image */}
               <div className="relative aspect-square overflow-hidden rounded-tl-2xl">

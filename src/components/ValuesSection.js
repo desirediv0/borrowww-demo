@@ -70,7 +70,7 @@ export default function ValuesSection() {
   ];
 
   return (
-    <section id="about" className="py-12 bg-white">
+    <section id="about" className="py-12 bg-white overflow-x-hidden">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-24">
         {/* Section Header */}
         <div className="grid lg:grid-cols-2 gap-12 mb-16">

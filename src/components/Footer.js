@@ -57,11 +57,11 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="col-span-2 flex flex-col gap-4">
             <Link href="/">
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-1">
                 <Image
-                  src={logo}
+                  src={'/newlogo.png'}
                   alt="Premier Penny Logo"
-                  width={200}
+                  width={100}
                   height={40}
                   className="rounded-lg p-1"
                 />

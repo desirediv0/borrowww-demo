@@ -19,7 +19,7 @@ export default function ConcernsSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-14 ">
+    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-12 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Question Section */}
         <div className="text-center mb-10  ">
@@ -102,9 +102,6 @@ export default function ConcernsSection() {
           </button>
         </div>
       </div>
-      {/* <h1
-        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-800 text-sm sm:text-base md:text-lg font-semibold"
-      >Home Loans from 7.35%* Only with Premier Penny</h1> */}
     </section>
   );
 }

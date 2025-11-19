@@ -11,8 +11,11 @@ import {
   FaWhatsapp,
 } from 'react-icons/fa';
 
+import { useRouter } from 'next/navigation';
+
 export default function TransparencySection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const router = useRouter();
 
   const slides = [
     {
@@ -137,7 +140,7 @@ export default function TransparencySection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white py-8 sm:py-12 ">
+    <section className="relative overflow-hidden bg-white py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
         <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight mb-4 text-balance capitalize">
@@ -188,13 +191,18 @@ export default function TransparencySection() {
 
                         {/* Buttons */}
                         <div className="flex flex-col gap-2 w-full max-w-sm mx-auto">
-                          <button className="flex items-center justify-center gap-2 bg-white border-2 border-[var(--primary-blue-dark)] text-[var(--primary-blue-dark)] px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-gray-50 transition-all duration-300 w-full">
-                            <FaPhone className="w-4 h-4 text-pink-500 flex-shrink-0" />
+                          <button
+                            onClick={() => router.push('/contact')}
+                            className="flex items-center justify-center gap-2 bg-white border-2 border-[var(--primary-blue-dark)] text-[var(--primary-blue-dark)] px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-gray-50 transition-all duration-300 w-full"
+                          >
                             <span className="whitespace-nowrap">Contact advisor</span>
                           </button>
-                          <button className="bg-[var(--primary-blue-dark)] text-white px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-[var(--primary-blue)] transition-all duration-300 w-full">
-                            <span>Track application</span>
-                          </button>
+                          <a
+                            href="tel:+919560069525"
+                            className="bg-[var(--primary-blue-dark)] text-white px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-[var(--primary-blue)] transition-all duration-300 w-full"
+                          >
+                            <span>Call Now</span>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -216,13 +224,18 @@ export default function TransparencySection() {
 
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row gap-3 w-full">
-                          <button className="flex items-center justify-center gap-2 bg-white border-2 border-[var(--primary-blue-dark)] text-[var(--primary-blue-dark)] px-4 lg:px-6 py-3 rounded-lg font-semibold text-sm hover:bg-gray-50 transition-all duration-300 whitespace-nowrap">
-                            <FaPhone className="w-4 h-4 text-pink-500 flex-shrink-0" />
+                          <button
+                            onClick={() => router.push('/contact')}
+                            className="flex items-center justify-center gap-2 bg-white border-2 border-[var(--primary-blue-dark)] text-[var(--primary-blue-dark)] px-4 lg:px-6 py-3 rounded-lg font-semibold text-sm hover:bg-gray-50 transition-all duration-300 whitespace-nowrap"
+                          >
                             <span>Contact advisor</span>
                           </button>
-                          <button className="bg-[var(--primary-blue-dark)] text-white px-4 lg:px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[var(--primary-blue)] transition-all duration-300 whitespace-nowrap">
-                            <span>Track application</span>
-                          </button>
+                          <a
+                            href="tel:+919560069525"
+                            className="bg-[var(--primary-blue-dark)] text-white px-4 lg:px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[var(--primary-blue)] transition-all duration-300 whitespace-nowrap"
+                          >
+                            <span>Call Now</span>
+                          </a>
                         </div>
                       </div>
 

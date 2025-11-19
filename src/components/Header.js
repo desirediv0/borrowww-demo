@@ -62,7 +62,7 @@ export default function Header() {
         transition={{ delay: 0.2 }}
       >
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-24">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/">
               <motion.div
@@ -70,7 +70,7 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
-                <Image src={logo} alt="Premier Penny" width={200} height={80} />
+                <Image src={'/newlogo.png'} alt="Premier Penny" width={70} height={80} />
               </motion.div>
             </Link>
 
