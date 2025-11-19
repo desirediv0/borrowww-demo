@@ -1,8 +1,15 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { FaCheckCircle, FaEnvelope, FaFileAlt, FaPhone, FaWhatsapp } from 'react-icons/fa';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaCheckCircle,
+  FaEnvelope,
+  FaFileAlt,
+  FaPhone,
+  FaWhatsapp,
+} from 'react-icons/fa';
 
 export default function TransparencySection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -154,10 +161,19 @@ export default function TransparencySection() {
                 <div key={slideItem.id} className="min-w-full flex-shrink-0 w-full">
                   {/* Mobile: Stacked layout */}
                   <div className="block lg:hidden">
-                    <div className="flex flex-col gap-6 p-4 sm:p-6 w-full">
-                      {/* Phone Mockup - Centered */}
-                      <div className="flex items-center justify-center w-full">
-                        <MobilePhonePreview slide={slideItem} />
+                    <div className="flex flex-col gap-4 p-4 sm:p-6 w-full">
+                      {/* Phone Mockup - Centered & Cropped to ~60% height */}
+                      <div className="flex items-center justify-center w-full pt-2">
+                        {/* 
+                           Height calculation: 
+                           Full phone height for 240px width is ~520px. 60% is ~312px.
+                           Full phone height for 280px width is ~600px. 60% is ~360px.
+                        */}
+                        <div className="relative w-full max-w-[240px] sm:max-w-[280px] h-[320px] sm:h-[380px] overflow-hidden">
+                          <MobilePhonePreview slide={slideItem} />
+                          {/* Gradient fade at the bottom to show it continues */}
+                          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50 to-transparent z-10 pointer-events-none" />
+                        </div>
                       </div>
 
                       {/* Content */}
@@ -213,7 +229,10 @@ export default function TransparencySection() {
 
                       {/* Right Content - Phone Mockup */}
                       <div className="flex items-center justify-center w-full lg:w-auto">
-                        <MobilePhonePreview slide={slideItem} />
+                        <div className="relative w-full max-w-[280px] lg:max-w-[300px] h-[380px] lg:h-[400px] overflow-hidden">
+                          <MobilePhonePreview slide={slideItem} />
+                          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50 to-transparent z-10 pointer-events-none" />
+                        </div>
                       </div>
                     </div>
                   </div>
