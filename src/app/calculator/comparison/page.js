@@ -94,11 +94,10 @@ export default function LoanComparisonCalculator() {
         emi,
         totalAmount,
         totalInterest,
-        monthlySavings: 0, // Will be calculated for comparison
+        monthlySavings: 0,
       };
     });
 
-    // Calculate monthly savings compared to highest EMI
     const highestEMI = Math.max(...results.map((r) => r.emi));
     const updatedResults = results.map((result) => ({
       ...result,

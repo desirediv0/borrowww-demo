@@ -409,12 +409,6 @@ export default function LoanToolsSection() {
         </div>
 
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
-          {/* Only show WhatsApp button if not EMI tab (though dialog usually shows all) or if user wants it everywhere in dialog. 
-              The prompt said "EMI Calculator me whtapa ka na ho" which likely refers to the main view, but let's apply it here too for consistency if needed. 
-              However, usually dialogs are for "Apply Now" which might imply contact. 
-              I will keep it in dialog as it's a contact method, but definitely remove from main view as requested. 
-              Actually, let's follow the instruction strictly: "EMI Calculator me whtapa ka na ho". 
-              I will hide it in the dialog for EMI tab as well to be safe. */}
           {activeTab !== 'emi' && (
             <button
               onClick={handleWhatsApp}
