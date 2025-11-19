@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         {children}
         {/* </SessionTrackerProvider> */}
         <Footer />
-        {/* <FloatingContactButton /> */}
+        <FloatingContactButton />
         <Toaster position="top-center" />
       </body>
     </html>
