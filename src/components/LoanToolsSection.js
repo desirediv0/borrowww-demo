@@ -27,9 +27,31 @@ export default function LoanToolsSection() {
   // BT Calculator State
   const [btTotalAmount, setBtTotalAmount] = useState(8000000);
   const [btCurrentEMI, setBtCurrentEMI] = useState(74570);
-  const [btStartDate, setBtStartDate] = useState('Apr, 2020');
+
+  // Date Picker State
+  const currentYear = new Date().getFullYear();
+  const [btStartMonth, setBtStartMonth] = useState('Apr');
+  const [btStartYear, setBtStartYear] = useState(2020);
+
   const [btTenure, setBtTenure] = useState(20);
   const [btInterestRate, setBtInterestRate] = useState(7.35);
+
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
+  const years = Array.from({ length: 30 }, (_, i) => currentYear - i);
 
   // Calculate EMI
   const calculateEMI = (principal, rate, tenure) => {
@@ -122,7 +144,7 @@ export default function LoanToolsSection() {
           ? {
               totalAmount: btTotalAmount,
               currentEMI: btCurrentEMI,
-              startDate: btStartDate,
+              startDate: `${btStartMonth}, ${btStartYear}`,
               tenure: btTenure,
               interestRate: btInterestRate,
               newEMI: btNewEMI,
@@ -131,7 +153,6 @@ export default function LoanToolsSection() {
             }
           : null,
     };
-    console.log('Apply Now Data:', data);
     return data;
   };
 
@@ -150,6 +171,14 @@ export default function LoanToolsSection() {
   const handleApplyNow = () => {
     const data = getApplyData();
     setShowDialog(true);
+  };
+
+  const handleWhatsApp = () => {
+    const whatsappNumber = '919560069525';
+    const message = encodeURIComponent(
+      'I’m planning to take a home loan. Kindly share the top deals with me.'
+    );
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
   };
 
   const renderDialogContent = () => {
@@ -380,20 +409,21 @@ export default function LoanToolsSection() {
         </div>
 
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
-          <button
-            onClick={() => {
-              const whatsappNumber = '919560069525';
-              const message = encodeURIComponent(
-                `Hello! I'm interested in ${tabNames[activeTab]}. Please contact me.`
-              );
-              window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-              setShowDialog(false);
-            }}
-            className="flex-1 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl  transition-all duration-300 flex items-center justify-center gap-2"
-          >
-            <FaWhatsapp className="w-5 h-5" />
-            <span>Continue on WhatsApp</span>
-          </button>
+          {/* Only show WhatsApp button if not EMI tab (though dialog usually shows all) or if user wants it everywhere in dialog. 
+              The prompt said "EMI Calculator me whtapa ka na ho" which likely refers to the main view, but let's apply it here too for consistency if needed. 
+              However, usually dialogs are for "Apply Now" which might imply contact. 
+              I will keep it in dialog as it's a contact method, but definitely remove from main view as requested. 
+              Actually, let's follow the instruction strictly: "EMI Calculator me whtapa ka na ho". 
+              I will hide it in the dialog for EMI tab as well to be safe. */}
+          {activeTab !== 'emi' && (
+            <button
+              onClick={handleWhatsApp}
+              className="flex-1 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl  transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              <FaWhatsapp className="w-5 h-5" />
+              <span>Continue on WhatsApp</span>
+            </button>
+          )}
           <button
             onClick={() => {
               window.location.href = `tel:9560069525`;
@@ -412,13 +442,13 @@ export default function LoanToolsSection() {
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-10 lg:mb-12">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight capitalize">
               Tools to Plan Your Home Loan
             </h2>
-            <p className="text-sm  text-gray-600 mt-3">
+            <p className="text-sm text-gray-600 mt-3">
               Calculate your loan details with our smart calculators
             </p>
           </div>
@@ -434,7 +464,7 @@ export default function LoanToolsSection() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-5 sm:px-6 py-3 sm:py-4 rounded-xl font-medium uppercase text-sm  transition-all duration-300 transform ${
+                className={`px-5 sm:px-6 py-3 sm:py-4 rounded-xl font-medium uppercase text-sm transition-all duration-300 transform ${
                   activeTab === tab.id
                     ? 'bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] text-white shadow-lg scale-105'
                     : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-[var(--primary-blue)] hover:shadow-md'
@@ -449,13 +479,13 @@ export default function LoanToolsSection() {
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               {/* Left Section - Inputs */}
-              <div className="bg-gradient-to-br from-gray-50 to-white p-6 sm:p-8  border-r-0 lg:border-r border-gray-200">
-                <div className="space-y-6">
+              <div className="bg-gradient-to-br from-gray-50 to-white p-6 sm:p-8 border-r-0 lg:border-r border-gray-200">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* EMI Calculator Inputs */}
                   {activeTab === 'emi' && (
                     <>
-                      <div>
-                        <label className="block text-sm  font-medium text-gray-900 mb-3">
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-medium text-gray-900 mb-3">
                           Loan Amount
                         </label>
                         <input
@@ -465,7 +495,7 @@ export default function LoanToolsSection() {
                             const val = e.target.value.replace(/[₹,\s]/g, '');
                             if (!isNaN(val)) setEmiLoanAmount(Number(val) || 0);
                           }}
-                          className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl text-base  focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
+                          className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
                         />
                         <div className="flex flex-wrap gap-2 mt-3">
                           {['50L', '75L', '1Cr', '3Cr', '5Cr'].map((val) => (
@@ -485,8 +515,8 @@ export default function LoanToolsSection() {
                       </div>
                       <div>
                         <div className="flex justify-between items-center mb-3">
-                          <label className="text-sm  font-medium text-gray-900">
-                            Latest Interest Rate (% p.a)
+                          <label className="text-sm font-medium text-gray-900">
+                            Interest Rate (% p.a)
                           </label>
                           <span className="text-lg sm:text-xl font-medium text-[var(--primary-blue-dark)]">
                             {emiInterestRate.toFixed(2)} %
@@ -503,16 +533,13 @@ export default function LoanToolsSection() {
                         />
                         <div className="flex justify-between text-xs text-gray-500 mt-2">
                           <span>5%</span>
-                          <span>10%</span>
-                          <span>15%</span>
-                          <span>20%</span>
                           <span>25%</span>
                         </div>
                       </div>
                       <div>
                         <div className="flex justify-between items-center mb-3">
-                          <label className="text-sm  font-medium text-gray-900">
-                            Total Tenure (Years)
+                          <label className="text-sm font-medium text-gray-900">
+                            Tenure (Years)
                           </label>
                           <span className="text-lg sm:text-xl font-medium text-[var(--primary-blue-dark)]">
                             {emiTenure} years
@@ -529,8 +556,6 @@ export default function LoanToolsSection() {
                         />
                         <div className="flex justify-between text-xs text-gray-500 mt-2">
                           <span>1</span>
-                          <span>10</span>
-                          <span>20</span>
                           <span>30</span>
                         </div>
                       </div>
@@ -540,9 +565,9 @@ export default function LoanToolsSection() {
                   {/* Affordability Calculator Inputs */}
                   {activeTab === 'affordability' && (
                     <>
-                      <div>
-                        <label className="block text-sm  font-medium text-gray-900 mb-3">
-                          What is your monthly income?
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-medium text-gray-900 mb-3">
+                          Monthly Income
                         </label>
                         <div className="flex gap-2">
                           <input
@@ -552,18 +577,18 @@ export default function LoanToolsSection() {
                               const val = e.target.value.replace(/[₹,\s]/g, '');
                               if (!isNaN(val)) setAffMonthlyIncome(Number(val) || 0);
                             }}
-                            className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-xl text-base  focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
+                            className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
                           />
-                          <div className="px-4 py-2 bg-gray-100 rounded-xl text-sm  text-gray-700 flex items-center min-w-[60px] justify-center">
+                          <div className="px-4 py-2 bg-gray-100 rounded-xl text-xs text-gray-700 flex items-center min-w-[40px] justify-center">
                             {affMonthlyIncome >= 1000
                               ? `${(affMonthlyIncome / 1000).toFixed(0)} K`
                               : `${affMonthlyIncome}`}
                           </div>
                         </div>
                       </div>
-                      <div>
-                        <label className="block text-sm  font-medium text-gray-900 mb-3">
-                          Are you paying any EMIs currently? If so, how much?
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-medium text-gray-900 mb-3">
+                          Current EMI
                         </label>
                         <input
                           type="text"
@@ -572,13 +597,13 @@ export default function LoanToolsSection() {
                             const val = e.target.value.replace(/[₹,\s]/g, '');
                             if (!isNaN(val)) setAffCurrentEMI(Number(val) || 0);
                           }}
-                          className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl text-base  focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
+                          className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
                         />
                       </div>
                       <div>
                         <div className="flex justify-between items-center mb-3">
-                          <label className="text-sm  font-medium text-gray-900">
-                            Latest Interest Rate (% p.a)
+                          <label className="text-sm font-medium text-gray-900">
+                            Interest Rate (% p.a)
                           </label>
                           <span className="text-lg sm:text-xl font-medium text-[var(--primary-blue-dark)]">
                             {affInterestRate.toFixed(2)} %
@@ -595,16 +620,13 @@ export default function LoanToolsSection() {
                         />
                         <div className="flex justify-between text-xs text-gray-500 mt-2">
                           <span>5%</span>
-                          <span>10%</span>
-                          <span>15%</span>
-                          <span>20%</span>
                           <span>25%</span>
                         </div>
                       </div>
                       <div>
                         <div className="flex justify-between items-center mb-3">
-                          <label className="text-sm  font-medium text-gray-900">
-                            Total Tenure (Years)
+                          <label className="text-sm font-medium text-gray-900">
+                            Tenure (Years)
                           </label>
                           <span className="text-lg sm:text-xl font-medium text-[var(--primary-blue-dark)]">
                             {affTenure} years
@@ -621,8 +643,6 @@ export default function LoanToolsSection() {
                         />
                         <div className="flex justify-between text-xs text-gray-500 mt-2">
                           <span>1</span>
-                          <span>10</span>
-                          <span>20</span>
                           <span>30</span>
                         </div>
                       </div>
@@ -632,11 +652,11 @@ export default function LoanToolsSection() {
                   {/* Down Payment Calculator Inputs */}
                   {activeTab === 'downPayment' && (
                     <>
-                      <div>
-                        <label className="block text-sm  font-medium text-gray-900 mb-3">
-                          What is the estimated property value?
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-medium text-gray-900 mb-3">
+                          Property Value
                         </label>
-                        <div className="flex gap-2">
+                        <div className="flex gap-1">
                           <input
                             type="text"
                             value={`₹${formatNumber(dpPropertyValue)}`}
@@ -644,9 +664,9 @@ export default function LoanToolsSection() {
                               const val = e.target.value.replace(/[₹,\s]/g, '');
                               if (!isNaN(val)) setDpPropertyValue(Number(val) || 0);
                             }}
-                            className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-xl text-base  focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
+                            className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
                           />
-                          <div className="px-4 py-2 bg-gray-100 rounded-xl text-sm  text-gray-700 flex items-center min-w-[60px] justify-center">
+                          <div className="px-2 py-2 bg-gray-100 rounded-xl text-xs text-gray-700 flex items-center min-w-[55px] justify-center">
                             {dpPropertyValue >= 100000
                               ? `${(dpPropertyValue / 100000).toFixed(0)} L`
                               : `${dpPropertyValue}`}
@@ -654,9 +674,9 @@ export default function LoanToolsSection() {
                         </div>
                       </div>
                       <div>
-                        <div className="flex justify-between items-center mb-3">
-                          <label className="text-sm  font-medium text-gray-900">
-                            Latest Interest Rate (% p.a)
+                        <div className="flex justify-between items-center mb-3 ">
+                          <label className="text-sm font-medium text-gray-900">
+                            Interest Rate (% p.a)
                           </label>
                           <span className="text-lg sm:text-xl font-medium text-[var(--primary-blue-dark)]">
                             {dpInterestRate.toFixed(2)} %
@@ -673,15 +693,12 @@ export default function LoanToolsSection() {
                         />
                         <div className="flex justify-between text-xs text-gray-500 mt-2">
                           <span>5%</span>
-                          <span>10%</span>
-                          <span>15%</span>
-                          <span>20%</span>
                           <span>25%</span>
                         </div>
                       </div>
                       <div>
                         <div className="flex justify-between items-center mb-3">
-                          <label className="text-sm  font-medium text-gray-900">
+                          <label className="text-sm font-medium text-gray-900">
                             Processing Fee (%)
                           </label>
                           <span className="text-lg sm:text-xl font-medium text-[var(--primary-blue-dark)]">
@@ -699,17 +716,13 @@ export default function LoanToolsSection() {
                         />
                         <div className="flex justify-between text-xs text-gray-500 mt-2">
                           <span>0%</span>
-                          <span>1%</span>
-                          <span>2%</span>
-                          <span>3%</span>
-                          <span>4%</span>
                           <span>5%</span>
                         </div>
                       </div>
-                      <div>
+                      <div className="md:col-span-2">
                         <div className="flex justify-between items-center mb-3">
-                          <label className="text-sm  font-medium text-gray-900">
-                            Total Tenure (Years)
+                          <label className="text-sm font-medium text-gray-900">
+                            Tenure (Years)
                           </label>
                           <span className="text-lg sm:text-xl font-medium text-[var(--primary-blue-dark)]">
                             {dpTenure} years
@@ -726,8 +739,6 @@ export default function LoanToolsSection() {
                         />
                         <div className="flex justify-between text-xs text-gray-500 mt-2">
                           <span>1</span>
-                          <span>10</span>
-                          <span>20</span>
                           <span>30</span>
                         </div>
                       </div>
@@ -738,7 +749,7 @@ export default function LoanToolsSection() {
                   {activeTab === 'bt' && (
                     <>
                       <div>
-                        <label className="block text-sm  font-medium text-gray-900 mb-3">
+                        <label className="block text-sm font-medium text-gray-900 mb-3">
                           Total Amount
                         </label>
                         <input
@@ -748,11 +759,11 @@ export default function LoanToolsSection() {
                             const val = e.target.value.replace(/[₹,\s]/g, '');
                             if (!isNaN(val)) setBtTotalAmount(Number(val) || 0);
                           }}
-                          className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl text-base  focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
+                          className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm  font-medium text-gray-900 mb-3">
+                        <label className="block text-sm font-medium text-gray-900 mb-3">
                           Current EMI
                         </label>
                         <input
@@ -762,24 +773,66 @@ export default function LoanToolsSection() {
                             const val = e.target.value.replace(/[₹,\s]/g, '');
                             if (!isNaN(val)) setBtCurrentEMI(Number(val) || 0);
                           }}
-                          className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl text-base  focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
+                          className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
                         />
                       </div>
-                      <div>
-                        <label className="block text-sm  font-medium text-gray-900 mb-3">
+
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-medium text-gray-900 mb-3">
                           Starting Mo/Yr
                         </label>
-                        <input
-                          type="text"
-                          value={btStartDate}
-                          onChange={(e) => setBtStartDate(e.target.value)}
-                          className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl text-base  focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent"
-                        />
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="relative">
+                            <select
+                              value={btStartMonth}
+                              onChange={(e) => setBtStartMonth(e.target.value)}
+                              className="w-full appearance-none px-4 py-2 border-2 border-gray-300 rounded-xl text-base bg-white focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent cursor-pointer"
+                            >
+                              {months.map((m) => (
+                                <option key={m} value={m}>
+                                  {m}
+                                </option>
+                              ))}
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                              <svg
+                                className="fill-current h-4 w-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                              >
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="relative">
+                            <select
+                              value={btStartYear}
+                              onChange={(e) => setBtStartYear(Number(e.target.value))}
+                              className="w-full appearance-none px-4 py-2 border-2 border-gray-300 rounded-xl text-base bg-white focus:outline-none focus:ring-2 focus:ring-[var(--primary-blue-dark)] focus:border-transparent cursor-pointer"
+                            >
+                              {years.map((y) => (
+                                <option key={y} value={y}>
+                                  {y}
+                                </option>
+                              ))}
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                              <svg
+                                className="fill-current h-4 w-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                              >
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
                       </div>
+
                       <div>
                         <div className="flex justify-between items-center mb-3">
-                          <label className="text-sm  font-medium text-gray-900">
-                            Total Tenure (Years)
+                          <label className="text-sm font-medium text-gray-900">
+                            Tenure (Years)
                           </label>
                           <span className="text-lg sm:text-xl font-medium text-[var(--primary-blue-dark)]">
                             {btTenure} years
@@ -796,18 +849,13 @@ export default function LoanToolsSection() {
                         />
                         <div className="flex justify-between text-xs text-gray-500 mt-2">
                           <span>1</span>
-                          <span>5</span>
-                          <span>10</span>
-                          <span>15</span>
-                          <span>20</span>
-                          <span>25</span>
                           <span>30</span>
                         </div>
                       </div>
                       <div>
                         <div className="flex justify-between items-center mb-3">
-                          <label className="text-sm  font-medium text-gray-900">
-                            Latest Interest Rate (% p.a)
+                          <label className="text-sm font-medium text-gray-900">
+                            Interest Rate (% p.a)
                           </label>
                           <span className="text-lg sm:text-xl font-medium text-[var(--primary-blue-dark)]">
                             {btInterestRate.toFixed(2)} %
@@ -824,9 +872,6 @@ export default function LoanToolsSection() {
                         />
                         <div className="flex justify-between text-xs text-gray-500 mt-2">
                           <span>5%</span>
-                          <span>10%</span>
-                          <span>15%</span>
-                          <span>20%</span>
                           <span>25%</span>
                         </div>
                       </div>
@@ -836,23 +881,35 @@ export default function LoanToolsSection() {
               </div>
 
               {/* Right Section - Results */}
-              <div className="bg-gradient-to-br from-[var(--primary-blue-dark)] to-[var(--primary-blue)] p-6 sm:p-8  text-white">
-                <div className="space-y-6">
+              <div className="bg-gradient-to-br from-[var(--primary-blue-dark)] to-[var(--primary-blue)] p-6 sm:p-8 text-white flex flex-col justify-between">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* EMI Calculator Results */}
                   {activeTab === 'emi' && (
                     <>
-                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 md:col-span-2">
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm  ">Monthly EMI</span>
+                          <span className="text-sm">Monthly EMI</span>
                         </div>
-                        <div className="text-3xl  font-medium">{formatCurrency(emiMonthly)}</div>
+                        <div className="text-3xl font-medium">{formatCurrency(emiMonthly)}</div>
                       </div>
                       <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                        <div className="flex justify-between items-center">
-                          <span className="text-sm  ">Total Interest</span>
-                          <span className="text-xl sm:text-2xl font-medium">
-                            {formatCurrency(emiTotalInterest)}
-                          </span>
+                        <div className="flex justify-between items-center h-full">
+                          <div>
+                            <span className="text-sm block mb-1">Total Interest</span>
+                            <span className="text-xl font-medium">
+                              {formatCurrency(emiTotalInterest)}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div className="flex justify-between items-center h-full">
+                          <div>
+                            <span className="text-sm block mb-1">Total Amount</span>
+                            <span className="text-xl font-medium">
+                              {formatCurrency(emiTotalAmount)}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </>
@@ -861,30 +918,28 @@ export default function LoanToolsSection() {
                   {/* Affordability Calculator Results */}
                   {activeTab === 'affordability' && (
                     <>
-                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 md:col-span-2">
                         <div className="mb-2">
-                          <span className="text-sm   block mb-2">
+                          <span className="text-sm block mb-2">
                             You can consider properties worth
                           </span>
                         </div>
-                        <div className="text-3xl  font-medium">
+                        <div className="text-3xl font-medium">
                           {formatCurrency(affPropertyWorth)}
                         </div>
                       </div>
                       <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm  ">You are eligible for a max loan of</span>
-                        </div>
-                        <div className="text-xl sm:text-2xl font-medium">
-                          {formatCurrency(affMaxLoan)}
+                        <div className="flex flex-col justify-center h-full">
+                          <span className="text-sm mb-1">Max Loan Amount</span>
+                          <div className="text-xl font-medium">{formatCurrency(affMaxLoan)}</div>
                         </div>
                       </div>
                       <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                        <div className="flex justify-between items-center">
-                          <span className="text-sm  ">Monthly EMI</span>
-                          <span className="text-xl sm:text-2xl font-medium">
+                        <div className="flex flex-col justify-center h-full">
+                          <span className="text-sm mb-1">Monthly EMI</span>
+                          <div className="text-xl font-medium">
                             {formatCurrency(affCalculatedEMI)}
-                          </span>
+                          </div>
                         </div>
                       </div>
                     </>
@@ -893,48 +948,41 @@ export default function LoanToolsSection() {
                   {/* Down Payment Calculator Results */}
                   {activeTab === 'downPayment' && (
                     <>
-                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 md:col-span-2">
                         <div className="mb-2">
-                          <span className="text-sm   block mb-2">Down Payment</span>
+                          <span className="text-sm block mb-2">Down Payment</span>
                         </div>
-                        <div className="text-3xl  font-medium text-red-200">
+                        <div className="text-3xl font-medium text-red-200">
                           {formatCurrency(dpDownPayment)}
                         </div>
-                        <p className="text-xs text-white/80 mt-2">
-                          (As per RBI, Min. 20% down payment needed)
-                        </p>
+                        <p className="text-xs text-white/80 mt-2">(Min. 20% needed)</p>
                       </div>
                       <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm  ">Processing Fee</span>
-                          <span className="text-xl sm:text-2xl font-medium">
+                        <div className="flex flex-col justify-center h-full">
+                          <span className="text-sm mb-1">Processing Fee</span>
+                          <span className="text-xl font-medium">
                             {formatCurrency(dpProcessingFeeAmount)}
                           </span>
                         </div>
-                        <p className="text-xs text-white/80 mt-2">(Waive-off Possible)</p>
                       </div>
-                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 ">
                         <div className="mb-2">
-                          <span className="text-sm   block mb-2">Cash Needed</span>
+                          <span className="text-sm block mb-2">Cash Needed</span>
                         </div>
-                        <div className="text-3xl  font-medium text-red-200">
+                        <div className="text-3xl font-medium text-red-200">
                           {formatCurrency(dpCashNeeded)}
                         </div>
                       </div>
                       <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm  ">Max Loan Amount</span>
-                        </div>
-                        <div className="text-xl sm:text-2xl font-medium">
-                          {formatCurrency(dpMaxLoan)}
+                        <div className="flex flex-col justify-center h-full">
+                          <span className="text-sm mb-1">Max Loan Amount</span>
+                          <div className="text-xl font-medium">{formatCurrency(dpMaxLoan)}</div>
                         </div>
                       </div>
                       <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                        <div className="flex justify-between items-center">
-                          <span className="text-sm  ">Monthly EMI</span>
-                          <span className="text-xl sm:text-2xl font-medium">
-                            {formatCurrency(dpMonthlyEMI)}
-                          </span>
+                        <div className="flex flex-col justify-center h-full">
+                          <span className="text-sm mb-1">Monthly EMI</span>
+                          <div className="text-xl font-medium">{formatCurrency(dpMonthlyEMI)}</div>
                         </div>
                       </div>
                     </>
@@ -943,17 +991,15 @@ export default function LoanToolsSection() {
                   {/* BT Calculator Results */}
                   {activeTab === 'bt' && (
                     <>
-                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 md:col-span-2">
                         <div className="mb-2">
-                          <span className="text-sm   block mb-2">Total Savings Over Tenure</span>
+                          <span className="text-sm block mb-2">Total Savings Over Tenure</span>
                         </div>
-                        <div className="text-3xl  font-medium">
-                          {formatCurrency(btTotalSavings)}
-                        </div>
+                        <div className="text-3xl font-medium">{formatCurrency(btTotalSavings)}</div>
                       </div>
-                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 md:col-span-2">
                         <div className="flex justify-between items-center">
-                          <span className="text-sm  ">Reduced Monthly EMI</span>
+                          <span className="text-sm">Reduced Monthly EMI</span>
                           <span className="text-xl sm:text-2xl font-medium">
                             {formatCurrency(btReducedEMI)}
                           </span>
@@ -961,29 +1007,25 @@ export default function LoanToolsSection() {
                       </div>
                     </>
                   )}
+                </div>
 
-                  {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3 pt-6 mt-auto">
+                  <button
+                    onClick={handleApplyNow}
+                    className="flex-1 bg-white hover:bg-gray-50 text-[var(--primary-blue-dark)] px-6 py-4 rounded-xl font-medium text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
+                  >
+                    Apply Now
+                  </button>
+                  {activeTab !== 'emi' && (
                     <button
-                      onClick={handleApplyNow}
-                      className="flex-1 bg-white hover:bg-gray-50 text-[var(--primary-blue-dark)] px-6 py-4 rounded-xl font-medium text-base  shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
-                    >
-                      Apply Now
-                    </button>
-                    <button
-                      onClick={() => {
-                        const whatsappNumber = '919560069525';
-                        const message = encodeURIComponent(
-                          `Hello! I'm interested in ${activeTab === 'emi' ? 'EMI Calculator' : activeTab === 'affordability' ? 'Affordability Calculator' : activeTab === 'downPayment' ? 'Down Payment Calculator' : 'Balance Transfer Calculator'}`
-                        );
-                        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-                      }}
-                      className="flex-1 bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-xl font-medium text-base  shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2"
+                      onClick={handleWhatsApp}
+                      className="flex-1 bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-xl font-medium text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2"
                     >
                       <FaWhatsapp className="w-5 h-5" />
                       <span>Chat now</span>
                     </button>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>

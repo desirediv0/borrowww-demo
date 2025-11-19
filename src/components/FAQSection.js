@@ -42,8 +42,8 @@ export default function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="py-12 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-12 bg-white overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left Side - Title */}
           <motion.div
@@ -76,7 +76,7 @@ export default function FAQSection() {
 
           {/* Right Side - FAQ Items */}
           <motion.div
-            className="space-y-4 overflow-x-hidden"
+            className="space-y-4"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

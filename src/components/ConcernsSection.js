@@ -84,8 +84,8 @@ export default function ConcernsSection() {
             onClick={handleWhatsApp}
             className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-semibold lg:font-medium text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
           >
-            <div className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-green-500 group-hover:bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg transition-colors duration-300">
-              <FaWhatsapp className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+            <div className="w-8 h-8  bg-green-500 group-hover:bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg transition-colors duration-300">
+              <FaWhatsapp className="w-5 h-5 text-white" />
             </div>
             <span>Chat on WhatsApp</span>
           </button>
@@ -95,8 +95,8 @@ export default function ConcernsSection() {
             onClick={handleCall}
             className="group w-full sm:w-auto sm:flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-blue-dark)] to-[var(--primary-blue)] hover:from-[var(--primary-blue)] hover:to-[var(--primary-blue-dark)] text-white px-4 md:px-6 py-3 md:py-4  rounded-2xl md:font-semibold lg:font-medium text-xs md:text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]"
           >
-            <div className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white group-hover:bg-gray-50 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg transition-colors duration-300">
-              <FaPhone className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary-blue-dark)]" />
+            <div className="w-8 h-8  bg-white group-hover:bg-gray-50 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg transition-colors duration-300">
+              <FaPhone className="w-5 h-5  text-[var(--primary-blue-dark)]" />
             </div>
             <span>Book a Free Call</span>
           </button>

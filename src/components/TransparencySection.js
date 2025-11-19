@@ -286,7 +286,7 @@ function MobilePhonePreview({ slide }) {
         <div className="bg-white rounded-[1.5rem] sm:rounded-[1.5rem] overflow-hidden aspect-[9/19.5] flex flex-col">
           {/* Status Bar */}
           <div className="bg-gray-800 text-white text-xs px-3 py-1 sm:py-1.5 flex justify-between items-center flex-shrink-0">
-            <span>{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+            <span>9:41 AM</span>
             <div className="flex gap-1">
               <div className="w-3 h-1.5 border border-white rounded-full"></div>
               <div className="w-5 h-2.5 border-2 border-white rounded-full"></div>
