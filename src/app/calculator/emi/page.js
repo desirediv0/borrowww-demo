@@ -119,7 +119,7 @@ export default function EMICalculator() {
       </section>
 
       {/* Calculator Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Calculator Form */}
@@ -330,21 +330,23 @@ export default function EMICalculator() {
       </section>
 
       {/* Loan Types */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="text-center mb-8"
           >
-            <h2 className="text-4xl font-medium text-gray-900 mb-6">Popular Loan Types</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
+              Popular Loan Types
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Explore different loan options with their typical interest rates and amounts
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {loanTypes.map((loan, index) => (
               <motion.div
                 key={loan.name}
@@ -356,15 +358,15 @@ export default function EMICalculator() {
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-[var(--primary-blue)]"
+                  className="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 group-hover:border-[var(--primary-blue)]/30 transform hover:-translate-y-2"
                 >
                   <div className="flex items-center gap-3 mb-6">
                     <div
-                      className={`w-12 h-12 bg-gradient-to-br ${loan.color} rounded-2xl flex items-center justify-center shadow-lg`}
+                      className={`w-14 h-14 bg-gradient-to-br ${loan.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}
                     >
                       <loan.icon className="text-white text-xl" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900">{loan.name}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">{loan.name}</h3>
                   </div>
 
                   <div className="space-y-4 mb-6">
@@ -396,30 +398,30 @@ export default function EMICalculator() {
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="text-center mb-8"
           >
-            <h2 className="text-4xl font-medium text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
               Why Choose Our EMI Calculator?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Get accurate calculations and detailed insights for better financial planning
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="text-center bg-white p-6 rounded-3xl shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:border-[var(--primary-blue)]/30"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform">
                 <FaCalculator className="text-white text-2xl" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Accurate Calculations</h3>
@@ -433,9 +435,9 @@ export default function EMICalculator() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="text-center bg-white p-6 rounded-3xl shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:border-[var(--primary-blue)]/30"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform">
                 <FaChartLine className="text-white text-2xl" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Detailed Breakdown</h3>
@@ -449,9 +451,9 @@ export default function EMICalculator() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="text-center bg-white p-6 rounded-3xl shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:border-[var(--primary-blue)]/30"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform">
                 <FaDownload className="text-white text-2xl" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Export Results</h3>
@@ -464,7 +466,7 @@ export default function EMICalculator() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -332,171 +332,278 @@ export default function HomeLoanServicesPage() {
       </section>
 
       {/* HOME LOAN SUMMARY - expanded content + apply flow */}
-      <section className="py-12 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-8 shadow text-left">
-            <h2 className="text-3xl font-medium text-gray-900">
+      <section className="py-12 bg-gradient-to-b from-gray-50 via-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Hero Section */}
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight mb-4">
               Your Home, Your Future—Financed with Ease
             </h2>
-            <p className="mt-3 text-gray-700 max-w-3xl">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Discover flexible home loan options, low interest rates, and expert support—all in one
               place.
             </p>
-
-            <p className="mt-4 text-gray-700 max-w-3xl">
+            <p className="mt-4 text-gray-700 max-w-3xl mx-auto">
               A home loan is a type of secured financing offered based on the value of the property
               you intend to purchase. Whether you&apos;re planning to buy a new home, build one from
               the ground up, or upgrade your current space, a home loan can help you access the
               funds you need. At Premier Penny, we make it easy to discover and choose the ideal
               home loan tailored to your goals.
             </p>
+          </div>
 
-            <div className="mt-6">
-              <h3 className="font-semibold text-gray-900">Home Loan Benefits Made Simple</h3>
-              <ul className="mt-2 text-gray-700 space-y-1 list-inside ml-4">
-                <li>
-                  ✅ Low Interest Rates: Cheaper than most other loans because of long repayment
-                  time.
-                </li>
-                <li>
-                  💰 Tax Savings: Get up to ₹2 lakh off yearly on interest and principal under
-                  Sections 80C &amp; 24.
-                </li>
-                <li>
-                  🔄 Loan Transfer Option: Switch to another bank for better rates and save money.
-                </li>
-                <li>📆 Flexible Tenure: Choose up to 30 years or repay early if eligible.</li>
-              </ul>
-            </div>
-
-            <div className="mt-6">
-              <h3 className="font-semibold text-gray-900">Why Premier Penny</h3>
-              <p className="mt-2 text-gray-700">
-                Owning a home is a major life milestone. At Premier Penny, we’re here to make your
-                home loan journey simple and stress-free. Discover the best loan options and
-                competitive rates with us today!
-              </p>
-            </div>
-
-            <div className="mt-6 flex gap-4">
-              <button className="rounded-xl bg-gradient-to-r from-[#2D3E50] to-[#3A6EA5] px-6 py-3 text-white font-semibold shadow-lg hover:shadow-xl transition-all">
-                Apply Loan
-              </button>
-
-              <a
-                href="#lead-form"
-                className="rounded-xl border border-gray-200 px-6 py-3 text-gray-700"
-              >
-                Get Free Consultation
-              </a>
-            </div>
-
-            <div className="mt-6 grid sm:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-semibold text-gray-900">
-                  Ready Property Loan – Move In, Stress-Free
-                </h3>
-                <p className="mt-2 text-gray-700">
-                  Found your perfect home? We’ll help you move in—fast and easy.
+          {/* Benefits Cards */}
+          <div className="mb-16">
+            <h3 className="text-2xl sm:text-3xl font-medium text-gray-900 text-center mb-8">
+              Home Loan Benefits Made Simple
+            </h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                  <Percent className="h-8 w-8 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Low Interest Rates</h4>
+                <p className="text-gray-600 text-sm">
+                  Cheaper than most other loans because of long repayment time.
                 </p>
-                <ul className="mt-2 text-gray-700 space-y-1">
-                  <li>
-                    • Up to 90% Loan Coverage – Get quick funding for your ready-to-move property.
-                  </li>
-                  <li>• Fast Disbursement – Immediate loan release for faster possession.</li>
-                  <li>• Flexible Tenure – Repay over up to 30 years—your way.</li>
-                  <li>• Interest-Only Option – Pay just the interest in the beginning.</li>
-                </ul>
               </div>
 
-              <div>
-                <h3 className="font-semibold text-gray-900">
-                  Under-Construction Property Loan – Build Your Future Home
-                </h3>
-                <p className="mt-2 text-gray-700">
-                  Buying a home that&apos;s still being built? We’ve got you covered.
+              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                  <IndianRupee className="h-8 w-8 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Tax Savings</h4>
+                <p className="text-gray-600 text-sm">
+                  Get up to ₹2 lakh off yearly on interest and principal under Sections 80C &amp;
+                  24.
                 </p>
-                <ul className="mt-2 text-gray-700 space-y-1">
-                  <li>
-                    • Stage-Wise Loan Disbursement – Funds released as construction progresses.
-                  </li>
-                  <li>• Lower Property Costs – Buy early and save more.</li>
-                  <li>
-                    • Interest-Only EMIs – Pay just the interest during the construction phase.
-                  </li>
-                  <li>• Tax Benefits After Possession – Enjoy savings once you move in.</li>
-                  <li>• Trusted Builders – Choose RERA-approved projects for peace of mind.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <h3 className="font-semibold text-gray-900">
-                Home Loan Balance Transfer – Save More Every Month
-              </h3>
-              <p className="mt-2 text-gray-700">
-                Switch your existing home loan through Premier Penny and enjoy lower EMIs. With
-                attractive interest rates and easy transfer options, you can reduce your monthly
-                payments and free up funds for what truly matters—your family, your future, your
-                dreams.
-              </p>
-              <ul className="mt-2 text-gray-700 space-y-1">
-                <li>• Lower Interest Rates – Cut down your monthly instalments</li>
-                <li>• Easy Transfer Process – Hassle-free and quick</li>
-                <li>• More Savings – Use the extra cash for life’s priorities</li>
-              </ul>
-            </div>
-
-            <div className="mt-6 grid sm:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-semibold text-gray-900">
-                  Plot + Construction Loan – Build Your Way
-                </h3>
-                <p className="mt-2 text-gray-700">
-                  Design your dream home from scratch with our Plot + Construction Loan. It covers
-                  both land purchase and building costs in one easy plan.
-                </p>
-                <ul className="mt-2 text-gray-700 space-y-1">
-                  <li>• 💸 Staged payments as construction progresses</li>
-                  <li>• 🏡 Full freedom to customize your home</li>
-                  <li>• 📅 Ideal if you plan to start building within 2–3 years</li>
-                  <li>• 💰 Tax benefits under Sections 80C &amp; 24B</li>
-                </ul>
               </div>
 
-              <div>
-                <h3 className="font-semibold text-gray-900">Plot Loan</h3>
-                <p className="mt-2 text-gray-700">
-                  Turn your dream home into reality—starting with the perfect plot. With Premier
-                  Penny, you can finance the land you need to build your future.
+              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                  <ArrowRight className="h-8 w-8 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Loan Transfer Option</h4>
+                <p className="text-gray-600 text-sm">
+                  Switch to another bank for better rates and save money.
                 </p>
-                <ul className="mt-2 text-gray-700 space-y-1">
-                  <li>• 💸 Cheapest Interest Rates – Options comparison amongst top banks</li>
-                  <li>• 🛠️ Build When You&apos;re Ready – Up to 3 years to start construction</li>
-                  <li>
-                    • 🤝 Local Support – Our experts guide you through every step of the loan
-                    process
-                  </li>
-                </ul>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                  <CalendarCheck2 className="h-8 w-8 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Flexible Tenure</h4>
+                <p className="text-gray-600 text-sm">
+                  Choose up to 30 years or repay early if eligible.
+                </p>
               </div>
             </div>
+          </div>
 
-            <div className="mt-6">
-              <h3 className="font-semibold text-gray-900">Loan Types We Offer</h3>
-              <div className="mt-2 grid sm:grid-cols-3 gap-4 text-gray-700">
-                <ul className="space-y-1">
-                  <li>Ready-to-Move Home Loans — Quick disbursement, up to 90% financing</li>
-                  <li>Plot + Construction Loans — Covers land and building costs</li>
-                </ul>
-                <ul className="space-y-1">
-                  <li>Under-Construction Property Loans — Interest-only EMIs during build phase</li>
-                  <li>Home Loan Balance Transfer — Switch and save on EMIs</li>
-                </ul>
-                <ul className="space-y-1">
-                  <li>
-                    Why Choose Premier Penny? — Competitive rates, simple docs, expert guidance
+          {/* Loan Type Cards */}
+          <div className="mb-16">
+            <h3 className="text-2xl sm:text-3xl font-medium text-gray-900 text-center mb-8">
+              Choose Your Loan Type
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Ready Property Loan */}
+              <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-blue-200 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Home className="h-7 w-7 text-white" />
+                </div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-3">Ready Property Loan</h4>
+                <p className="text-gray-600 mb-4">Move In, Stress-Free</p>
+                <ul className="space-y-2 text-sm text-gray-700 mb-6">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 mt-1">•</span>
+                    <span>Up to 90% Loan Coverage</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 mt-1">•</span>
+                    <span>Fast Disbursement</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 mt-1">•</span>
+                    <span>Flexible Tenure up to 30 years</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 mt-1">•</span>
+                    <span>Interest-Only Option</span>
                   </li>
                 </ul>
+                <a
+                  href="#lead-form"
+                  className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
+                >
+                  Learn More <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              {/* Under-Construction Property Loan */}
+              <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-green-200 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Building2 className="h-7 w-7 text-white" />
+                </div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                  Under-Construction Property Loan
+                </h4>
+                <p className="text-gray-600 mb-4">Build Your Future Home</p>
+                <ul className="space-y-2 text-sm text-gray-700 mb-6">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 mt-1">•</span>
+                    <span>Stage-Wise Loan Disbursement</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 mt-1">•</span>
+                    <span>Lower Property Costs</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 mt-1">•</span>
+                    <span>Interest-Only EMIs during construction</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 mt-1">•</span>
+                    <span>Tax Benefits After Possession</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 mt-1">•</span>
+                    <span>RERA-approved projects</span>
+                  </li>
+                </ul>
+                <a
+                  href="#lead-form"
+                  className="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all"
+                >
+                  Learn More <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              {/* Balance Transfer */}
+              <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-purple-200 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <ArrowRight className="h-7 w-7 text-white" />
+                </div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                  Home Loan Balance Transfer
+                </h4>
+                <p className="text-gray-600 mb-4">Save More Every Month</p>
+                <ul className="space-y-2 text-sm text-gray-700 mb-6">
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-600 mt-1">•</span>
+                    <span>Lower Interest Rates</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-600 mt-1">•</span>
+                    <span>Easy Transfer Process</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-600 mt-1">•</span>
+                    <span>More Savings for life&apos;s priorities</span>
+                  </li>
+                </ul>
+                <a
+                  href="#lead-form"
+                  className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all"
+                >
+                  Learn More <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              {/* Plot + Construction Loan */}
+              <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-orange-200 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Building2 className="h-7 w-7 text-white" />
+                </div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                  Plot + Construction Loan
+                </h4>
+                <p className="text-gray-600 mb-4">Build Your Way</p>
+                <ul className="space-y-2 text-sm text-gray-700 mb-6">
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600 mt-1">•</span>
+                    <span>Staged payments as construction progresses</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600 mt-1">•</span>
+                    <span>Full freedom to customize your home</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600 mt-1">•</span>
+                    <span>Ideal if you plan to start building within 2–3 years</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600 mt-1">•</span>
+                    <span>Tax benefits under Sections 80C &amp; 24B</span>
+                  </li>
+                </ul>
+                <a
+                  href="#lead-form"
+                  className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all"
+                >
+                  Learn More <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              {/* Plot Loan */}
+              <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-teal-200 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Home className="h-7 w-7 text-white" />
+                </div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-3">Plot Loan</h4>
+                <p className="text-gray-600 mb-4">Start with the Perfect Plot</p>
+                <ul className="space-y-2 text-sm text-gray-700 mb-6">
+                  <li className="flex items-start gap-2">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Cheapest Interest Rates</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Build When You&apos;re Ready – Up to 3 years</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-teal-600 mt-1">•</span>
+                    <span>Local Support throughout the process</span>
+                  </li>
+                </ul>
+                <a
+                  href="#lead-form"
+                  className="inline-flex items-center gap-2 text-teal-600 font-semibold hover:gap-3 transition-all"
+                >
+                  Learn More <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              {/* Why Premier Penny */}
+              <div className="bg-gradient-to-br from-[#2D3E50] to-[#3A6EA5] rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 text-white group">
+                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="h-7 w-7 text-white" />
+                </div>
+                <h4 className="text-xl font-semibold mb-3">Why Premier Penny?</h4>
+                <p className="text-white/90 mb-4">
+                  Owning a home is a major life milestone. At Premier Penny, we&apos;re here to make
+                  your home loan journey simple and stress-free.
+                </p>
+                <ul className="space-y-2 text-sm text-white/90 mb-6">
+                  <li className="flex items-start gap-2">
+                    <span className="text-white mt-1">•</span>
+                    <span>Competitive rates</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-white mt-1">•</span>
+                    <span>Simple documentation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-white mt-1">•</span>
+                    <span>Expert guidance</span>
+                  </li>
+                </ul>
+                <a
+                  href="#lead-form"
+                  className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all"
+                >
+                  Get Started <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
@@ -504,28 +611,31 @@ export default function HomeLoanServicesPage() {
       </section>
 
       {/* FEATURES */}
-      <section className="py-16 bg-white">
+      <section className="py-10 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-gray-900">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-gray-900 mb-4">
               Why Choose Our Services
             </h2>
-            <p className="mt-3 text-gray-600">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               We don&apos;t just compare rates —{' '}
-              <span className="font-semibold">we negotiate the best deals for you</span>.
+              <span className="font-semibold text-gray-900">
+                we negotiate the best deals for you
+              </span>
+              .
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((f) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((f, index) => (
               <div
                 key={f.title}
-                className="rounded-3xl border border-gray-100 bg-white p-6 shadow-lg hover:shadow-xl transition-all group"
+                className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-gray-100 hover:border-[#3A6EA5]/30 group"
               >
-                <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#2D3E50] to-[#3A6EA5] text-white flex items-center justify-center mb-4">
-                  <f.icon className="h-6 w-6" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2D3E50] to-[#3A6EA5] text-white flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <f.icon className="h-7 w-7" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">{f.title}</h3>
-                <p className="mt-2 text-gray-600">{f.desc}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{f.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -533,28 +643,28 @@ export default function HomeLoanServicesPage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-b from-gray-50 via-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-gray-900">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-gray-900 mb-4">
               How It Works
             </h2>
-            <p className="mt-3 text-gray-600">4 simple steps from start to sanction.</p>
+            <p className="text-lg text-gray-600">4 simple steps from start to sanction.</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((s, i) => (
               <div
                 key={s.title}
-                className="relative rounded-3xl border border-gray-100 bg-white p-6 shadow-md"
+                className="relative bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-gray-100 hover:border-[#3A6EA5]/30 group"
               >
-                <div className="absolute -top-3 -left-3 h-8 w-8 rounded-xl bg-[#3A6EA5] text-white flex items-center justify-center text-sm font-medium">
+                <div className="absolute -top-4 -left-4 h-10 w-10 rounded-xl bg-gradient-to-br from-[#2D3E50] to-[#3A6EA5] text-white flex items-center justify-center text-base font-bold shadow-lg group-hover:scale-110 transition-transform">
                   {i + 1}
                 </div>
-                <div className="h-12 w-12 rounded-2xl bg-gray-100 text-[#3A6EA5] flex items-center justify-center mb-4">
-                  <s.icon className="h-6 w-6" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 text-[#3A6EA5] flex items-center justify-center mb-4 group-hover:bg-gradient-to-br group-hover:from-[#3A6EA5] group-hover:to-[#2D3E50] group-hover:text-white transition-all duration-300 shadow-md">
+                  <s.icon className="h-7 w-7" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">{s.title}</h3>
-                <p className="mt-2 text-gray-600">{s.desc}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{s.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -562,7 +672,7 @@ export default function HomeLoanServicesPage() {
       </section>
 
       {/* ELIGIBILITY & DOCUMENTS */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8">
           <div className="rounded-3xl border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-6 shadow">
             <div className="flex items-center gap-3 mb-4">
@@ -600,7 +710,7 @@ export default function HomeLoanServicesPage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-gray-900">
@@ -646,7 +756,7 @@ export default function HomeLoanServicesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-gray-900">
@@ -673,33 +783,27 @@ export default function HomeLoanServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-gradient-to-r from-[#3A6EA5] to-[#3A6EA5] p-8 text-white text-center shadow-2xl">
-            <h3 className="text-3xl font-medium">Ready to Get Started?</h3>
-            <p className="mt-2 text-white/90">
-              Free consultation • Multiple banks • Faster approvals
-            </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="#lead-form"
-                className="rounded-xl bg-white px-8 py-3 font-semibold text-[#3A6EA5] hover:bg-gray-100 transition-all"
-              >
-                Get Loan Offers
-              </Link>
-              <Link
-                href="/contact"
-                className="rounded-xl border-2 border-white px-8 py-3 font-semibold hover:bg-white hover:text-[#3A6EA5] transition-all"
-              >
-                Contact an Expert
-              </Link>
-            </div>
-          </div>
-          <p className="text-center text-xs text-gray-500 mt-3">
-            *We are a loan facilitation service. Sanctions & Terms are at lender&apos;s discretion.
-          </p>
+      <div className="rounded-3xl my-5 bg-gradient-to-r from-[#2D3E50] to-[#3A6EA5] p-8  text-white text-center shadow-2xl max-w-7xl mx-auto">
+        <h3 className="text-2xl sm:text-3xl font-medium mb-4">Ready to Get Started?</h3>
+        <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+          Discover the best loan options and competitive rates with us today! Get personalized
+          offers and expert guidance.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#lead-form"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-3 font-semibold text-[#3A6EA5] hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
+          >
+            Apply for Loan <ArrowRight className="h-4 w-4" />
+          </a>
+          <a
+            href="#lead-form"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white px-8 py-3 font-semibold hover:bg-white hover:text-[#3A6EA5] transition-all"
+          >
+            Get Free Consultation
+          </a>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
