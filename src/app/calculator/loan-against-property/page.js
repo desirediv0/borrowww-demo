@@ -121,23 +121,23 @@ export default function LoanAgainstPropertyCalculator() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-[var(--primary-blue-light)] py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-[var(--primary-blue-light)] py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center"
           >
             <div className="inline-flex items-center px-4 py-2 bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] rounded-full text-sm font-medium mb-6">
               <FaBuilding className="mr-2" />
               Loan Against Property Calculator
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-gray-900 mb-6 tracking-tighter">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium text-gray-900 mb-4 sm:mb-6 tracking-tight">
               Loan Against{' '}
               <span className="text-[var(--primary-blue)] italic tiemposfine">Property</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Calculate your LAP EMI and get funds against your property. Use the loan amount for
               any purpose with competitive rates.
             </p>
@@ -146,24 +146,26 @@ export default function LoanAgainstPropertyCalculator() {
       </section>
 
       {/* Calculator Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12">
             {/* Calculator Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="bg-white p-6 sm:p-8 rounded-3xl shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center shadow-lg">
+              <div className="flex items-center gap-3 mb-6 sm:mb-8">
+                <div className="w-14 h-14 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center shadow-lg">
                   <FaCalculator className="text-white text-xl" />
                 </div>
-                <h2 className="text-2xl font-semibold text-gray-900">Calculate Your LAP</h2>
+                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
+                  Calculate Your LAP
+                </h2>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {/* Property Value */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -175,7 +177,7 @@ export default function LoanAgainstPropertyCalculator() {
                       type="number"
                       value={propertyValue}
                       onChange={(e) => setPropertyValue(Number(e.target.value))}
-                      className="w-full pl-12 pr-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-lg bg-gray-50 focus:bg-white"
+                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-base sm:text-lg bg-gray-50 focus:bg-white"
                       placeholder="Enter property value"
                     />
                   </div>
@@ -207,7 +209,7 @@ export default function LoanAgainstPropertyCalculator() {
                       type="number"
                       value={loanAmount}
                       onChange={(e) => setLoanAmount(Number(e.target.value))}
-                      className="w-full pl-12 pr-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-lg bg-gray-50 focus:bg-white"
+                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-base sm:text-lg bg-gray-50 focus:bg-white"
                       placeholder="Enter loan amount"
                     />
                   </div>
@@ -242,7 +244,7 @@ export default function LoanAgainstPropertyCalculator() {
                       type="number"
                       value={interestRate}
                       onChange={(e) => setInterestRate(Number(e.target.value))}
-                      className="w-full pl-12 pr-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-lg bg-gray-50 focus:bg-white"
+                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-base sm:text-lg bg-gray-50 focus:bg-white"
                       placeholder="Enter interest rate"
                       step="0.1"
                     />
@@ -279,7 +281,7 @@ export default function LoanAgainstPropertyCalculator() {
                           type="number"
                           value={tenureYears}
                           onChange={(e) => setTenureYears(Number(e.target.value))}
-                          className="w-full pl-8 pr-3 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
+                          className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                           placeholder="Years"
                           min="0"
                           max="15"
@@ -311,7 +313,7 @@ export default function LoanAgainstPropertyCalculator() {
                           type="number"
                           value={tenureMonths}
                           onChange={(e) => setTenureMonths(Number(e.target.value))}
-                          className="w-full pl-8 pr-3 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
+                          className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                           placeholder="Months"
                           min="0"
                           max="11"
@@ -350,54 +352,80 @@ export default function LoanAgainstPropertyCalculator() {
               className="space-y-6"
             >
               {/* EMI Result */}
-              <div className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white shadow-2xl">
-                <h3 className="text-2xl font-medium mb-6">Your Monthly EMI</h3>
-                <div className="text-5xl font-medium mb-4">{formatCurrency(emi)}</div>
-                <p className="text-white/90 mb-8 font-medium">
+              <div className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-6 sm:p-8 text-white shadow-2xl">
+                <h3 className="text-xl sm:text-2xl font-medium mb-4 sm:mb-6">Your Monthly EMI</h3>
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-medium mb-3 sm:mb-4">
+                  {formatCurrency(emi)}
+                </div>
+                <p className="text-white/90 mb-6 sm:mb-8 font-medium text-sm sm:text-base">
                   Monthly payment for {tenureYears} years {tenureMonths} months at {interestRate}%
                   interest rate
                 </p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
-                    <div className="text-sm text-white/80 font-medium">Total Amount</div>
-                    <div className="text-lg font-medium">{formatCurrency(totalAmount)}</div>
+                    <div className="text-xs sm:text-sm text-white/80 font-medium mb-1">
+                      Total Amount
+                    </div>
+                    <div className="text-base sm:text-lg font-medium">
+                      {formatCurrency(totalAmount)}
+                    </div>
                   </div>
                   <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
-                    <div className="text-sm text-white/80 font-medium">Total Interest</div>
-                    <div className="text-lg font-medium">{formatCurrency(totalInterest)}</div>
+                    <div className="text-xs sm:text-sm text-white/80 font-medium mb-1">
+                      Total Interest
+                    </div>
+                    <div className="text-base sm:text-lg font-medium">
+                      {formatCurrency(totalInterest)}
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Loan Breakdown */}
-              <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Loan Breakdown</h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center py-4 border-b border-gray-100">
-                    <span className="text-gray-700 font-medium">Property Value</span>
-                    <span className="font-medium text-lg">{formatCurrency(propertyValue)}</span>
+              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300">
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">
+                  Loan Breakdown
+                </h3>
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex justify-between items-center py-3 sm:py-4 border-b border-gray-100">
+                    <span className="text-gray-700 font-medium text-sm sm:text-base">
+                      Property Value
+                    </span>
+                    <span className="font-medium text-base sm:text-lg">
+                      {formatCurrency(propertyValue)}
+                    </span>
                   </div>
-                  <div className="flex justify-between items-center py-4 border-b border-gray-100">
-                    <span className="text-gray-700 font-medium">Loan Amount</span>
-                    <span className="font-medium text-lg text-[var(--primary-blue)]">
+                  <div className="flex justify-between items-center py-3 sm:py-4 border-b border-gray-100">
+                    <span className="text-gray-700 font-medium text-sm sm:text-base">
+                      Loan Amount
+                    </span>
+                    <span className="font-medium text-base sm:text-lg text-[var(--primary-blue)]">
                       {formatCurrency(loanAmount)}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center py-4 border-b border-gray-100">
-                    <span className="text-gray-700 font-medium">Loan to Value Ratio</span>
-                    <span className="font-medium text-lg text-green-600">
+                  <div className="flex justify-between items-center py-3 sm:py-4 border-b border-gray-100">
+                    <span className="text-gray-700 font-medium text-sm sm:text-base">
+                      Loan to Value Ratio
+                    </span>
+                    <span className="font-medium text-base sm:text-lg text-green-600">
                       {((loanAmount / propertyValue) * 100).toFixed(1)}%
                     </span>
                   </div>
-                  <div className="flex justify-between items-center py-4 border-b border-gray-100">
-                    <span className="text-gray-700 font-medium">Interest Amount</span>
-                    <span className="font-medium text-lg text-red-600">
+                  <div className="flex justify-between items-center py-3 sm:py-4 border-b border-gray-100">
+                    <span className="text-gray-700 font-medium text-sm sm:text-base">
+                      Interest Amount
+                    </span>
+                    <span className="font-medium text-base sm:text-lg text-red-600">
                       {formatCurrency(totalInterest)}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center py-4">
-                    <span className="text-gray-700 font-medium">Number of EMIs</span>
-                    <span className="font-medium text-lg">{tenureYears * 12 + tenureMonths}</span>
+                  <div className="flex justify-between items-center py-3 sm:py-4">
+                    <span className="text-gray-700 font-medium text-sm sm:text-base">
+                      Number of EMIs
+                    </span>
+                    <span className="font-medium text-base sm:text-lg">
+                      {tenureYears * 12 + tenureMonths}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -407,21 +435,23 @@ export default function LoanAgainstPropertyCalculator() {
       </section>
 
       {/* Bank Offers */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-4xl font-medium text-gray-900 mb-6">Top Bank Offers</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
+              Top Bank Offers
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Compare LAP offers from leading banks with competitive rates
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {banks.map((bank, index) => (
               <motion.div
                 key={bank.name}
@@ -433,31 +463,41 @@ export default function LoanAgainstPropertyCalculator() {
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-[var(--primary-blue)]"
+                  className="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 group-hover:border-[var(--primary-blue)]/30 transform hover:-translate-y-2"
                 >
                   <div className="flex items-center gap-3 mb-6">
                     <div
-                      className={`w-12 h-12 bg-gradient-to-br ${bank.color} rounded-2xl flex items-center justify-center shadow-lg`}
+                      className={`w-14 h-14 bg-gradient-to-br ${bank.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}
                     >
                       <bank.icon className="text-white text-xl" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900">{bank.name}</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{bank.name}</h3>
                   </div>
 
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium">Interest Rate:</span>
-                      <span className="font-medium text-[var(--primary-blue)] text-lg">
+                      <span className="text-gray-600 font-medium text-sm sm:text-base">
+                        Interest Rate:
+                      </span>
+                      <span className="font-medium text-[var(--primary-blue)] text-base sm:text-lg">
                         {bank.rate}
                       </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium">Processing Fee:</span>
-                      <span className="font-semibold text-gray-900">{bank.processingFee}</span>
+                      <span className="text-gray-600 font-medium text-sm sm:text-base">
+                        Processing Fee:
+                      </span>
+                      <span className="font-semibold text-gray-900 text-sm sm:text-base">
+                        {bank.processingFee}
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium">Max Amount:</span>
-                      <span className="font-semibold text-gray-900">{bank.maxAmount}</span>
+                      <span className="text-gray-600 font-medium text-sm sm:text-base">
+                        Max Amount:
+                      </span>
+                      <span className="font-semibold text-gray-900 text-sm sm:text-base">
+                        {bank.maxAmount}
+                      </span>
                     </div>
                   </div>
 
@@ -465,7 +505,7 @@ export default function LoanAgainstPropertyCalculator() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => (window.location.href = '/calculator/home-loan')}
-                    className="w-full bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base"
                   >
                     Apply Loan
                     <FaArrowRight className="text-sm" />
@@ -478,23 +518,23 @@ export default function LoanAgainstPropertyCalculator() {
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-4xl font-medium text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
               Why Choose Loan Against Property?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Get the best LAP deals with competitive rates and flexible terms
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -506,13 +546,17 @@ export default function LoanAgainstPropertyCalculator() {
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-[var(--primary-blue)] text-center"
+                  className="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 group-hover:border-[var(--primary-blue)]/30 text-center transform hover:-translate-y-2"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform">
                     <feature.icon className="text-white text-2xl" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                    {feature.description}
+                  </p>
                 </motion.div>
               </motion.div>
             ))}
@@ -521,16 +565,18 @@ export default function LoanAgainstPropertyCalculator() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white text-center shadow-2xl"
+            className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-6 sm:p-8 text-white text-center shadow-2xl"
           >
-            <h3 className="text-3xl font-medium mb-4">Ready to Get Funds Against Your Property?</h3>
-            <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl font-medium mb-4">
+              Ready to Get Funds Against Your Property?
+            </h3>
+            <p className="text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
               Get personalized LAP offers from top banks. Our experts will help you find the best
               deal with competitive rates.
             </p>
@@ -539,7 +585,7 @@ export default function LoanAgainstPropertyCalculator() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => (window.location.href = '/calculator/home-loan')}
-                className="bg-white text-[var(--primary-blue)] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 shadow-lg"
+                className="bg-white text-[var(--primary-blue)] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 shadow-lg text-sm sm:text-base"
               >
                 Apply Loan
               </motion.button>
@@ -547,7 +593,7 @@ export default function LoanAgainstPropertyCalculator() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => (window.location.href = '/contact')}
-                className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[var(--primary-blue)] transition-all duration-200"
+                className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-white hover:text-[var(--primary-blue)] transition-all duration-200 text-sm sm:text-base"
               >
                 Contact an Expert
               </motion.button>

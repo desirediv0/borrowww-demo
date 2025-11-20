@@ -123,23 +123,23 @@ export default function BalanceTransferCalculator() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-[var(--primary-blue-light)] py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-[var(--primary-blue-light)] py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center"
           >
             <div className="inline-flex items-center px-4 py-2 bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] rounded-full text-sm font-medium mb-6">
               <FaCreditCard className="mr-2" />
               Balance Transfer Calculator
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-gray-900 mb-6 tracking-tighter">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium text-gray-900 mb-4 sm:mb-6 tracking-tight">
               Balance{' '}
               <span className="text-[var(--primary-blue)] italic tiemposfine">Transfer</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Compare your current loan with balance transfer options and see how much you can save
               monthly and overall
             </p>
@@ -148,207 +148,221 @@ export default function BalanceTransferCalculator() {
       </section>
 
       {/* Calculator Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-8 items-start">
-            {/* Current Loan */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg">
-                  <FaTimesCircle className="text-white text-xl" />
+          {/* Mobile: Stack vertically, Desktop: Side by side with arrow */}
+          <div className="space-y-8 lg:space-y-0">
+            {/* Top Row: Current Loan and New Loan */}
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+              {/* Current Loan */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="bg-white p-6 sm:p-8 rounded-3xl shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    <FaTimesCircle className="text-white text-xl" />
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">Current Loan</h2>
                 </div>
-                <h2 className="text-2xl font-semibold text-gray-900">Current Loan</h2>
-              </div>
 
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Outstanding Amount
-                  </label>
-                  <div className="relative">
-                    <FaRupeeSign className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="number"
-                      value={currentLoan.amount}
-                      onChange={(e) =>
-                        setCurrentLoan((prev) => ({ ...prev, amount: Number(e.target.value) }))
-                      }
-                      className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                    />
+                <div className="space-y-5">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Outstanding Amount
+                    </label>
+                    <div className="relative">
+                      <FaRupeeSign className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="number"
+                        value={currentLoan.amount}
+                        onChange={(e) =>
+                          setCurrentLoan((prev) => ({ ...prev, amount: Number(e.target.value) }))
+                        }
+                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Interest Rate (%)
+                    </label>
+                    <div className="relative">
+                      <FaPercentage className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="number"
+                        value={currentLoan.rate}
+                        onChange={(e) =>
+                          setCurrentLoan((prev) => ({ ...prev, rate: Number(e.target.value) }))
+                        }
+                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                        step="0.1"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Remaining Tenure (Years)
+                    </label>
+                    <div className="relative">
+                      <FaCalendarAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="number"
+                        value={currentLoan.tenure}
+                        onChange={(e) =>
+                          setCurrentLoan((prev) => ({ ...prev, tenure: Number(e.target.value) }))
+                        }
+                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-5 sm:p-6 border-2 border-red-200">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-700 font-medium text-sm sm:text-base">
+                          Monthly EMI:
+                        </span>
+                        <span className="text-lg sm:text-xl font-semibold text-red-600">
+                          {formatCurrency(currentLoan.emi)}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-700 font-medium text-sm sm:text-base">
+                          Total Interest:
+                        </span>
+                        <span className="text-lg sm:text-xl font-semibold text-red-600">
+                          {formatCurrency(currentLoan.totalInterest)}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              </motion.div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Interest Rate (%)
-                  </label>
-                  <div className="relative">
-                    <FaPercentage className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              {/* Transfer Arrow - Mobile: Between cards, Desktop: Hidden (shown separately) */}
+              <div className="flex items-center justify-center lg:hidden my-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-full flex items-center justify-center shadow-xl">
+                  <FaExchangeAlt className="text-white text-2xl" />
+                </div>
+              </div>
+
+              {/* New Loan */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="bg-white p-6 sm:p-8 rounded-3xl shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    <FaCheckCircle className="text-white text-xl" />
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">New Loan</h2>
+                </div>
+
+                <div className="space-y-5">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Transfer Amount
+                    </label>
+                    <div className="relative">
+                      <FaRupeeSign className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="number"
+                        value={newLoan.amount}
+                        onChange={(e) =>
+                          setNewLoan((prev) => ({ ...prev, amount: Number(e.target.value) }))
+                        }
+                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      New Interest Rate (%)
+                    </label>
+                    <div className="relative">
+                      <FaPercentage className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="number"
+                        value={newLoan.rate}
+                        onChange={(e) =>
+                          setNewLoan((prev) => ({ ...prev, rate: Number(e.target.value) }))
+                        }
+                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                        step="0.1"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      New Tenure (Years)
+                    </label>
+                    <div className="relative">
+                      <FaCalendarAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="number"
+                        value={newLoan.tenure}
+                        onChange={(e) =>
+                          setNewLoan((prev) => ({ ...prev, tenure: Number(e.target.value) }))
+                        }
+                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Transfer Fee (%)
+                    </label>
                     <input
                       type="number"
-                      value={currentLoan.rate}
+                      value={newLoan.transferFee}
                       onChange={(e) =>
-                        setCurrentLoan((prev) => ({ ...prev, rate: Number(e.target.value) }))
+                        setNewLoan((prev) => ({ ...prev, transferFee: Number(e.target.value) }))
                       }
-                      className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
                       step="0.1"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Remaining Tenure (Years)
-                  </label>
-                  <div className="relative">
-                    <FaCalendarAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="number"
-                      value={currentLoan.tenure}
-                      onChange={(e) =>
-                        setCurrentLoan((prev) => ({ ...prev, tenure: Number(e.target.value) }))
-                      }
-                      className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                    />
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6 border border-red-200">
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700 font-medium">Monthly EMI:</span>
-                      <span className="text-xl font-medium text-red-600">
-                        {formatCurrency(currentLoan.emi)}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700 font-medium">Total Interest:</span>
-                      <span className="text-xl font-medium text-red-600">
-                        {formatCurrency(currentLoan.totalInterest)}
-                      </span>
+                  <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-5 sm:p-6 border-2 border-green-200">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-700 font-medium text-sm sm:text-base">
+                          Monthly EMI:
+                        </span>
+                        <span className="text-lg sm:text-xl font-semibold text-green-600">
+                          {formatCurrency(newLoan.emi)}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-700 font-medium text-sm sm:text-base">
+                          Total Interest:
+                        </span>
+                        <span className="text-lg sm:text-xl font-semibold text-green-600">
+                          {formatCurrency(newLoan.totalInterest)}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
 
-            {/* Transfer Arrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex items-center justify-center lg:mt-20"
-            >
-              <div className="w-20 h-20 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-full flex items-center justify-center shadow-xl">
+            {/* Desktop: Transfer Arrow in center */}
+            <div className="hidden lg:flex items-center justify-center -my-8">
+              <div className="w-20 h-20 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-full flex items-center justify-center shadow-xl z-10">
                 <FaExchangeAlt className="text-white text-3xl" />
               </div>
-            </motion.div>
-
-            {/* New Loan */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg">
-                  <FaCheckCircle className="text-white text-xl" />
-                </div>
-                <h2 className="text-2xl font-semibold text-gray-900">New Loan</h2>
-              </div>
-
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Transfer Amount
-                  </label>
-                  <div className="relative">
-                    <FaRupeeSign className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="number"
-                      value={newLoan.amount}
-                      onChange={(e) =>
-                        setNewLoan((prev) => ({ ...prev, amount: Number(e.target.value) }))
-                      }
-                      className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    New Interest Rate (%)
-                  </label>
-                  <div className="relative">
-                    <FaPercentage className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="number"
-                      value={newLoan.rate}
-                      onChange={(e) =>
-                        setNewLoan((prev) => ({ ...prev, rate: Number(e.target.value) }))
-                      }
-                      className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                      step="0.1"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    New Tenure (Years)
-                  </label>
-                  <div className="relative">
-                    <FaCalendarAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="number"
-                      value={newLoan.tenure}
-                      onChange={(e) =>
-                        setNewLoan((prev) => ({ ...prev, tenure: Number(e.target.value) }))
-                      }
-                      className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Transfer Fee (%)
-                  </label>
-                  <input
-                    type="number"
-                    value={newLoan.transferFee}
-                    onChange={(e) =>
-                      setNewLoan((prev) => ({ ...prev, transferFee: Number(e.target.value) }))
-                    }
-                    className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                    step="0.1"
-                  />
-                </div>
-
-                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 border border-green-200">
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700 font-medium">Monthly EMI:</span>
-                      <span className="text-xl font-medium text-green-600">
-                        {formatCurrency(newLoan.emi)}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700 font-medium">Total Interest:</span>
-                      <span className="text-xl font-medium text-green-600">
-                        {formatCurrency(newLoan.totalInterest)}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Savings Summary */}
@@ -356,21 +370,33 @@ export default function BalanceTransferCalculator() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-16 bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white shadow-2xl"
+            className="mt-12 bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-6 sm:p-8 text-white shadow-2xl"
           >
-            <h3 className="text-3xl font-medium mb-8 text-center">Your Savings Summary</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="text-4xl font-medium mb-2">{formatCurrency(savings.monthly)}</div>
-                <div className="text-white/90 font-medium">Monthly Savings</div>
+            <h3 className="text-2xl sm:text-3xl font-medium mb-6 sm:mb-8 text-center">
+              Your Savings Summary
+            </h3>
+            <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              <div className="text-center bg-white/10 rounded-2xl p-5 sm:p-6 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2">
+                  {formatCurrency(savings.monthly)}
+                </div>
+                <div className="text-white/90 font-medium text-sm sm:text-base">
+                  Monthly Savings
+                </div>
               </div>
-              <div className="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="text-4xl font-medium mb-2">{formatCurrency(savings.total)}</div>
-                <div className="text-white/90 font-medium">Total Savings</div>
+              <div className="text-center bg-white/10 rounded-2xl p-5 sm:p-6 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2">
+                  {formatCurrency(savings.total)}
+                </div>
+                <div className="text-white/90 font-medium text-sm sm:text-base">Total Savings</div>
               </div>
-              <div className="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="text-4xl font-medium mb-2">{savings.percentage.toFixed(1)}%</div>
-                <div className="text-white/90 font-medium">Interest Savings</div>
+              <div className="text-center bg-white/10 rounded-2xl p-5 sm:p-6 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2">
+                  {savings.percentage.toFixed(1)}%
+                </div>
+                <div className="text-white/90 font-medium text-sm sm:text-base">
+                  Interest Savings
+                </div>
               </div>
             </div>
           </motion.div>
@@ -378,21 +404,23 @@ export default function BalanceTransferCalculator() {
       </section>
 
       {/* Bank Offers */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-4xl font-medium text-gray-900 mb-6">Top Bank Offers</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
+              Top Bank Offers
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Compare balance transfer offers from leading banks with competitive rates
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {banks.map((bank, index) => (
               <motion.div
                 key={bank.name}
@@ -404,29 +432,39 @@ export default function BalanceTransferCalculator() {
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-[var(--primary-blue)]"
+                  className="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 group-hover:border-[var(--primary-blue)]/30 transform hover:-translate-y-2"
                 >
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center shadow-lg">
+                    <div className="w-14 h-14 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                       <FaCreditCard className="text-white text-xl" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900">{bank.name}</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{bank.name}</h3>
                   </div>
 
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium">Interest Rate:</span>
-                      <span className="font-medium text-[var(--primary-blue)] text-lg">
+                      <span className="text-gray-600 font-medium text-sm sm:text-base">
+                        Interest Rate:
+                      </span>
+                      <span className="font-medium text-[var(--primary-blue)] text-base sm:text-lg">
                         {bank.rate}
                       </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium">Transfer Fee:</span>
-                      <span className="font-semibold text-gray-900">{bank.fee}</span>
+                      <span className="text-gray-600 font-medium text-sm sm:text-base">
+                        Transfer Fee:
+                      </span>
+                      <span className="font-semibold text-gray-900 text-sm sm:text-base">
+                        {bank.fee}
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium">Max Amount:</span>
-                      <span className="font-semibold text-gray-900">{bank.maxAmount}</span>
+                      <span className="text-gray-600 font-medium text-sm sm:text-base">
+                        Max Amount:
+                      </span>
+                      <span className="font-semibold text-gray-900 text-sm sm:text-base">
+                        {bank.maxAmount}
+                      </span>
                     </div>
                   </div>
 
@@ -434,7 +472,7 @@ export default function BalanceTransferCalculator() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => (window.location.href = '/calculator/home-loan')}
-                    className="w-full bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base"
                   >
                     Apply Loan
                     <FaArrowRight className="text-sm" />
@@ -450,10 +488,10 @@ export default function BalanceTransferCalculator() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="mt-16 bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white text-center"
+            className="mt-12 bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-6 sm:p-8 text-white text-center shadow-2xl"
           >
-            <h3 className="text-3xl font-medium mb-4">Ready to Save on Your Loan?</h3>
-            <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl font-medium mb-4">Ready to Save on Your Loan?</h3>
+            <p className="text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
               Get personalized balance transfer offers from top banks. Our experts will help you
               find the best deal.
             </p>
@@ -461,14 +499,14 @@ export default function BalanceTransferCalculator() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-[var(--primary-blue)] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 shadow-lg"
+                className="bg-white text-[var(--primary-blue)] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 shadow-lg text-sm sm:text-base"
               >
                 Get Free Consultation
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[var(--primary-blue)] transition-all duration-200"
+                className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-white hover:text-[var(--primary-blue)] transition-all duration-200 text-sm sm:text-base"
               >
                 Compare More Banks
               </motion.button>
