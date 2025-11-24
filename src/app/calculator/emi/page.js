@@ -70,6 +70,13 @@ export default function EMICalculator() {
       color: 'from-[#2D3E50] to-[#2D3E50]',
     },
     {
+      name: 'Loan Against Property',
+      rate: '9.00% - 15.00%',
+      amount: '₹1L - ₹50L',
+      icon: FaCar,
+      color: 'from-orange-500 to-orange-600',
+    },
+    {
       name: 'Personal Loan',
       rate: '10.99% - 24.99%',
       amount: '₹50K - ₹25L',
@@ -82,13 +89,6 @@ export default function EMICalculator() {
       amount: '₹1L - ₹50L',
       icon: FaBuilding,
       color: 'from-purple-500 to-purple-600',
-    },
-    {
-      name: 'Loan Against Property',
-      rate: '9.00% - 15.00%',
-      amount: '₹1L - ₹50L',
-      icon: FaCar,
-      color: 'from-orange-500 to-orange-600',
     },
   ];
 
