@@ -35,10 +35,9 @@ export default function Footer() {
       { name: 'Status', href: '#' },
     ],
     Legal: [
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'Terms of Service', href: '#' },
-      { name: 'Security', href: '#' },
-      { name: 'Compliance', href: '#' },
+      { name: 'Privacy Policy', href: '/privacy-policy' },
+      { name: 'Terms of Service', href: '/terms-of-service' },
+      { name: 'RBI Compliance', href: '/rbi-compliance' },
     ],
   };
 
@@ -151,27 +150,27 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-6 text-sm">
-            <motion.a
-              href="#"
+            <Link
+              href="/privacy-policy"
               className="text-gray-500 hover:text-[#396A9F] transition-colors duration-200 font-medium"
               whileHover={{ y: -2 }}
             >
               Privacy Policy
-            </motion.a>
-            <motion.a
-              href="#"
+            </Link>
+            <Link
+              href="/terms-of-service"
               className="text-gray-500 hover:text-[#396A9F] transition-colors duration-200 font-medium"
               whileHover={{ y: -2 }}
             >
               Terms of Service
-            </motion.a>
-            <motion.a
-              href="#"
+            </Link>
+            <Link
+              href="/rbi-compliance"
               className="text-gray-500 hover:text-[#396A9F] transition-colors duration-200 font-medium"
               whileHover={{ y: -2 }}
             >
               RBI Compliance
-            </motion.a>
+            </Link>
           </div>
         </motion.div>
       </div>
