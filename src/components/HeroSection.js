@@ -44,16 +44,15 @@ export default function HeroSection() {
                   Apply for Home Loan
                 </button>
               </Link>
+              <Link href="/calculator/loan-against-property">
+                <button className="text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl md:font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
+                  Loan Against Property
+                </button>
+              </Link>
 
               <Link href="/calculator/balance-transfer">
                 <button className="text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl md:font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
                   Balance Transfer
-                </button>
-              </Link>
-
-              <Link href="/calculator/loan-against-property">
-                <button className="text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl md:font-semibold text-sm sm:text-base hover:bg-[var(--primary-blue)] transition-all duration-300 shadow-lg hover:shadow-xl bg-[var(--primary-blue-dark)] whitespace-nowrap">
-                  Loan Against Property
                 </button>
               </Link>
             </div>
@@ -88,35 +87,25 @@ export default function HeroSection() {
               </div>
 
               {/* Loan Amount Card */}
-              <div className="p-4 sm:p-6 lg:p-8 aspect-square grid grid-cols-2 bg-[#90d2bf] overflow-hidden rounded-l-full">
-                <div className="flex flex-col justify-center">
-                  <p className="text-[#2D3E50] text-sm sm:text-lg md:text-xl lg:text-2xl font-medium hidden sm:block">
-                    Loans
-                  </p>
-                </div>
-                <div className="flex flex-col justify-center items-end">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#2D3E50] mb-2">
-                    ₹50L Amount+
-                  </h3>
-                  <div className="flex md:justify-end w-full">
-                    <RotatingSVG />
-                  </div>
-                </div>
+              <div className="relative aspect-square overflow-hidden rounded-tr-2xl">
+                <Image
+                  src="/homeloan2.png"
+                  alt="Home Loan"
+                  width={300}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Processing Time */}
-              <div className="p-4 sm:p-6 lg:p-8 aspect-square rounded-tr-full flex flex-col justify-between relative bg-[#3A6EA5] overflow-hidden rounded-bl-2xl">
-                <div className="flex items-center justify-center flex-1">
-                  <Sparkles className="w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 text-white animate-breathing" />
-                </div>
-                <div>
-                  <p className="text-white text-sm sm:text-base lg:text-xl mb-1 font-medium">
-                    Processing Time
-                  </p>
-                  <div className="text-lg sm:text-2xl lg:text-3xl font-medium text-white">
-                    24 Hours
-                  </div>
-                </div>
+              <div className="relative aspect-square overflow-hidden rounded-bl-2xl">
+                <Image
+                  src="/homeloan3.png"
+                  alt="Home Loan"
+                  width={300}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Interest Rate */}
