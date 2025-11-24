@@ -5,9 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Sparkles, Star } from 'lucide-react';
-
-import RotatingSVG from './Globe';
+import { Star } from 'lucide-react';
 
 export default function HeroSection() {
   return (

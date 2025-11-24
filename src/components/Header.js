@@ -23,18 +23,18 @@ export default function Header() {
   }, []);
 
   const calculatorItems = [
-    { name: 'EMI Calculator', href: '/calculator/emi' },
-    { name: 'Balance Transfer', href: '/calculator/balance-transfer' },
     { name: 'Home Loan', href: '/calculator/home-loan' },
     { name: 'Loan Against Property', href: '/calculator/loan-against-property' },
+    { name: 'EMI Calculator', href: '/calculator/emi' },
+    { name: 'Balance Transfer', href: '/calculator/balance-transfer' },
     { name: 'Loan Comparison', href: '/calculator/comparison' },
   ];
 
   const navItems = [
-    { name: 'EMI Calculator', href: '/calculator/emi' },
-    { name: 'Balance Transfer', href: '/calculator/balance-transfer' },
     { name: 'Home Loan', href: '/calculator/home-loan' },
     { name: 'Loan Against Property', href: '/calculator/loan-against-property' },
+    { name: 'EMI Calculator', href: '/calculator/emi' },
+    { name: 'Balance Transfer', href: '/calculator/balance-transfer' },
   ];
 
   return (

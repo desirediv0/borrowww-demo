@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 
-import Link from 'next/link';
-
 import {
   ArrowRight,
   BadgeCheck,
@@ -18,7 +16,6 @@ import {
   Percent,
   Phone,
   ShieldCheck,
-  Sparkles,
   Users,
 } from 'lucide-react';
 
@@ -150,9 +147,6 @@ export default function HomeLoanServicesPage() {
                 </a>
               </div>
               <div className="mt-6 flex items-center gap-6 text-sm text-gray-600">
-                <div className="inline-flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-yellow-500" /> No Brokerage
-                </div>
                 <div className="inline-flex items-center gap-2">
                   <BadgeCheck className="h-4 w-4 text-green-600" /> RBI-Regulated Lenders
                 </div>
@@ -432,12 +426,6 @@ export default function HomeLoanServicesPage() {
                     <span>Interest-Only Option</span>
                   </li>
                 </ul>
-                <a
-                  href="#lead-form"
-                  className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
-                >
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </a>
               </div>
 
               {/* Under-Construction Property Loan */}
@@ -471,12 +459,6 @@ export default function HomeLoanServicesPage() {
                     <span>RERA-approved projects</span>
                   </li>
                 </ul>
-                <a
-                  href="#lead-form"
-                  className="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all"
-                >
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </a>
               </div>
 
               {/* Balance Transfer */}
@@ -502,12 +484,6 @@ export default function HomeLoanServicesPage() {
                     <span>More Savings for life&apos;s priorities</span>
                   </li>
                 </ul>
-                <a
-                  href="#lead-form"
-                  className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all"
-                >
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </a>
               </div>
 
               {/* Plot + Construction Loan */}
@@ -537,12 +513,6 @@ export default function HomeLoanServicesPage() {
                     <span>Tax benefits under Sections 80C &amp; 24B</span>
                   </li>
                 </ul>
-                <a
-                  href="#lead-form"
-                  className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all"
-                >
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </a>
               </div>
 
               {/* Plot Loan */}
@@ -566,12 +536,6 @@ export default function HomeLoanServicesPage() {
                     <span>Local Support throughout the process</span>
                   </li>
                 </ul>
-                <a
-                  href="#lead-form"
-                  className="inline-flex items-center gap-2 text-teal-600 font-semibold hover:gap-3 transition-all"
-                >
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </a>
               </div>
 
               {/* Why Premier Penny */}
@@ -598,12 +562,6 @@ export default function HomeLoanServicesPage() {
                     <span>Expert guidance</span>
                   </li>
                 </ul>
-                <a
-                  href="#lead-form"
-                  className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all"
-                >
-                  Get Started <ArrowRight className="h-4 w-4" />
-                </a>
               </div>
             </div>
           </div>

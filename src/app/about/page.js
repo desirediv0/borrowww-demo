@@ -1,14 +1,12 @@
 'use client';
 
 import {
-  FaArrowRight,
   FaAward,
   FaChartLine,
   FaGlobe,
   FaHandshake,
   FaHeart,
   FaLightbulb,
-  FaPlay,
   FaRocket,
   FaShieldAlt,
   FaStar,
@@ -20,7 +18,7 @@ import { motion } from 'framer-motion';
 export default function AboutPage() {
   const stats = [
     {
-      number: '50,000+',
+      number: '2700+',
       label: 'Happy Customers',
       icon: FaUsers,
       color: 'from-[var(--primary-blue-dark)] to-[var(--primary-blue)]',
@@ -104,25 +102,26 @@ export default function AboutPage() {
     {
       icon: FaShieldAlt,
       title: 'Bank-Level Security',
-      description: '256-bit SSL encryption and RBI-compliant security protocols',
+      description: '256-bit encryption with strict RBI-aligned data protection standards.',
       color: 'from-[var(--primary-blue-dark)] to-[var(--primary-blue)]',
     },
     {
       icon: FaRocket,
-      title: 'Instant Processing',
-      description: 'AI-powered loan processing with 24-hour approval',
+      title: 'Quick Processing Support',
+      description: 'Tech-enabled guidance that accelerates documentation and bank coordination.',
       color: 'from-[var(--primary-blue-dark)] to-[var(--primary-blue)]',
     },
     {
       icon: FaHeart,
-      title: 'Customer-Centric',
-      description: 'Personalized support and flexible repayment options',
+      title: 'Customer-First Approach',
+      description: 'Dedicated advisors who guide you at every step for the best loan experience.',
       color: 'from-[var(--primary-blue-dark)] to-[var(--primary-blue)]',
     },
     {
       icon: FaLightbulb,
-      title: 'Innovation First',
-      description: 'Cutting-edge technology for seamless experience',
+      title: 'Smarter Loan Experience',
+      description:
+        'Innovative tools and insights that help you choose better loan options with ease.',
       color: 'from-[var(--primary-blue-dark)] to-[var(--primary-blue)]',
     },
   ];
@@ -130,7 +129,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section - Updated to match LAP style */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-[var(--primary-blue-light)] py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-[var(--primary-blue-light)] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -181,7 +180,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision - Updated */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -205,22 +204,6 @@ export default function AboutPage() {
                 We believe that everyone should have the opportunity to achieve their dreams, and
                 access to credit shouldn&apos;t be a barrier to success.
               </p>
-              <div className="flex items-center gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-[var(--primary-blue)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[var(--primary-blue-dark)] transition-colors duration-200"
-                >
-                  Learn More
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="text-[var(--primary-blue)] font-semibold hover:text-[var(--primary-blue-dark)] transition-colors duration-200"
-                >
-                  Our Vision →
-                </motion.button>
-              </div>
             </motion.div>
 
             <motion.div
@@ -261,7 +244,7 @@ export default function AboutPage() {
       </section>
 
       {/* Features Section - Updated */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -300,7 +283,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section - Updated */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -338,7 +321,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section - Updated */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -397,10 +380,10 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section - Updated */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -28,36 +28,34 @@ export default function FAQPage() {
     { id: 'payments', name: 'Payments & Charges' },
     { id: 'technical', name: 'Technical Support' },
   ];
-
   const faqData = [
-    // CIBIL Score Questions
     {
       id: 1,
       category: 'cibil',
       question: 'What is a CIBIL score and why is it important?',
       answer:
-        'A CIBIL score is a 3-digit numeric summary of your credit history, ranging from 300-900. It reflects your creditworthiness and repayment history. A higher score (750+) increases your chances of loan approval and better interest rates. Lenders use this score to assess your credit risk before approving loans.',
+        'A CIBIL score is a 3-digit credit score ranging from 300-900. It reflects your repayment history and credit behaviour. A higher score increases your chances of getting better loan offers and lower interest rates.',
     },
     {
       id: 2,
       category: 'cibil',
-      question: 'How can I check my CIBIL score for free?',
+      question: 'How can I check my CIBIL score?',
       answer:
-        "You can check your CIBIL score for free on our platform. Simply provide your basic details like PAN number, name, date of birth, and phone number. We'll fetch your credit report instantly without any charges. You can check your score once every year for free.",
+        'You can check your CIBIL score on official credit bureau websites like CIBIL, Experian, and CRIF by providing your basic details such as PAN and phone number. These platforms allow secure access to your credit report.',
     },
     {
       id: 3,
       category: 'cibil',
       question: 'What factors affect my CIBIL score?',
       answer:
-        'Your CIBIL score is affected by: Payment history (35%), Credit utilization (30%), Length of credit history (15%), Credit mix (10%), and New credit inquiries (10%). Timely payments, low credit utilization, and a long credit history help maintain a good score.',
+        'Your CIBIL score is influenced by repayment history, credit utilization, length of credit history, number of active loans, and new credit inquiries. Timely payments and low utilization help maintain a strong score.',
     },
     {
       id: 4,
       category: 'cibil',
       question: 'How long does it take to improve a CIBIL score?',
       answer:
-        'Improving your CIBIL score takes time and consistent effort. With good financial habits, you can see improvement in 3-6 months. However, significant improvement may take 12-18 months. Focus on timely payments, reducing credit utilization, and avoiding multiple loan applications.',
+        'Improvement depends on your financial habits. With timely payments and disciplined credit usage, noticeable improvement can be seen in 3–6 months, while a major improvement may take longer.',
     },
 
     // Loan Process Questions
@@ -66,104 +64,104 @@ export default function FAQPage() {
       category: 'loans',
       question: 'How long does loan approval take?',
       answer:
-        'Most loan applications are processed within 24-48 hours. We use advanced technology and AI-powered systems to provide quick approvals while maintaining security standards. The actual disbursal time depends on document verification and bank processing.',
+        'Approval time varies from bank to bank based on documentation and eligibility. We help you fast-track the process by matching your profile with the right lender and assisting with paperwork.',
     },
     {
       id: 6,
       category: 'loans',
       question: 'What are the minimum requirements for loan approval?',
       answer:
-        'Minimum requirements include: Age 21-65 years, Indian resident, minimum monthly income ₹25,000, CIBIL score 650+, stable employment (2+ years), and clean credit history. Specific requirements may vary based on loan type and amount.',
+        'General requirements include: Age 21–65 years, Indian resident, minimum income based on loan type, and a CIBIL score of 600+. Approval also depends on income stability and existing loans.',
     },
     {
       id: 7,
       category: 'loans',
-      question: 'What types of loans do you offer?',
+      question: 'What types of loans can I apply for?',
       answer:
-        'We offer Personal Loans (₹50,000 - ₹25,00,000), Home Loans (₹5,00,000 - ₹2,00,00,000), Business Loans (₹1,00,000 - ₹50,00,000), and Education Loans. Each loan type has specific eligibility criteria and documentation requirements.',
+        'You can apply for home loans, personal loans, business loans, and loan-against-property. Each product has different eligibility criteria and documentation requirements based on bank policies.',
     },
     {
       id: 8,
       category: 'loans',
       question: 'What are the interest rates?',
       answer:
-        'Interest rates vary based on loan type, amount, tenure, and your credit profile. Personal loans start from 10.99% p.a., home loans from 8.50% p.a., and business loans from 12% p.a. Better credit scores qualify for lower rates.',
+        'Interest rates depend on the bank, loan category, profile strength, and credit score. Higher credit scores generally qualify for better rates. We help you compare options from multiple lenders.',
     },
 
     // Documents Questions
     {
       id: 9,
       category: 'documents',
-      question: 'What documents do I need for loan application?',
+      question: 'What documents are required for loan application?',
       answer:
-        'Required documents include: PAN Card, Aadhaar Card, Address Proof (Utility bills/Rental agreement), Income Proof (Salary slips/Bank statements), Employment Proof, and Photographs. Additional documents may be required based on loan type.',
+        'Generally required documents include ID proof (PAN/Aadhaar), address proof, income proof (salary slips/bank statements), and employment or business proof. Requirements may vary depending on the bank.',
     },
     {
       id: 10,
       category: 'documents',
-      question: 'Can I apply with digital documents?',
+      question: 'Can I submit digital documents?',
       answer:
-        'Yes, we accept digital copies of all required documents. You can upload scanned copies or clear photos of your documents during the application process. Original documents may be required for verification at a later stage.',
+        'Yes, most banks accept scanned copies or clear digital photos during the initial process. Original documents may be required later for verification.',
     },
     {
       id: 11,
       category: 'documents',
-      question: 'How secure is my personal information?',
+      question: 'Is my data secure?',
       answer:
-        'We use bank-level encryption (256-bit SSL) to protect your data. All personal and financial information is encrypted and stored securely. We comply with RBI guidelines and data protection regulations. Your information is never shared without consent.',
+        'We follow strict data security measures with encrypted handling of personal information. Your information is not shared with any lender without your consent.',
     },
 
     // Payments & Charges Questions
     {
       id: 12,
       category: 'payments',
-      question: 'What are the processing fees and charges?',
+      question: 'Are there any charges?',
       answer:
-        'Processing fees range from 1-3% of the loan amount depending on the loan type. Other charges include: Documentation charges (₹500-1000), EMI bounce charges (₹500), and late payment fees (2% per month). All charges are clearly disclosed upfront.',
+        'Banks may charge processing fees, documentation charges, or other applicable costs. All charges are disclosed upfront by the bank. We maintain complete transparency throughout the process.',
     },
     {
       id: 13,
       category: 'payments',
       question: 'Can I prepay my loan?',
       answer:
-        'Yes, you can prepay your loan after 6 months of disbursement. Prepayment charges are 2-4% of the outstanding amount depending on the loan type and tenure. Early prepayment helps save on interest costs.',
+        'Most banks allow prepayment after a specific tenure. Charges depend on the lender and loan type. Prepayment can help reduce interest costs significantly.',
     },
     {
       id: 14,
       category: 'payments',
-      question: 'What happens if I miss an EMI payment?',
+      question: 'What happens if I miss an EMI?',
       answer:
-        'Missing EMI payments affects your credit score and incurs late payment charges. We send reminders before due dates. If you face financial difficulties, contact us immediately to discuss restructuring options. Consistent defaults may lead to legal action.',
+        'Missing EMIs may affect your credit score and incur penalty charges from the bank. If facing difficulties, it is best to contact your lender to explore restructuring or repayment options.',
     },
     {
       id: 15,
       category: 'payments',
       question: 'How can I pay my EMIs?',
       answer:
-        'You can pay EMIs through: Auto-debit from your bank account, NEFT/RTGS transfers, UPI payments, or visiting our branches. We recommend setting up auto-debit to avoid missing payments and maintain a good credit score.',
+        'Most banks offer multiple payment modes such as auto-debit, net banking, UPI, or branch payments. Auto-debit is recommended to avoid missed payments and maintain a healthy credit score.',
     },
 
     // Technical Support Questions
     {
       id: 16,
       category: 'technical',
-      question: 'I forgot my login password. How can I reset it?',
+      question: 'I forgot my login password. What should I do?',
       answer:
-        'Click on "Forgot Password" on the login page. Enter your registered email or phone number. You\'ll receive an OTP to verify your identity. Create a new password and you\'ll be able to access your account immediately.',
+        'Select “Forgot Password” on the login page, verify with your registered phone number or email, and reset your password through OTP verification.',
     },
     {
       id: 17,
       category: 'technical',
-      question: 'The app is not working properly. What should I do?',
+      question: 'How do I get technical support?',
       answer:
-        'Try these steps: Clear app cache and data, update to the latest version, restart your device, check internet connection. If issues persist, contact our technical support at support@premierpenny.com or call +91 9560069525.',
+        'You can contact us through our support email or request assistance through our help section. Our team will guide you step-by-step.',
     },
     {
       id: 18,
       category: 'technical',
-      question: 'How do I update my contact information?',
+      question: 'How do I update my details?',
       answer:
-        "Log into your account, go to Profile Settings, and update your contact details. You'll need to verify the new information through OTP. Updated information will be reflected within 24 hours.",
+        'Login to your profile, update the required information, and verify changes via OTP. Updated details will reflect after completion of verification.',
     },
   ];
 

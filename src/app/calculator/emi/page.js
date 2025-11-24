@@ -84,7 +84,7 @@ export default function EMICalculator() {
       color: 'from-purple-500 to-purple-600',
     },
     {
-      name: 'Car Loan',
+      name: 'Loan Against Property',
       rate: '9.00% - 15.00%',
       amount: '₹1L - ₹50L',
       icon: FaCar,
