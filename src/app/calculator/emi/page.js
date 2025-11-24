@@ -136,7 +136,7 @@ export default function EMICalculator() {
                 <h2 className="text-2xl font-semibold text-gray-900">Calculate Your EMI</h2>
               </div>
 
-              <div className="space-y-5">
+              <div className="grid gap-6 md:grid-cols-2">
                 {/* Loan Amount */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 ">Loan Amount</label>
@@ -146,7 +146,7 @@ export default function EMICalculator() {
                       type="number"
                       value={loanAmount}
                       onChange={(e) => setLoanAmount(Number(e.target.value))}
-                      className="w-full pl-12 pr-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-lg bg-gray-50 focus:bg-white"
+                      className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                       placeholder="Enter loan amount"
                     />
                   </div>
@@ -178,7 +178,7 @@ export default function EMICalculator() {
                       type="number"
                       value={interestRate}
                       onChange={(e) => setInterestRate(Number(e.target.value))}
-                      className="w-full pl-12 pr-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-lg bg-gray-50 focus:bg-white"
+                      className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                       placeholder="Enter interest rate"
                     />
                   </div>
@@ -199,7 +199,7 @@ export default function EMICalculator() {
                 </div>
 
                 {/* Tenure */}
-                <div>
+                <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 ">Loan Tenure</label>
                   <div className="grid grid-cols-2 gap-4">
                     {/* Years Input */}
@@ -210,7 +210,7 @@ export default function EMICalculator() {
                           type="number"
                           value={tenureYears}
                           onChange={(e) => setTenureYears(Number(e.target.value))}
-                          className="w-full pl-12 pr-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-lg bg-gray-50 focus:bg-white"
+                          className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                           placeholder="Years"
                           min="0"
                           max="30"
@@ -241,7 +241,7 @@ export default function EMICalculator() {
                           type="number"
                           value={tenureMonths}
                           onChange={(e) => setTenureMonths(Number(e.target.value))}
-                          className="w-full pl-12 pr-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-lg bg-gray-50 focus:bg-white"
+                          className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                           placeholder="Months"
                           min="0"
                           max="11"
@@ -277,19 +277,21 @@ export default function EMICalculator() {
             >
               {/* EMI Result */}
               <div className="bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-8 text-white shadow-2xl">
-                <h3 className="text-2xl font-medium mb-3">Your Monthly EMI</h3>
-                <div className="text-5xl font-medium mb-4">{formatCurrency(emi)}</div>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-2xl font-medium mb-3">Your Monthly EMI</h3>
+                  <div className="text-5xl font-medium mb-4">{formatCurrency(emi)}</div>
+                </div>
                 <p className="text-white/90 mb-4 font-medium">
                   Monthly payment for {tenureYears} years{' '}
                   {tenureMonths > 0 ? `${tenureMonths} months` : ''} at {interestRate}% interest
                   rate
                 </p>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                  <div className="bg-white/10 rounded-2xl p-3 backdrop-blur-sm">
                     <div className="text-sm text-white/80 font-medium">Total Amount</div>
                     <div className="text-lg font-medium">{formatCurrency(totalAmount)}</div>
                   </div>
-                  <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                  <div className="bg-white/10 rounded-2xl p-3 backdrop-blur-sm">
                     <div className="text-sm text-white/80 font-medium">Total Interest</div>
                     <div className="text-lg font-medium">{formatCurrency(totalInterest)}</div>
                   </div>
@@ -299,7 +301,7 @@ export default function EMICalculator() {
               {/* Loan Breakdown */}
               <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Loan Breakdown</h3>
-                <div className="space-y-4">
+                <div className="space-y-2">
                   <div className="flex justify-between items-center py-1 border-b border-gray-100">
                     <span className="text-gray-700 font-medium">Principal Amount</span>
                     <span className="font-medium text-lg">{formatCurrency(loanAmount)}</span>

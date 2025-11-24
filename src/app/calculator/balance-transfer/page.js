@@ -168,7 +168,7 @@ export default function BalanceTransferCalculator() {
                   <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">Current Loan</h2>
                 </div>
 
-                <div className="space-y-4">
+                <div className="grid gap-4 md:grid-cols-2">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Outstanding Amount
@@ -181,7 +181,7 @@ export default function BalanceTransferCalculator() {
                         onChange={(e) =>
                           setCurrentLoan((prev) => ({ ...prev, amount: Number(e.target.value) }))
                         }
-                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                        className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                       />
                     </div>
                   </div>
@@ -198,7 +198,7 @@ export default function BalanceTransferCalculator() {
                         onChange={(e) =>
                           setCurrentLoan((prev) => ({ ...prev, rate: Number(e.target.value) }))
                         }
-                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                        className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                         step="0.1"
                       />
                     </div>
@@ -216,12 +216,12 @@ export default function BalanceTransferCalculator() {
                         onChange={(e) =>
                           setCurrentLoan((prev) => ({ ...prev, tenure: Number(e.target.value) }))
                         }
-                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                        className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                       />
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-5 sm:p-6 border-2 border-red-200">
+                  <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-5 sm:p-6 border-2 border-red-200 md:col-span-2">
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
                         <span className="text-gray-700 font-medium text-sm sm:text-base">
@@ -265,7 +265,7 @@ export default function BalanceTransferCalculator() {
                   <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">New Loan</h2>
                 </div>
 
-                <div className="space-y-4">
+                <div className="grid gap-4 md:grid-cols-2">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Transfer Amount
@@ -278,7 +278,7 @@ export default function BalanceTransferCalculator() {
                         onChange={(e) =>
                           setNewLoan((prev) => ({ ...prev, amount: Number(e.target.value) }))
                         }
-                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                        className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                       />
                     </div>
                   </div>
@@ -295,7 +295,7 @@ export default function BalanceTransferCalculator() {
                         onChange={(e) =>
                           setNewLoan((prev) => ({ ...prev, rate: Number(e.target.value) }))
                         }
-                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                        className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                         step="0.1"
                       />
                     </div>
@@ -313,7 +313,7 @@ export default function BalanceTransferCalculator() {
                         onChange={(e) =>
                           setNewLoan((prev) => ({ ...prev, tenure: Number(e.target.value) }))
                         }
-                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-gray-50 focus:bg-white text-base"
+                        className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                       />
                     </div>
                   </div>
@@ -333,7 +333,7 @@ export default function BalanceTransferCalculator() {
                     />
                   </div>
 
-                  <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-5 sm:p-6 border-2 border-green-200">
+                  <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-5 sm:p-6 border-2 border-green-200 md:col-span-2">
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
                         <span className="text-gray-700 font-medium text-sm sm:text-base">
