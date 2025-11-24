@@ -65,7 +65,7 @@ export default function ContactPage() {
     {
       icon: FaEnvelope,
       title: 'Email Us',
-      details: ['support@premierpenny.com', 'info@premierpenny.com'],
+      details: ['support@premierpenny.com'],
       action: 'mailto:support@premierpenny.com',
       bgColor: 'bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)]',
     },

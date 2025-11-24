@@ -25,8 +25,8 @@ export default function LoanAgainstPropertyCalculator() {
 
   const calculateEMI = useCallback(() => {
     const principal = loanAmount;
-    const rate = interestRate / 12 / 100; // Monthly interest rate
-    const totalMonths = tenureYears * 12 + tenureMonths; // Total months
+    const rate = interestRate / 12 / 100;
+    const totalMonths = tenureYears * 12 + tenureMonths;
 
     let emiValue;
     if (rate === 0) {
@@ -54,10 +54,6 @@ export default function LoanAgainstPropertyCalculator() {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(amount);
-  };
-
-  const formatNumber = (num) => {
-    return new Intl.NumberFormat('en-IN').format(num);
   };
 
   const banks = [
@@ -98,7 +94,7 @@ export default function LoanAgainstPropertyCalculator() {
   const features = [
     {
       title: 'High Loan Amount',
-      description: 'Get up to 60% of your property value as loan',
+      description: 'Get up to 75% of your property value as loan',
       icon: FaRupeeSign,
     },
     {
