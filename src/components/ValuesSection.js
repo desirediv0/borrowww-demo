@@ -47,7 +47,7 @@ export default function ValuesSection() {
           <path d="M32 8L40 16" stroke="currentColor" strokeWidth="2" />
         </svg>
       ),
-      title: 'Quick Bank Recommendation',
+      title: 'Smart Bank Choice',
       description:
         'Get guided support to find the right bank faster with minimal paperwork and smart matchmaking — making your loan process quick and effortless.',
       bgColor: 'bg-white',

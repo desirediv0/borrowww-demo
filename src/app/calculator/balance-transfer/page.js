@@ -168,7 +168,7 @@ export default function BalanceTransferCalculator() {
                   <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">Current Loan</h2>
                 </div>
 
-                <div className="space-y-5">
+                <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Outstanding Amount
@@ -265,7 +265,7 @@ export default function BalanceTransferCalculator() {
                   <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">New Loan</h2>
                 </div>
 
-                <div className="space-y-5">
+                <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Transfer Amount

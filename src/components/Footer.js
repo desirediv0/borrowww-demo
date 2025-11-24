@@ -3,13 +3,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import logo from '@/assets/logo.png';
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-  IconMail,
-} from '@tabler/icons-react';
+// import {
+//   IconBrandGithub,
+//   IconBrandLinkedin,
+//   IconBrandTwitter,
+//   IconMail,
+// } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
@@ -41,12 +40,12 @@ export default function Footer() {
     ],
   };
 
-  const socialLinks = [
-    { icon: IconBrandTwitter, href: '#', label: 'Twitter' },
-    { icon: IconBrandLinkedin, href: '#', label: 'LinkedIn' },
-    { icon: IconBrandGithub, href: '#', label: 'GitHub' },
-    { icon: IconMail, href: '#', label: 'Email' },
-  ];
+  // const socialLinks = [
+  //   { icon: IconBrandTwitter, href: '#', label: 'Twitter' },
+  //   { icon: IconBrandLinkedin, href: '#', label: 'LinkedIn' },
+  //   { icon: IconBrandGithub, href: '#', label: 'GitHub' },
+  //   { icon: IconMail, href: '#', label: 'Email' },
+  // ];
 
   return (
     <footer className="bg-gray-200 text-gray-800 pt-16 pb-8 border-t border-gray-200">
@@ -74,7 +73,7 @@ export default function Footer() {
               approval with competitive rates and transparent process.
             </p>
             {/* Social Links */}
-            <div className="flex items-center gap-3 mt-4">
+            {/* <div className="flex items-center gap-3 mt-4">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.label}
@@ -91,7 +90,7 @@ export default function Footer() {
                   <social.icon className="w-5 h-5" />
                 </motion.a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Footer Links */}
@@ -146,7 +145,7 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <p className="text-gray-500 text-sm mb-2 md:mb-0">
-            © 2025 Premier Penny Finance. All rights reserved.
+            © 2025 Premier Penny. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6 text-sm">

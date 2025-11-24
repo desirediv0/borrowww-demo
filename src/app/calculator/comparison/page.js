@@ -7,11 +7,8 @@ import {
   FaBuilding,
   FaCalculator,
   FaCalendarAlt,
-  FaCar,
-  FaDownload,
   FaHome,
   FaRupeeSign,
-  FaShare,
   FaUser,
 } from 'react-icons/fa';
 
@@ -136,7 +133,7 @@ export default function LoanComparisonCalculator() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-[var(--primary-blue-light)] py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-[var(--primary-blue-light)] py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -168,16 +165,15 @@ export default function LoanComparisonCalculator() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 max-h-min"
             >
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center shadow-lg">
                   <FaCalculator className="text-white text-xl" />
                 </div>
                 <h2 className="text-2xl font-semibold text-gray-900">Compare Loans</h2>
               </div>
-
-              <div className="space-y-8">
+              <div className="grid gap-6 md:grid-cols-2">
                 {/* Loan Amount */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-3">
@@ -189,7 +185,7 @@ export default function LoanComparisonCalculator() {
                       type="number"
                       value={loanAmount}
                       onChange={(e) => setLoanAmount(Number(e.target.value))}
-                      className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-lg bg-gray-50 focus:bg-white"
+                      className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                       placeholder="Enter loan amount"
                     />
                   </div>
@@ -221,7 +217,7 @@ export default function LoanComparisonCalculator() {
                       type="number"
                       value={tenure}
                       onChange={(e) => setTenure(Number(e.target.value))}
-                      className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-transparent transition-all duration-200 text-lg bg-gray-50 focus:bg-white"
+                      className="w-full pl-8 pr-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[var(--primary-blue)] focus:border-[var(--primary-blue)] transition-all duration-200 text-sm bg-gray-50 focus:bg-white"
                       placeholder="Enter tenure"
                     />
                   </div>
@@ -243,7 +239,7 @@ export default function LoanComparisonCalculator() {
                 </div>
 
                 {/* Loan Type Selection */}
-                <div>
+                <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-4">
                     Select Loan Types to Compare
                   </label>
@@ -285,7 +281,7 @@ export default function LoanComparisonCalculator() {
             >
               {/* Best Loan Highlight */}
               {bestLoan && (
-                <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-3xl p-8 text-white shadow-2xl">
+                <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-3xl p-6 text-white shadow-2xl">
                   <h3 className="text-2xl font-medium mb-4">Best Option</h3>
                   <div className="flex items-center gap-4 mb-4">
                     <div
@@ -305,7 +301,7 @@ export default function LoanComparisonCalculator() {
 
               {/* Comparison Table */}
               {comparisonResults.length > 0 && (
-                <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
                   <h3 className="text-2xl font-semibold text-gray-900 mb-6">Comparison Results</h3>
                   <div className="space-y-4">
                     {comparisonResults.map((loan, index) => (
@@ -357,33 +353,13 @@ export default function LoanComparisonCalculator() {
                   </div>
                 </div>
               )}
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex-1 bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white py-4 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-3 shadow-lg"
-                >
-                  <FaDownload />
-                  Download Report
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex-1 border-2 border-[var(--primary-blue)] text-[var(--primary-blue)] py-4 px-6 rounded-xl font-semibold hover:bg-[var(--primary-blue)] hover:text-white transition-all duration-200 flex items-center justify-center gap-3"
-                >
-                  <FaShare />
-                  Share Results
-                </motion.button>
-              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Loan Types Info */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-14 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -457,7 +433,7 @@ export default function LoanComparisonCalculator() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -660,7 +660,7 @@ export default function HomeLoanServicesPage() {
                 <li key={d}>• {d}</li>
               ))}
             </ul>
-            <p className="text-xs text-gray-500 mt-3">
+            <p className="text-xs text-black mt-3">
               *Exact document list may vary based on bank and applicant profile.
             </p>
           </div>
