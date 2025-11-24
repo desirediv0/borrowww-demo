@@ -22,25 +22,26 @@ export default function TransparencySection() {
       id: 1,
       title: 'Reach out to us, anytime',
       description:
-        'Call, chat, or share your concerns - your Premier Penny advisor is always available. We respond instantly.',
+        'Call, chat, or share your concerns — your Premier Penny advisor responds personally and guides you throughout your loan journey.',
       phoneContent: {
-        header: 'Contact Details',
+        header: 'Premier Penny Advisor',
         advisor: {
           name: 'Kamlesh Yadav',
           role: 'Senior Loan Advisor',
-          phone: '8578493929',
-          email: 'kamlesh.yadav@premierpenny.com',
+          phone: 'Available on request',
+          email: 'support@premierpenny.com',
         },
         chat: [
           {
             sender: 'advisor',
             message:
-              'Welcome to Premier Penny! I am your Senior Loan Advisor. How can I help you today?',
+              'Welcome to Premier Penny! I’m your dedicated loan advisor. How can I assist you today?',
           },
-          { sender: 'user', message: 'When will my online discussion with the banker happen' },
+          { sender: 'user', message: 'How do I connect with the bank for my loan process?' },
           {
             sender: 'advisor',
-            message: 'Your online discussion has been scheduled for 26th July at 1:00 PM.',
+            message:
+              'We’ll schedule the discussion with the bank and share the link with you directly here. You’ll be notified once it’s set!',
           },
         ],
         icons: [
@@ -51,71 +52,74 @@ export default function TransparencySection() {
         ],
       },
     },
+
     {
       id: 2,
-      title: 'Lifetime support after loan',
+      title: 'Lifetime Support After Loan',
       description:
-        'Receive EMI reminders, track every payment & save more when rates drop - Premier Penny stays with you forever.',
+        'Even after your loan is approved, our advisors will help you with better interest options, loan transfers, savings, and financial decisions.',
       phoneContent: {
-        header: 'Premier Penny Help Center',
+        header: 'Available Anytime',
         chat: [
           {
             sender: 'advisor',
             message:
-              "Hi Gautam,\n\nHope you are doing well.\n\nYour next EMI due date is 26th Dec, 2025.\n\nVisit the bank's website to make an online payment or reach out to us if you got any questions!\n\nWe'll always keep you updated on all your loan details!\n\nPremier Penny's team is always here to support you!",
+              'We’re always here to help you with anything related to your loan — better rates, savings tips, transfer help, or financial planning.\n\nJust message us anytime!',
           },
         ],
         buttons: [
-          { text: 'Visit Website', style: 'border-orange-500 text-orange-600 bg-white' },
-          { text: 'Check Loan Details', style: 'bg-[var(--primary-blue-dark)] text-white' },
+          { text: 'Check better rates', style: 'border-orange-500 text-orange-600 bg-white' },
+          { text: 'Talk to Advisor', style: 'bg-[var(--primary-blue-dark)] text-white' },
         ],
       },
     },
+
     {
       id: 3,
-      title: 'Get instant updates',
+      title: 'Smart, clutter-free updates',
       description:
-        'Receive real-time WhatsApp & SMS notifications for every milestone. No clutter - only essential updates.',
+        'Track only the important steps of your loan process directly from your account. No spam messages — just essential updates.',
       phoneContent: {
         notifications: [
           {
-            icon: FaWhatsapp,
-            iconBg: 'bg-green-500',
-            title: 'Reminder! Share your docs',
-            message: 'Upload your remaining documents to complete your application',
-            time: 'Now',
+            icon: FaFileAlt,
+            iconBg: 'bg-orange-500',
+            title: 'Documents Verified',
+            message: 'Your submitted documents have been reviewed successfully',
+            time: 'Just now',
           },
           {
             icon: FaCheckCircle,
             iconBg: 'bg-[var(--primary-blue-dark)]',
-            title: 'Just 2 days away from your dream home!',
-            message: 'Your loan approval is almost complete',
-            time: 'Now',
+            title: 'Application Submitted to Bank',
+            message: 'We’re now coordinating with your banker',
+            time: 'Few mins ago',
           },
         ],
       },
     },
+
     {
       id: 4,
       title: 'Monitor your loan progress',
       description:
-        'No need to follow up constantly. Check your application status anytime, anywhere - right from your phone.',
+        'No need to follow up again and again. View your loan progress, banker actions, and updates — right on your screen.',
       phoneContent: {
-        header: 'Premier Penny',
-        status: 'Your Loan Application is getting Prepared!',
+        header: 'Premier Penny Dashboard',
+        status: 'Your Loan Application is under process',
         loanCard: {
           number: '7094 - Home Loan',
           bank: 'HDFC Bank',
-          status: 'Logged In',
+          status: 'Documents Submitted',
           requestedOn: '30 June, 1:20 PM',
           amount: '₹90 Lacs',
         },
         progress: {
-          title: 'Basic Loan Details Gathering Completed',
+          title: 'Bank verification in progress',
           date: '16 June, 2:30 PM',
-          status: 'In initial review by Premier Penny',
+          status: 'Coordinating with your banker',
         },
-        offer: 'Premier Penny Special Offer: Login Fee Waived-Off',
+        offer: 'Premier Penny Special Benefit: Login Fee Waived',
       },
     },
   ];

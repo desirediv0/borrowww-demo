@@ -12,32 +12,32 @@ export default function FAQSection() {
     {
       question: 'How do I check my CIBIL score?',
       answer:
-        'You can check your CIBIL score instantly by providing your basic details like PAN number, Aadhaar number, and contact information. The process is completely secure and takes only a few minutes.',
+        'You can check your CIBIL score online by submitting basic details like your PAN number and contact information. CIBIL verification is handled securely by credit bureaus.',
     },
     {
       question: 'What documents are required for loan application?',
       answer:
-        'For loan applications, you need identity proof (Aadhaar/PAN), address proof, income proof (salary slips/bank statements), and employment proof. The exact documents may vary based on loan type and amount.',
+        'Common documents include identity proof (PAN/Aadhaar), address proof, income proof (salary slips/bank statements), and employment or business proof. Required documents may vary based on the bank and loan type.',
     },
     {
       question: 'How long does loan approval take?',
       answer:
-        'Most loan applications are approved within 24 hours after document verification. Personal loans and business loans typically have faster processing times compared to home loans.',
+        'Loan approval time depends on the bank, documentation, and profile strength. We help speed up your process by matching you with the right lender and assisting with paperwork.',
     },
     {
       question: 'What is the minimum CIBIL score required?',
       answer:
-        'Generally, a CIBIL score of 750+ is considered good for loan approval. However, we work with various lenders who may approve loans for scores as low as 650, depending on other factors.',
+        'A CIBIL score of 750+ is generally considered good. However, some banks may still offer loans at lower scores based on income, stability, and other eligibility factors.',
     },
     {
       question: 'Are there any hidden charges?',
       answer:
-        'No, we maintain complete transparency. All charges including processing fees, interest rates, and other costs are clearly communicated upfront. There are no hidden charges in our loan process.',
+        'No. All charges such as processing fees and interest rates are clearly shared upfront by the bank. We maintain complete transparency throughout the process.',
     },
     {
       question: 'Can I apply for multiple loans simultaneously?',
       answer:
-        'Yes, you can apply for different types of loans, but approval depends on your income, existing loan obligations, and credit score. We recommend checking your eligibility before applying.',
+        'Yes, you can apply for multiple loan types, but approval depends on your income, credit profile, and existing liabilities. We recommend checking eligibility first to avoid impact on credit score.',
     },
   ];
 

@@ -47,9 +47,9 @@ export default function ValuesSection() {
           <path d="M32 8L40 16" stroke="currentColor" strokeWidth="2" />
         </svg>
       ),
-      title: 'Instant Approval',
+      title: 'Quick Bank Recommendation',
       description:
-        'Get your CIBIL score checked instantly and receive loan approval within 24 hours. Our advanced technology ensures quick processing and faster disbursals.',
+        'Get guided support to find the right bank faster with minimal paperwork and smart matchmaking — making your loan process quick and effortless.',
       bgColor: 'bg-white',
       textColor: 'text-gray-900',
     },

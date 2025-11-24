@@ -21,7 +21,7 @@ export default function Home() {
       <ConcernsSection />
       {/* <VideoSection /> */}
       <TransparencySection />
-      <PropertyCheckSection />
+      {/* <PropertyCheckSection /> */}
       <LoanToolsSection />
       {/* <LogoSlider /> */}
 
