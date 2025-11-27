@@ -3,12 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-// import {
-//   IconBrandGithub,
-//   IconBrandLinkedin,
-//   IconBrandTwitter,
-//   IconMail,
-// } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
@@ -39,13 +33,6 @@ export default function Footer() {
       { name: 'RBI Compliance', href: '/rbi-compliance' },
     ],
   };
-
-  // const socialLinks = [
-  //   { icon: IconBrandTwitter, href: '#', label: 'Twitter' },
-  //   { icon: IconBrandLinkedin, href: '#', label: 'LinkedIn' },
-  //   { icon: IconBrandGithub, href: '#', label: 'GitHub' },
-  //   { icon: IconMail, href: '#', label: 'Email' },
-  // ];
 
   return (
     <footer className="bg-gray-200 text-gray-800 pt-16 pb-8 border-t border-gray-200">
@@ -152,21 +139,18 @@ export default function Footer() {
             <Link
               href="/privacy-policy"
               className="text-gray-500 hover:text-[#396A9F] transition-colors duration-200 font-medium"
-              whileHover={{ y: -2 }}
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-of-service"
               className="text-gray-500 hover:text-[#396A9F] transition-colors duration-200 font-medium"
-              whileHover={{ y: -2 }}
             >
               Terms of Service
             </Link>
             <Link
               href="/rbi-compliance"
               className="text-gray-500 hover:text-[#396A9F] transition-colors duration-200 font-medium"
-              whileHover={{ y: -2 }}
             >
               RBI Compliance
             </Link>

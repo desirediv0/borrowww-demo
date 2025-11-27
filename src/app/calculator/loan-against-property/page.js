@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import {
-  FaArrowRight,
   FaBuilding,
   FaCalculator,
   FaCalendarAlt,
@@ -55,41 +54,6 @@ export default function LoanAgainstPropertyCalculator() {
       maximumFractionDigits: 0,
     }).format(amount);
   };
-
-  const banks = [
-    {
-      name: 'HDFC Bank',
-      rate: '12.25%',
-      processingFee: '₹15,000',
-      maxAmount: '₹5Cr',
-      icon: FaBuilding,
-      color: 'from-[#2D3E50] to-[#2D3E50]',
-    },
-    {
-      name: 'SBI',
-      rate: '12.50%',
-      processingFee: '₹12,000',
-      maxAmount: '₹7Cr',
-      icon: FaBuilding,
-      color: 'from-green-500 to-green-600',
-    },
-    {
-      name: 'ICICI Bank',
-      rate: '12.75%',
-      processingFee: '₹18,000',
-      maxAmount: '₹6Cr',
-      icon: FaBuilding,
-      color: 'from-purple-500 to-purple-600',
-    },
-    {
-      name: 'Axis Bank',
-      rate: '12.99%',
-      processingFee: '₹16,000',
-      maxAmount: '₹5Cr',
-      icon: FaBuilding,
-      color: 'from-orange-500 to-orange-600',
-    },
-  ];
 
   const features = [
     {
@@ -414,89 +378,6 @@ export default function LoanAgainstPropertyCalculator() {
                 </div>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bank Offers */}
-      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
-              Top Bank Offers
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Compare LAP offers from leading banks with competitive rates
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {banks.map((bank, index) => (
-              <motion.div
-                key={bank.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 group-hover:border-[var(--primary-blue)]/30 transform hover:-translate-y-2"
-                >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div
-                      className={`w-14 h-14 bg-gradient-to-br ${bank.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}
-                    >
-                      <bank.icon className="text-white text-xl" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{bank.name}</h3>
-                  </div>
-
-                  <div className="space-y-4 mb-6">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium text-sm sm:text-base">
-                        Interest Rate:
-                      </span>
-                      <span className="font-medium text-[var(--primary-blue)] text-base sm:text-lg">
-                        {bank.rate}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium text-sm sm:text-base">
-                        Processing Fee:
-                      </span>
-                      <span className="font-semibold text-gray-900 text-sm sm:text-base">
-                        {bank.processingFee}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium text-sm sm:text-base">
-                        Max Amount:
-                      </span>
-                      <span className="font-semibold text-gray-900 text-sm sm:text-base">
-                        {bank.maxAmount}
-                      </span>
-                    </div>
-                  </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => (window.location.href = '/calculator/home-loan')}
-                    className="w-full bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base"
-                  >
-                    Apply Loan
-                    <FaArrowRight className="text-sm" />
-                  </motion.button>
-                </motion.div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

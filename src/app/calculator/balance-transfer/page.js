@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import {
-  FaArrowRight,
   FaCalendarAlt,
   FaCheckCircle,
   FaCreditCard,
@@ -106,19 +105,6 @@ export default function BalanceTransferCalculator() {
       maximumFractionDigits: 0,
     }).format(amount);
   };
-
-  const banks = [
-    { name: 'HDFC Bank', rate: '10.99%', fee: '1-2%', maxAmount: '₹25L', logo: '/logos/hdfc.svg' },
-    {
-      name: 'ICICI Bank',
-      rate: '11.49%',
-      fee: '1-2%',
-      maxAmount: '₹20L',
-      logo: '/logos/icici.svg',
-    },
-    { name: 'SBI', rate: '11.15%', fee: '1-2%', maxAmount: '₹30L', logo: '/logos/sbi.svg' },
-    { name: 'Axis Bank', rate: '11.99%', fee: '1-2%', maxAmount: '₹25L', logo: '/logos/axis.svg' },
-  ];
 
   return (
     <>
@@ -398,118 +384,6 @@ export default function BalanceTransferCalculator() {
                   Interest Savings
                 </div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Bank Offers */}
-      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
-              Top Bank Offers
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Compare balance transfer offers from leading banks with competitive rates
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {banks.map((bank, index) => (
-              <motion.div
-                key={bank.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 group-hover:border-[var(--primary-blue)]/30 transform hover:-translate-y-2"
-                >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-14 h-14 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                      <FaCreditCard className="text-white text-xl" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{bank.name}</h3>
-                  </div>
-
-                  <div className="space-y-4 mb-6">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium text-sm sm:text-base">
-                        Interest Rate:
-                      </span>
-                      <span className="font-medium text-[var(--primary-blue)] text-base sm:text-lg">
-                        {bank.rate}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium text-sm sm:text-base">
-                        Transfer Fee:
-                      </span>
-                      <span className="font-semibold text-gray-900 text-sm sm:text-base">
-                        {bank.fee}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 font-medium text-sm sm:text-base">
-                        Max Amount:
-                      </span>
-                      <span className="font-semibold text-gray-900 text-sm sm:text-base">
-                        {bank.maxAmount}
-                      </span>
-                    </div>
-                  </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => (window.location.href = '/calculator/home-loan')}
-                    className="w-full bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base"
-                  >
-                    Apply Loan
-                    <FaArrowRight className="text-sm" />
-                  </motion.button>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-            className="mt-12 bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-blue-dark)] rounded-3xl p-6 sm:p-8 text-white text-center shadow-2xl"
-          >
-            <h3 className="text-2xl sm:text-3xl font-medium mb-4">Ready to Save on Your Loan?</h3>
-            <p className="text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
-              Get personalized balance transfer offers from top banks. Our experts will help you
-              find the best deal.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-[var(--primary-blue)] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 shadow-lg text-sm sm:text-base"
-              >
-                Get Free Consultation
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-white hover:text-[var(--primary-blue)] transition-all duration-200 text-sm sm:text-base"
-              >
-                Compare More Banks
-              </motion.button>
             </div>
           </motion.div>
         </div>
