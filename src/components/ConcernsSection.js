@@ -61,7 +61,7 @@ export default function ConcernsSection() {
                   Best Interest Rates
                 </h3>
                 <p className="text-sm font-medium text-gray-500 text-center ">
-                  Starting from 7.35%* p.a.
+                  Starting from 7.10%* p.a.
                 </p>
               </div>
             </div>

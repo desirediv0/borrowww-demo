@@ -64,21 +64,21 @@ export default function EMICalculator() {
   const loanTypes = [
     {
       name: 'Home Loan',
-      rate: '8.50% - 12.50%',
+      rate: '7.10% - 9.50%',
       amount: '₹5L - ₹2Cr',
       icon: FaHome,
       color: 'from-[#2D3E50] to-[#2D3E50]',
     },
     {
       name: 'Loan Against Property',
-      rate: '9.00% - 15.00%',
+      rate: '8.00% - 10.30%',
       amount: '₹1L - ₹50L',
       icon: FaCar,
       color: 'from-orange-500 to-orange-600',
     },
     {
       name: 'Personal Loan',
-      rate: '10.99% - 24.99%',
+      rate: '9.99% - 14.00%',
       amount: '₹50K - ₹25L',
       icon: FaUser,
       color: 'from-green-500 to-green-600',

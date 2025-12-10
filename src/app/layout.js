@@ -7,9 +7,9 @@ import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
 
 export const metadata = {
-  title: 'Premier Penny - CIBIL Check & Instant Loan Provider',
+  title: 'Premier Penny - Credit Check & Instant Loan Provider',
   description:
-    'Get your CIBIL score checked instantly and apply for personal loans, home loans, business loans, and more. Quick approval, competitive rates, and transparent process.',
+    'Get your credit score checked instantly and apply for personal loans, home loans, business loans, and more. Quick approval, competitive rates, and transparent process.',
   keywords:
     'CIBIL check, credit score, personal loan, home loan, business loan, instant loan, loan approval, credit report',
 };

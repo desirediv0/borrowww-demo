@@ -16,7 +16,7 @@ export default function ValuesSection() {
       ),
       title: 'Transparent Process',
       description:
-        'Complete transparency in CIBIL score checking and loan processing. No hidden charges, clear terms, and honest communication throughout your journey.',
+        'Complete transparency in credit score checking and loan processing. No hidden charges, clear terms, and honest communication throughout your journey.',
       bgColor: 'bg-white',
       textColor: 'text-gray-900',
     },
@@ -63,7 +63,7 @@ export default function ValuesSection() {
       ),
       title: 'Competitive Rates',
       description:
-        'Access to the best loan rates starting from 7.35%* with flexible repayment options. We partner with leading banks to offer you the most competitive terms.',
+        'Access to the best loan rates starting from 7.10%* with flexible repayment options. We partner with leading banks to offer you the most competitive terms.',
       bgColor: 'bg-[#f5f2e8]',
       textColor: 'text-gray-900',
     },
@@ -115,7 +115,7 @@ export default function ValuesSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             >
-              We are India&apos;s leading CIBIL score checking and loan provider platform, helping
+              We are India&apos;s leading credit score checking and loan provider platform, helping
               millions of customers achieve their financial goals with ease and transparency.
             </motion.p>
           </motion.div>

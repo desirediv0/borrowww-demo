@@ -313,7 +313,7 @@ export default function HomeLoanServicesPage() {
                     type="submit"
                     className="w-full rounded-xl bg-gradient-to-r from-[#2D3E50] to-[#3A6EA5] py-3 font-semibold text-white shadow-lg hover:shadow-xl transition-all"
                   >
-                    Get Callback in 10 Minutes
+                    Get Callback from Our Expert
                   </button>
                   <p className="text-xs text-gray-500 text-center">
                     By continuing, you agree to our Terms & Privacy Policy.
@@ -640,9 +640,9 @@ export default function HomeLoanServicesPage() {
               <h3 className="text-xl font-semibold">Basic Eligibility</h3>
             </div>
             <ul className="space-y-3 text-gray-700">
-              <li>• Age: 21–65 years at loan maturity</li>
+              <li>• Age: 21–80 years at loan maturity</li>
               <li>• Stable income: Salaried / Self-employed</li>
-              <li>• CIBIL score: 700+ preferred</li>
+              <li>• Credit score: 700+ preferred</li>
               <li>• Co-applicant allowed for higher eligibility</li>
               <li>• FOIR/Obligation norms as per lender policy</li>
             </ul>

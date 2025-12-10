@@ -118,15 +118,15 @@ export default function CIBILCheck() {
           >
             <div className="inline-flex items-center px-4 py-2 bg-[var(--primary-blue)]/10 text-[var(--primary-blue)] rounded-full text-sm font-medium mb-6">
               <FaShieldAlt className="mr-2" />
-              Free CIBIL Check
+              Free Credit Check
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 mb-6 tracking-tighter">
               Check Your{' '}
-              <span className="text-[var(--primary-blue)] italic tiemposfine">CIBIL Score</span>
+              <span className="text-[var(--primary-blue)] italic tiemposfine">Credit Score</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-              Get your free CIBIL score instantly. No hidden charges, no credit card required. Check
-              your credit health and improve your loan eligibility.
+              Get your free credit score instantly. No hidden charges, no credit card required.
+              Check your credit health and improve your loan eligibility.
             </p>
           </motion.div>
         </div>
@@ -149,7 +149,7 @@ export default function CIBILCheck() {
                 </div>
                 <div>
                   <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
-                    Secure CIBIL Check
+                    Secure Credit Check
                   </h2>
                   <p className="text-gray-600 text-sm">
                     Your data is protected with bank-level security
@@ -242,7 +242,7 @@ export default function CIBILCheck() {
               {/* Features */}
               <div className="bg-white rounded-3xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
                 <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">
-                  Why Check CIBIL Score?
+                  Why Check Credit Score?
                 </h3>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -295,7 +295,7 @@ export default function CIBILCheck() {
             className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
-              What Affects Your CIBIL Score?
+              What Affects Your Credit Score?
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               Understanding the factors that influence your credit score helps you make better
@@ -348,7 +348,7 @@ export default function CIBILCheck() {
             className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
-              Tips to Improve Your CIBIL Score
+              Tips to Improve Your Credit Score
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               Follow these simple steps to boost your credit score and improve your loan eligibility

@@ -10,9 +10,9 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: 'How do I check my CIBIL score?',
+      question: 'How do I check my credit score?',
       answer:
-        'You can check your CIBIL score online by submitting basic details like your PAN number and contact information. CIBIL verification is handled securely by credit bureaus.',
+        'You can check your credit score online by submitting basic details like your PAN number and contact information. credit verification is handled securely by credit bureaus.',
     },
     {
       question: 'What documents are required for loan application?',
@@ -25,7 +25,7 @@ export default function FAQSection() {
         'Loan approval time depends on the bank, documentation, and profile strength. We help speed up your process by matching you with the right lender and assisting with paperwork.',
     },
     {
-      question: 'What is the minimum CIBIL score required?',
+      question: 'What is the minimum credit score required?',
       answer:
         'A CIBIL score of 750+ is generally considered good. However, some banks may still offer loans at lower scores based on income, stability, and other eligibility factors.',
     },
@@ -70,7 +70,7 @@ export default function FAQSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              Get answers to common questions about CIBIL score checking and loan applications
+              Get answers to common questions about credit score checking and loan applications
             </motion.p>
           </motion.div>
 

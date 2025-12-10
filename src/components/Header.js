@@ -47,7 +47,7 @@ export default function Header() {
       >
         <div className="flex items-center justify-center gap-2">
           <span className="text-pink-300">⚡</span>
-          <span>Free CIBIL Score Check • Instant Loan Approval</span>
+          <span>Free Credit Score Check • Instant Loan Approval</span>
           <span className="text-pink-300">›</span>
         </div>
       </motion.div>
@@ -74,7 +74,7 @@ export default function Header() {
               </motion.div>
             </Link>
 
-            <Link href="/calculator/cibil-check" className="md:hidden flex">
+            <Link href="/calculator/credit-check" className="md:hidden flex">
               <Image src={gif} alt="Premier Penny" width={100} height={100} />
             </Link>
             {/* Desktop Navigation */}
@@ -101,7 +101,7 @@ export default function Header() {
 
             {/* Auth/Profile Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              <Link href="/calculator/cibil-check">
+              <Link href="/calculator/credit-check">
                 <Image src={gif} alt="Premier Penny" width={120} height={100} />
               </Link>
             </div>

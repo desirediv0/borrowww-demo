@@ -9,7 +9,7 @@ export default function LoanToolsSection() {
 
   // EMI Calculator State
   const [emiLoanAmount, setEmiLoanAmount] = useState(8000000);
-  const [emiInterestRate, setEmiInterestRate] = useState(7.35);
+  const [emiInterestRate, setEmiInterestRate] = useState(7.1);
   const [emiTenure, setEmiTenure] = useState(20);
 
   // Affordability Calculator State

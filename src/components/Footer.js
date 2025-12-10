@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 export default function Footer() {
   const footerLinks = {
     Services: [
-      { name: 'CIBIL Check', href: '/calculator/cibil-check' },
+      { name: 'Credit Check', href: '/calculator/credit-check' },
       { name: 'EMI Calculator', href: '/calculator/emi' },
       { name: 'Balance Transfer', href: '/calculator/balance-transfer' },
       { name: 'Home Loan', href: '/calculator/home-loan' },
@@ -53,11 +53,11 @@ export default function Footer() {
               </div>
             </Link>
             <span className="text-[#396A9F] font-medium text-sm mb-1">
-              CIBIL Check & Instant Loan Provider
+              Credit Check & Instant Loan Provider
             </span>
             <p className="text-gray-600 leading-relaxed max-w-sm text-base">
-              India&apos;s leading CIBIL score checking and loan provider platform. Get instant loan
-              approval with competitive rates and transparent process.
+              India&apos;s leading credit score checking and loan provider platform. Get instant
+              loan approval with competitive rates and transparent process.
             </p>
             {/* Social Links */}
             {/* <div className="flex items-center gap-3 mt-4">
