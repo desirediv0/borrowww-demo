@@ -54,9 +54,8 @@ export default function Header() {
 
       {/* Main Header */}
       <motion.header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
-        }`}
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
+          }`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
@@ -70,12 +69,12 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
-                <Image src={'/newlogo.png'} alt="Premier Penny" width={150} height={80} />
+                <Image src={'/newlogo.png'} alt="Borrowww" width={150} height={80} />
               </motion.div>
             </Link>
 
             <Link href="/calculator/credit-check" className="md:hidden flex">
-              <Image src={gif} alt="Premier Penny" width={100} height={100} />
+              <Image src={gif} alt="Borrowww" width={100} height={100} />
             </Link>
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
@@ -102,7 +101,7 @@ export default function Header() {
             {/* Auth/Profile Buttons */}
             <div className="hidden md:flex items-center space-x-4">
               <Link href="/calculator/credit-check">
-                <Image src={gif} alt="Premier Penny" width={120} height={100} />
+                <Image src={gif} alt="Borrowww" width={120} height={100} />
               </Link>
             </div>
 

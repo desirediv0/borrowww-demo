@@ -7,7 +7,7 @@ import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
 
 export const metadata = {
-  title: 'Premier Penny - Credit Check & Instant Loan Provider',
+  title: 'Borrowww - Credit Check & Instant Loan Provider',
   description:
     'Get your credit score checked instantly and apply for personal loans, home loans, business loans, and more. Quick approval, competitive rates, and transparent process.',
   keywords:

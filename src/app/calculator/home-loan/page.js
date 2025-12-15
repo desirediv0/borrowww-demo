@@ -341,7 +341,7 @@ export default function HomeLoanServicesPage() {
               A home loan is a type of secured financing offered based on the value of the property
               you intend to purchase. Whether you&apos;re planning to buy a new home, build one from
               the ground up, or upgrade your current space, a home loan can help you access the
-              funds you need. At Premier Penny, we make it easy to discover and choose the ideal
+              funds you need. At Borrowww, we make it easy to discover and choose the ideal
               home loan tailored to your goals.
             </p>
           </div>
@@ -538,14 +538,14 @@ export default function HomeLoanServicesPage() {
                 </ul>
               </div>
 
-              {/* Why Premier Penny */}
+              {/* Why Borrowww */}
               <div className="bg-gradient-to-br from-[#2D3E50] to-[#3A6EA5] rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 text-white group">
                 <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <ShieldCheck className="h-7 w-7 text-white" />
                 </div>
-                <h4 className="text-xl font-semibold mb-3">Why Premier Penny?</h4>
+                <h4 className="text-xl font-semibold mb-3">Why Borrowww?</h4>
                 <p className="text-white/90 mb-4">
-                  Owning a home is a major life milestone. At Premier Penny, we&apos;re here to make
+                  Owning a home is a major life milestone. At Borrowww, we&apos;re here to make
                   your home loan journey simple and stress-free.
                 </p>
                 <ul className="space-y-2 text-sm text-white/90 mb-6">

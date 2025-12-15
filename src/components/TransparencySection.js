@@ -22,20 +22,20 @@ export default function TransparencySection() {
       id: 1,
       title: 'Reach out to us, anytime',
       description:
-        'Call, chat, or share your concerns — your Premier Penny advisor responds personally and guides you throughout your loan journey.',
+        'Call, chat, or share your concerns — your Borrowww advisor responds personally and guides you throughout your loan journey.',
       phoneContent: {
-        header: 'Premier Penny Advisor',
+        header: 'Borrowww Advisor',
         advisor: {
           name: 'Kamlesh Yadav',
           role: 'Senior Loan Advisor',
           phone: 'Available on request',
-          email: 'support@premierpenny.com',
+          email: 'info.premierpenny@gmail.com',
         },
         chat: [
           {
             sender: 'advisor',
             message:
-              'Welcome to Premier Penny! I’m your dedicated loan advisor. How can I assist you today?',
+              'Welcome to Borrowww! I’m your dedicated loan advisor. How can I assist you today?',
           },
           { sender: 'user', message: 'How do I connect with the bank for my loan process?' },
           {
@@ -105,7 +105,7 @@ export default function TransparencySection() {
       description:
         'No need to follow up again and again. View your loan progress, banker actions, and updates — right on your screen.',
       phoneContent: {
-        header: 'Premier Penny Dashboard',
+        header: 'Borrowww Dashboard',
         status: 'Your Loan Application is under process',
         loanCard: {
           number: '7094 - Home Loan',
@@ -119,7 +119,7 @@ export default function TransparencySection() {
           date: '16 June, 2:30 PM',
           status: 'Coordinating with your banker',
         },
-        offer: 'Premier Penny Special Benefit: Login Fee Waived',
+        offer: 'Borrowww Special Benefit: Login Fee Waived',
       },
     },
   ];
@@ -151,7 +151,7 @@ export default function TransparencySection() {
             Always transparent, always available
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-2">
-            Premier Penny keeps you informed every step of the way - your dream home journey stays
+            Borrowww keeps you informed every step of the way - your dream home journey stays
             transparent and accessible
           </p>
         </div>
@@ -274,11 +274,10 @@ export default function TransparencySection() {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                currentSlide === index
-                  ? 'bg-[var(--primary-blue-dark)] w-8'
-                  : 'bg-gray-300 hover:bg-gray-400 w-2'
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${currentSlide === index
+                ? 'bg-[var(--primary-blue-dark)] w-8'
+                : 'bg-gray-300 hover:bg-gray-400 w-2'
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -359,11 +358,10 @@ function SlideOneContent({ slide }) {
         {slide.phoneContent.chat.map((msg, idx) => (
           <div
             key={idx}
-            className={`p-2.5 rounded-xl text-xs sm:text-sm leading-relaxed break-words ${
-              msg.sender === 'advisor'
-                ? 'bg-white border border-gray-200'
-                : 'bg-[var(--primary-blue-dark)] text-white ml-auto max-w-[85%]'
-            }`}
+            className={`p-2.5 rounded-xl text-xs sm:text-sm leading-relaxed break-words ${msg.sender === 'advisor'
+              ? 'bg-white border border-gray-200'
+              : 'bg-[var(--primary-blue-dark)] text-white ml-auto max-w-[85%]'
+              }`}
           >
             <p className="break-words">{msg.message}</p>
           </div>
@@ -390,7 +388,7 @@ function SlideTwoContent({ slide }) {
           <span className="text-blue-600 text-xs font-medium">PP</span>
         </div>
         <h4 className="font-semibold text-sm sm:text-base text-gray-900 truncate">
-          Premier Penny Help Center
+          Borrowww Help Center
         </h4>
       </div>
 
@@ -484,7 +482,7 @@ function SlideFourContent({ slide }) {
           <div className="w-7 h-7 bg-blue-600 rounded-md flex items-center justify-center flex-shrink-0">
             <span className="text-white text-xs font-medium">PP</span>
           </div>
-          <span className="text-sm font-medium text-gray-900 truncate">Premier Penny</span>
+          <span className="text-sm font-medium text-gray-900 truncate">Borrowww</span>
         </div>
         <button className="text-xs text-white font-semibold flex items-center gap-1 bg-green-500 px-2 py-1 rounded">
           <FaPhone className="w-3 h-3" />

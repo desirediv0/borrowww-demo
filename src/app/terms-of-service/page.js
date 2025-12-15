@@ -10,14 +10,14 @@ export default function TermsOfService() {
 
       <div className="space-y-8 text-[17px] text-gray-700">
         <p>
-          These terms govern the use of <strong>premierpenny.com</strong>, operated by{' '}
-          <strong>Premier Penny Pvt. Ltd.</strong>. By using our website, you agree to the Terms
+          These terms govern the use of <strong>Borrowww.com</strong>, operated by{' '}
+          <strong>Borrowww Pvt. Ltd.</strong>. By using our website, you agree to the Terms
           listed below.
         </p>
 
         <h2 className="text-2xl font-semibold text-gray-900">1. Nature of Services</h2>
         <p>
-          Premier Penny is not a bank or NBFC. We do not provide loans directly. We provide loan
+          Borrowww is not a bank or NBFC. We do not provide loans directly. We provide loan
           advisory and facilitate communication between users and regulated financial institutions.
         </p>
 
@@ -41,13 +41,13 @@ export default function TermsOfService() {
 
         <h2 className="text-2xl font-semibold text-gray-900">5. Intellectual Property</h2>
         <p>
-          All content on the site is owned by Premier Penny. Copying or redistribution without
+          All content on the site is owned by Borrowww. Copying or redistribution without
           consent is prohibited.
         </p>
 
         <h2 className="text-2xl font-semibold text-gray-900">6. Limitation of Liability</h2>
         <p>
-          Premier Penny shall not be liable for indirect or consequential damages arising from use
+          Borrowww shall not be liable for indirect or consequential damages arising from use
           of our services or reliance on advisory support.
         </p>
 

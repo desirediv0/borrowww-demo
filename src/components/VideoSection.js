@@ -55,7 +55,7 @@ export default function VideoSection() {
             Over ₹3,000 Crores+ in Loans Disbursed
           </p>
           <p className="text-sm sm:text-base text-gray-600 mt-4 max-w-2xl mx-auto">
-            Watch how Premier Penny helped thousands of families turn their home ownership dreams
+            Watch how Borrowww helped thousands of families turn their home ownership dreams
             into reality
           </p>
         </div>
@@ -97,7 +97,7 @@ export default function VideoSection() {
               {/* Logo and Brand */}
               <div className="absolute bottom-3 left-3  z-10 flex items-center gap-2">
                 <span className="text-white text-xs sm:text-sm font-medium drop-shadow-lg bg-black/30 px-2 py-1 rounded backdrop-blur-sm">
-                  Premier Penny
+                  Borrowww
                 </span>
               </div>
 

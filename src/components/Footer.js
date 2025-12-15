@@ -45,7 +45,7 @@ export default function Footer() {
               <div className="flex items-center gap-3 mb-1">
                 <Image
                   src={'/newlogo.png'}
-                  alt="Premier Penny Logo"
+                  alt="Borrowww Logo"
                   width={170}
                   height={40}
                   className="rounded-lg p-1"
@@ -132,7 +132,7 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <p className="text-gray-500 text-sm mb-2 md:mb-0">
-            © 2025 Premier Penny. All rights reserved.
+            © 2025 Borrowww. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6 text-sm">

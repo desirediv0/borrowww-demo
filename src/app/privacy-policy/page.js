@@ -10,9 +10,9 @@ export default function PrivacyPolicy() {
 
       <div className="space-y-8 text-[17px] text-gray-700">
         <p>
-          This Privacy Policy explains how <strong>Premier Penny Pvt. Ltd.</strong> (“Premier
+          This Privacy Policy explains how <strong>Borrowww Pvt. Ltd.</strong> (“Premier
           Penny”, “we”, “our”, “us”) collects, uses, protects, and discloses information when you
-          use our website <strong>premierpenny.com</strong>.
+          use our website <strong>Borrowww.com</strong>.
         </p>
 
         <h2 className="text-2xl font-semibold text-gray-900">1. Information We Collect</h2>
@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
         <h2 className="text-2xl font-semibold text-gray-900">5. Your Rights</h2>
         <p>
           You may request access, correction, or deletion of your information by contacting us at
-          <strong> support@premierpenny.com</strong>.
+          <strong> info.premierpenny@gmail.com</strong>.
         </p>
 
         <h2 className="text-2xl font-semibold text-gray-900">6. Changes to Policy</h2>
@@ -56,7 +56,7 @@ export default function PrivacyPolicy() {
 
         <h2 className="text-2xl font-semibold text-gray-900">7. Contact</h2>
         <p>
-          For privacy-related concerns, email: <strong>support@premierpenny.com</strong>
+          For privacy-related concerns, email: <strong>info.premierpenny@gmail.com</strong>
         </p>
       </div>
     </section>

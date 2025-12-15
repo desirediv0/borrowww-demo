@@ -98,7 +98,7 @@ export default function ValuesSection() {
             >
               Why Choose
               <br />
-              Premier Penny?
+              Borrowww?
             </motion.h2>
           </motion.div>
 
