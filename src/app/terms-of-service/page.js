@@ -10,8 +10,7 @@ export default function TermsOfService() {
 
       <div className="space-y-8 text-[17px] text-gray-700">
         <p>
-          These terms govern the use of <strong>Borrowww.com</strong>, operated by{' '}
-          <strong>Borrowww Pvt. Ltd.</strong>. By using our website, you agree to the Terms
+          These terms govern the use of <strong>Borrowww.com</strong>, operated by <strong>Borrowww</strong>. By using our website, you agree to the Terms
           listed below.
         </p>
 

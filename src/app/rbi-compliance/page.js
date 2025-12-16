@@ -11,7 +11,7 @@ export default function RBICompliance() {
       <div className="space-y-8 text-[17px] text-gray-700">
         <h2 className="text-2xl font-semibold text-gray-900">1. Our Status</h2>
         <p>
-          Borrowww Pvt. Ltd. is not a bank or NBFC and does not provide loans or accept
+          Borrowww is not a bank or NBFC and does not provide loans or accept
           deposits. We act as a loan advisory and facilitation platform connecting users with
           regulated lenders.
         </p>

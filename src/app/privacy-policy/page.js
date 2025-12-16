@@ -10,8 +10,7 @@ export default function PrivacyPolicy() {
 
       <div className="space-y-8 text-[17px] text-gray-700">
         <p>
-          This Privacy Policy explains how <strong>Borrowww Pvt. Ltd.</strong> (“Premier
-          Penny”, “we”, “our”, “us”) collects, uses, protects, and discloses information when you
+          This Privacy Policy explains how <strong>Borrowww</strong> (“Borrowww”, “we”, “our”, “us”) collects, uses, protects, and discloses information when you
           use our website <strong>Borrowww.com</strong>.
         </p>
 
