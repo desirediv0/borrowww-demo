@@ -107,7 +107,38 @@ export default function HomeLoanServicesPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
+
+    try {
+      const response = await fetch('/api/calculator/home-loan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Thank you for your inquiry! Our expert will call you soon.');
+        setForm({
+          name: '',
+          phone: '',
+          city: '',
+          propertyType: 'Residential',
+          loanAmount: '',
+          duration: '',
+          monthlyIncome: '',
+          employmentType: '',
+          remarks: '',
+        });
+      } else {
+        alert(data.error || 'Failed to submit inquiry. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to submit inquiry. Please try again.');
+    }
   };
 
   return (
@@ -140,7 +171,7 @@ export default function HomeLoanServicesPage() {
                   Get Free Consultation <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
-                  href="tel:+919999999999"
+                  href="tel:+919560069525"
                   className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#2D3E50] px-6 py-3 text-[#2D3E50] font-semibold hover:bg-[#2D3E50] hover:text-white transition-all"
                 >
                   <Phone className="h-4 w-4" /> Call Now

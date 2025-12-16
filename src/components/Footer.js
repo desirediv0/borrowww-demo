@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 
 import { motion } from 'framer-motion';
 
@@ -59,25 +60,41 @@ export default function Footer() {
               India&apos;s leading credit score checking and loan provider platform. Get instant
               loan approval with competitive rates and transparent process.
             </p>
-            {/* Social Links */}
-            {/* <div className="flex items-center gap-3 mt-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  className="w-10 h-10 bg-[#396A9F]/10 rounded-full flex items-center justify-center hover:bg-[#396A9F]/20 hover:scale-110 transition-all duration-200 shadow-sm border border-[#396A9F]/20 text-[#396A9F]"
-                  whileHover={{ scale: 1.15, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </motion.a>
-              ))}
-            </div> */}
+
+            {/* Contact Information */}
+            <div className="mt-4 space-y-3">
+              <div className="flex items-start gap-3">
+                <FaPhone className="text-[#396A9F] mt-1 shrink-0" />
+                <div className="flex flex-col">
+                  <a href="tel:+919560069525" className="text-gray-600 hover:text-[#396A9F] transition-colors text-sm">
+                    +91 9560069525
+                  </a>
+                  <a href="tel:+918264111345" className="text-gray-600 hover:text-[#396A9F] transition-colors text-sm">
+                    +91 8264111345
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <FaEnvelope className="text-[#396A9F] mt-1 shrink-0" />
+                <a href="mailto:info.premierpenny@gmail.com" className="text-gray-600 hover:text-[#396A9F] transition-colors text-sm">
+                  info.premierpenny@gmail.com
+                </a>
+              </div>
+              <div className="flex items-start gap-3">
+                <FaMapMarkerAlt className="text-[#396A9F] mt-1 shrink-0" />
+                <p className="text-gray-600 text-sm">
+                  221, 2nd Floor, JMD Megapolis,<br />
+                  Sector 48, Sohan Road,<br />
+                  Gurgaon 122002
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <FaWhatsapp className="text-[#396A9F] mt-1 shrink-0" />
+                <a href="https://wa.me/919560069525" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#396A9F] transition-colors text-sm">
+                  WhatsApp: +91 9560069525
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Footer Links */}

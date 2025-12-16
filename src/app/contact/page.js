@@ -40,25 +40,42 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      alert('Thank you for your message! We will get back to you soon.');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Thank you for your message! We will get back to you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+        });
+      } else {
+        alert(data.error || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
       setIsSubmitting(false);
-    }, 2000);
+    }
   };
 
   const contactInfo = [
     {
       icon: FaPhone,
       title: 'Call Us',
-      details: ['+91 9560069525', '+91 9560069526'],
+      details: ['+91 9560069525', '+91 8264111345'],
       action: 'tel:+919560069525',
       bgColor: 'bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)]',
     },
@@ -79,7 +96,7 @@ export default function ContactPage() {
     {
       icon: FaMapMarkerAlt,
       title: 'Visit Us',
-      details: ['Borrowww Tower, Financial District', 'Mumbai, Maharashtra 400001'],
+      details: ['221, 2nd Floor, JMD Megapolis', 'Sector 48, Sohan Road, Gurgaon 122002'],
       action: '#',
       bgColor: 'bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)]',
     },

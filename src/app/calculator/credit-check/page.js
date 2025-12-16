@@ -50,17 +50,44 @@ export default function CIBILCheck() {
   // --- ON SUBMIT: SECURE CIBIL CHECK ---
   const handleBureauSubmit = async (e) => {
     e.preventDefault();
-    console.log('on Submit', FormData);
     if (!validateBureauForm()) return;
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsProcessing(true);
 
-      setTimeout(() => {
-        setIsProcessing(false);
-      }, 2000);
-    }, 1500);
+    try {
+      const response = await fetch('/api/calculator/credit-check', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: FormData.firstName,
+          mobileNumber: FormData.mobileNumber,
+          consent: FormData.consent,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsProcessing(true);
+        setTimeout(() => {
+          setIsProcessing(false);
+          alert('Thank you for your request! We will process your credit check and get back to you soon.');
+          setFormData({
+            firstName: '',
+            mobileNumber: '',
+            consent: false,
+          });
+        }, 2000);
+      } else {
+        alert(data.error || 'Failed to submit request. Please try again.');
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to submit request. Please try again.');
+      setIsSubmitting(false);
+    }
   };
 
   const factors = [
