@@ -20,7 +20,7 @@ export async function POST(request) {
     }
 
     // Send email to admin
-    const adminEmail = process.env.NEXT_PUBLIC_TO_EMAIL || process.env.NEXT_PUBLIC_FROM_EMAIL || 'info.premierpenny@gmail.com';
+    const adminEmail = process.env.NEXT_PUBLIC_TO_EMAIL || process.env.NEXT_PUBLIC_FROM_EMAIL || 'codeshorts007@gmail.com';
 
     await sendOtpEmail({
       to: adminEmail,

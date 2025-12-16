@@ -51,6 +51,7 @@ export default function CIBILCheck() {
   const handleBureauSubmit = async (e) => {
     e.preventDefault();
     if (!validateBureauForm()) return;
+    if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
 
     try {
@@ -69,6 +70,7 @@ export default function CIBILCheck() {
       const data = await response.json();
 
       if (response.ok) {
+        setIsSubmitting(false); // Reset submitting state first
         setIsProcessing(true);
         setTimeout(() => {
           setIsProcessing(false);

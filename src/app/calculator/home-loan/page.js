@@ -31,6 +31,7 @@ export default function HomeLoanServicesPage() {
     employmentType: '',
     remarks: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const steps = [
     {
@@ -107,6 +108,8 @@ export default function HomeLoanServicesPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return; // Prevent double submission
+    setIsSubmitting(true);
 
     try {
       const response = await fetch('/api/calculator/home-loan', {
@@ -138,6 +141,8 @@ export default function HomeLoanServicesPage() {
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to submit inquiry. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -342,9 +347,17 @@ export default function HomeLoanServicesPage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full rounded-xl bg-gradient-to-r from-[#2D3E50] to-[#3A6EA5] py-3 font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                    disabled={isSubmitting}
+                    className="w-full rounded-xl bg-gradient-to-r from-[#2D3E50] to-[#3A6EA5] py-3 font-semibold text-white shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Get Callback from Our Expert
+                    {isSubmitting ? (
+                      <>
+                        <span className="inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
+                        Submitting...
+                      </>
+                    ) : (
+                      'Get Callback from Our Expert'
+                    )}
                   </button>
                   <p className="text-xs text-gray-500 text-center">
                     By continuing, you agree to our Terms & Privacy Policy.

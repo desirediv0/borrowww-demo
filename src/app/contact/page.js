@@ -38,6 +38,7 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
 
     try {
