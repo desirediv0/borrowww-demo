@@ -208,7 +208,8 @@ export default function HomeLoanServicesPage() {
                       type="text"
                       required
                       placeholder="Enter Your Name"
-                      className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all"
+                      disabled={isSubmitting}
+                      className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                     />
@@ -221,7 +222,8 @@ export default function HomeLoanServicesPage() {
                         pattern="[0-9]{10}"
                         required
                         placeholder="Enter Your Mobile Number"
-                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all"
+                        disabled={isSubmitting}
+                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       />
@@ -231,7 +233,8 @@ export default function HomeLoanServicesPage() {
                       <input
                         type="text"
                         placeholder="Enter Your City"
-                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all"
+                        disabled={isSubmitting}
+                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         value={form.city}
                         onChange={(e) => setForm({ ...form, city: e.target.value })}
                       />
@@ -241,7 +244,8 @@ export default function HomeLoanServicesPage() {
                     <div>
                       <label className="text-sm text-gray-600">Property Type</label>
                       <select
-                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all"
+                        disabled={isSubmitting}
+                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         value={form.propertyType}
                         onChange={(e) => setForm({ ...form, propertyType: e.target.value })}
                       >
@@ -256,7 +260,8 @@ export default function HomeLoanServicesPage() {
                       <input
                         type="number"
                         placeholder="1,00,000,000"
-                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all"
+                        disabled={isSubmitting}
+                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         value={form.loanAmount}
                         onChange={(e) => setForm({ ...form, loanAmount: e.target.value })}
                       />
@@ -282,7 +287,8 @@ export default function HomeLoanServicesPage() {
                         step="1"
                         value={form.duration || 120}
                         onChange={(e) => setForm({ ...form, duration: e.target.value })}
-                        className="w-full accent-[#3A6EA5]"
+                        disabled={isSubmitting}
+                        className="w-full accent-[#3A6EA5] disabled:opacity-50"
                         aria-label="Loan Duration Slider"
                       />
                       <div className="flex items-center gap-2 mt-2">
@@ -299,7 +305,8 @@ export default function HomeLoanServicesPage() {
                             else if (Number(val) > 600) val = '600';
                             setForm({ ...form, duration: val });
                           }}
-                          className="w-20 rounded border border-gray-200 px-2 py-1 text-sm focus:ring-2 focus:ring-[#3A6EA5] focus:border-transparent"
+                          disabled={isSubmitting}
+                          className="w-20 rounded border border-gray-200 px-2 py-1 text-sm focus:ring-2 focus:ring-[#3A6EA5] focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
                           placeholder="months"
                           aria-label="Custom Duration Months"
                         />
@@ -312,7 +319,8 @@ export default function HomeLoanServicesPage() {
                       <input
                         type="number"
                         placeholder="e.g. 50000"
-                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all"
+                        disabled={isSubmitting}
+                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         value={form.monthlyIncome}
                         onChange={(e) => setForm({ ...form, monthlyIncome: e.target.value })}
                       />
@@ -322,7 +330,8 @@ export default function HomeLoanServicesPage() {
                     <div>
                       <label className="text-sm text-gray-600">Employment Type</label>
                       <select
-                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all"
+                        disabled={isSubmitting}
+                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         value={form.employmentType}
                         onChange={(e) => setForm({ ...form, employmentType: e.target.value })}
                       >
@@ -339,7 +348,8 @@ export default function HomeLoanServicesPage() {
                       <input
                         type="text"
                         placeholder="Any additional info"
-                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all"
+                        disabled={isSubmitting}
+                        className="mt-1 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 focus:bg-white focus:ring-2 focus:ring-[#2D3E50] focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         value={form.remarks}
                         onChange={(e) => setForm({ ...form, remarks: e.target.value })}
                       />

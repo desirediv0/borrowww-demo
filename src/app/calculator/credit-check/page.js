@@ -70,7 +70,6 @@ export default function CIBILCheck() {
       const data = await response.json();
 
       if (response.ok) {
-        setIsSubmitting(false); // Reset submitting state first
         setIsProcessing(true);
         setTimeout(() => {
           setIsProcessing(false);
@@ -83,11 +82,11 @@ export default function CIBILCheck() {
         }, 2000);
       } else {
         alert(data.error || 'Failed to submit request. Please try again.');
-        setIsSubmitting(false);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to submit request. Please try again.');
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -198,7 +197,8 @@ export default function CIBILCheck() {
                       placeholder="Enter Your Full Name"
                       value={FormData.firstName}
                       onChange={(e) => handleInputChange('firstName', e.target.value)}
-                      className={`rounded-md border border-gray-300 transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 h-12 ${errors.firstName ? 'border-red-500' : ''}`}
+                      disabled={isSubmitting}
+                      className={`rounded-md border border-gray-300 transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 h-12 disabled:opacity-50 disabled:cursor-not-allowed ${errors.firstName ? 'border-red-500' : ''}`}
                     />
                     {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName}</p>}
                   </div>
@@ -212,7 +212,8 @@ export default function CIBILCheck() {
                       placeholder="Enter Your 10-digit Mobile Number"
                       value={FormData.mobileNumber}
                       onChange={(e) => handleInputChange('mobileNumber', e.target.value)}
-                      className={`rounded-md border border-gray-300 transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 h-12 ${errors.mobileNumber ? 'border-red-500' : ''}`}
+                      disabled={isSubmitting}
+                      className={`rounded-md border border-gray-300 transition-all duration-200 bg-gray-50 focus:bg-white text-black placeholder:text-gray-500 h-12 disabled:opacity-50 disabled:cursor-not-allowed ${errors.mobileNumber ? 'border-red-500' : ''}`}
                       type="tel"
                       maxLength="10"
                     />
@@ -227,7 +228,8 @@ export default function CIBILCheck() {
                       id="consent"
                       checked={FormData.consent}
                       onCheckedChange={(checked) => handleInputChange('consent', checked)}
-                      className={`mt-1 rounded border-gray-400 data-[state=checked]:bg-[var(--primary-blue)] data-[state=checked]:border-[var(--primary-blue)] ${errors.consent ? 'border-red-500' : ''}`}
+                      disabled={isSubmitting}
+                      className={`mt-1 rounded border-gray-400 data-[state=checked]:bg-[var(--primary-blue)] data-[state=checked]:border-[var(--primary-blue)] disabled:opacity-50 disabled:cursor-not-allowed ${errors.consent ? 'border-red-500' : ''}`}
                     />
                     <div className="space-y-1">
                       <Label

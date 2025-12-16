@@ -59,8 +59,13 @@ Remarks: ${remarks || 'None'}
     return NextResponse.json({ message: 'Home loan inquiry submitted successfully' });
   } catch (error) {
     console.error('Home loan form error:', error);
+    console.error('Error message:', error.message);
+    console.error('Error code:', error.code);
     return NextResponse.json(
-      { error: 'Failed to submit inquiry' },
+      {
+        error: error.message || 'Failed to submit inquiry',
+        details: process.env.NODE_ENV === 'development' ? error.stack : undefined
+      },
       { status: 500 }
     );
   }

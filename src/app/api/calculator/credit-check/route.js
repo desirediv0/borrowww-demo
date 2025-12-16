@@ -45,8 +45,13 @@ Consent Given: Yes
     return NextResponse.json({ message: 'Credit check request submitted successfully' });
   } catch (error) {
     console.error('Credit check form error:', error);
+    console.error('Error message:', error.message);
+    console.error('Error code:', error.code);
     return NextResponse.json(
-      { error: 'Failed to submit request' },
+      {
+        error: error.message || 'Failed to submit request',
+        details: process.env.NODE_ENV === 'development' ? error.stack : undefined
+      },
       { status: 500 }
     );
   }
