@@ -54,13 +54,13 @@ export default function ContactPage() {
 
       if (response.ok) {
         alert(data.message || 'Thank you for your message! We will get back to you soon. Please check your email for confirmation.');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: '',
-        });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      });
       } else {
         alert(data.error || 'Failed to send message. Please try again.');
       }

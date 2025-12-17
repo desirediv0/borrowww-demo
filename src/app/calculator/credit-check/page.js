@@ -70,16 +70,16 @@ export default function CIBILCheck() {
       const data = await response.json();
 
       if (response.ok) {
-        setIsProcessing(true);
-        setTimeout(() => {
-          setIsProcessing(false);
+      setIsProcessing(true);
+      setTimeout(() => {
+        setIsProcessing(false);
           alert('Thank you for your request! We will process your credit check and get back to you soon.');
           setFormData({
             firstName: '',
             mobileNumber: '',
             consent: false,
           });
-        }, 2000);
+      }, 2000);
       } else {
         alert(data.error || 'Failed to submit request. Please try again.');
       }

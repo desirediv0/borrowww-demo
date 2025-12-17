@@ -2,16 +2,30 @@ import nodemailer from 'nodemailer';
 
 // Create transporter using SMTP configuration
 const createTransporter = () => {
+  const host = process.env.NEXT_PUBLIC_SMTP_HOST;
+  const user = process.env.NEXT_PUBLIC_SMTP_USER;
+  const pass = process.env.NEXT_PUBLIC_SMTP_PASSWORD;
   const port = parseInt(process.env.NEXT_PUBLIC_SMTP_PORT || '587');
   const isSecure = port === 465;
 
+  // Debug logging (only log host and port, not credentials)
+  console.log(`[SMTP Config] Host: ${host}, Port: ${port}, User: ${user ? '***' + user.slice(-10) : 'NOT SET'}`);
+
+  if (!host || !user || !pass) {
+    console.error('[SMTP Config] ❌ Missing SMTP configuration!');
+    console.error(`[SMTP Config] Host: ${host ? 'SET' : 'MISSING'}`);
+    console.error(`[SMTP Config] User: ${user ? 'SET' : 'MISSING'}`);
+    console.error(`[SMTP Config] Password: ${pass ? 'SET' : 'MISSING'}`);
+    throw new Error('SMTP configuration is incomplete. Please check environment variables.');
+  }
+
   const config = {
-    host: process.env.NEXT_PUBLIC_SMTP_HOST,
+    host: host,
     port: port,
     secure: isSecure, // true for 465, false for other ports
     auth: {
-      user: process.env.NEXT_PUBLIC_SMTP_USER,
-      pass: process.env.NEXT_PUBLIC_SMTP_PASSWORD,
+      user: user,
+      pass: pass,
     },
     // Reduced timeouts for faster failure in production
     connectionTimeout: 10000, // 10 seconds connection timeout
@@ -29,6 +43,7 @@ const createTransporter = () => {
     };
   }
 
+  console.log(`[SMTP Config] ✅ Transporter created successfully`);
   return nodemailer.createTransport(config);
 };
 
@@ -38,6 +53,7 @@ export async function sendOtpEmail({ to, subject, text, html }, retries = 2) {
 
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
+      console.log(`[Email] Attempt ${attempt + 1}/${retries + 1} - Connecting to SMTP...`);
       const transporter = createTransporter();
 
       const mailOptions = {
@@ -48,14 +64,16 @@ export async function sendOtpEmail({ to, subject, text, html }, retries = 2) {
         html: html,
       };
 
+      console.log(`[Email] Sending email to: ${to}, Subject: ${subject}`);
       const info = await transporter.sendMail(mailOptions);
-      console.log('Email sent successfully:', info.messageId);
+      console.log(`[Email] ✅ Email sent successfully! MessageId: ${info.messageId}, To: ${to}`);
       return { success: true, messageId: info.messageId };
     } catch (error) {
       lastError = error;
-      console.error(`Error sending email (attempt ${attempt + 1}/${retries + 1}):`, error.message);
-      console.error('Error code:', error.code);
-      console.error('Error command:', error.command);
+      console.error(`[Email] ❌ Error sending email (attempt ${attempt + 1}/${retries + 1}):`, error.message);
+      console.error(`[Email] Error code: ${error.code}`);
+      console.error(`[Email] Error command: ${error.command}`);
+      console.error(`[Email] Full error:`, error);
 
       // If it's the last attempt, throw the error
       if (attempt === retries) {
@@ -64,7 +82,7 @@ export async function sendOtpEmail({ to, subject, text, html }, retries = 2) {
 
       // Wait before retrying (exponential backoff)
       const delay = 1000 * (attempt + 1); // 1s, 2s
-      console.log(`Retrying in ${delay}ms...`);
+      console.log(`[Email] Retrying in ${delay}ms...`);
       await new Promise(resolve => setTimeout(resolve, delay));
     }
   }
@@ -74,12 +92,39 @@ export async function sendOtpEmail({ to, subject, text, html }, retries = 2) {
 
 // Send email asynchronously without blocking (fire and forget)
 export function sendOtpEmailAsync({ to, subject, text, html }) {
-  // Don't await - let it run in background
-  sendOtpEmail({ to, subject, text, html }).catch((error) => {
-    console.error('Background email sending failed:', error.message);
-    // Log to file or database for retry later if needed
+  console.log(`[Email Queue] 📧 Queuing email to: ${to}, Subject: ${subject}`);
+
+  // Use Promise.resolve().then() to ensure it runs asynchronously
+  // This ensures the email sending starts even after API response is sent
+  Promise.resolve().then(async () => {
+    try {
+      console.log(`[Email Queue] 🚀 Starting email send to: ${to}`);
+      const result = await sendOtpEmail({ to, subject, text, html });
+      console.log(`[Email Queue] ✅ Email sent successfully to: ${to}, MessageId: ${result.messageId}`);
+    } catch (error) {
+      console.error(`[Email Queue] ❌ Failed to send email to: ${to}`);
+      console.error(`[Email Queue] Error message: ${error.message}`);
+      console.error(`[Email Queue] Error code: ${error.code}`);
+      console.error(`[Email Queue] Full error:`, error);
+
+      // Try one more time after a delay
+      setTimeout(async () => {
+        try {
+          console.log(`[Email Queue] 🔄 Retrying email to: ${to}`);
+          const retryResult = await sendOtpEmail({ to, subject, text, html }, 1); // Only 1 retry
+          console.log(`[Email Queue] ✅ Retry successful for: ${to}, MessageId: ${retryResult.messageId}`);
+        } catch (retryError) {
+          console.error(`[Email Queue] ❌ Retry also failed for: ${to}`);
+          console.error(`[Email Queue] Retry error: ${retryError.message}`);
+          console.error(`[Email Queue] Retry error code: ${retryError.code}`);
+        }
+      }, 5000); // Retry after 5 seconds
+    }
+  }).catch((err) => {
+    console.error(`[Email Queue] 💥 Unhandled error in email queue:`, err);
   });
 
+  console.log(`[Email Queue] ✅ Email queued for sending to: ${to}`);
   return { success: true, message: 'Email queued for sending' };
 }
 
