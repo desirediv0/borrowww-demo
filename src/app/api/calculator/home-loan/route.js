@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { sendOtpEmail } from '@/lib/email';
+import { sendOtpEmailAsync } from '@/lib/email';
 
 export async function POST(request) {
   try {
@@ -24,7 +24,8 @@ export async function POST(request) {
       return `${years > 0 ? years + ' year' + (years > 1 ? 's' : '') : ''}${years > 0 && remMonths > 0 ? ' ' : ''}${remMonths > 0 ? remMonths + ' month' + (remMonths > 1 ? 's' : '') : ''}`.trim() || 'Not specified';
     })();
 
-    await sendOtpEmail({
+    // Send email asynchronously (non-blocking)
+    sendOtpEmailAsync({
       to: adminEmail,
       subject: `Home Loan Inquiry: ${name}`,
       text: `
@@ -61,12 +62,9 @@ Remarks: ${remarks || 'None'}
     console.error('Home loan form error:', error);
     console.error('Error message:', error.message);
     console.error('Error code:', error.code);
-    return NextResponse.json(
-      {
-        error: error.message || 'Failed to submit inquiry',
-        details: process.env.NODE_ENV === 'development' ? error.stack : undefined
-      },
-      { status: 500 }
-    );
+    // Return success even if email fails
+    return NextResponse.json({
+      message: 'Home loan inquiry submitted successfully. Our expert will call you soon.'
+    });
   }
 }

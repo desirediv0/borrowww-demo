@@ -13,10 +13,10 @@ const createTransporter = () => {
       user: process.env.NEXT_PUBLIC_SMTP_USER,
       pass: process.env.NEXT_PUBLIC_SMTP_PASSWORD,
     },
-    // Increased timeouts for production
-    connectionTimeout: 60000, // 60 seconds connection timeout
-    greetingTimeout: 30000, // 30 seconds greeting timeout
-    socketTimeout: 60000, // 60 seconds socket timeout
+    // Reduced timeouts for faster failure in production
+    connectionTimeout: 10000, // 10 seconds connection timeout
+    greetingTimeout: 5000, // 5 seconds greeting timeout
+    socketTimeout: 10000, // 10 seconds socket timeout
     // Retry configuration
     pool: false, // Don't use connection pooling for better reliability
   };
@@ -32,8 +32,8 @@ const createTransporter = () => {
   return nodemailer.createTransport(config);
 };
 
-// Send email function with retry logic
-export async function sendOtpEmail({ to, subject, text, html }, retries = 3) {
+// Send email function with retry logic (blocking)
+export async function sendOtpEmail({ to, subject, text, html }, retries = 2) {
   let lastError;
 
   for (let attempt = 0; attempt <= retries; attempt++) {
@@ -63,13 +63,24 @@ export async function sendOtpEmail({ to, subject, text, html }, retries = 3) {
       }
 
       // Wait before retrying (exponential backoff)
-      const delay = 2000 * (attempt + 1); // 2s, 4s, 6s
+      const delay = 1000 * (attempt + 1); // 1s, 2s
       console.log(`Retrying in ${delay}ms...`);
       await new Promise(resolve => setTimeout(resolve, delay));
     }
   }
 
   throw lastError;
+}
+
+// Send email asynchronously without blocking (fire and forget)
+export function sendOtpEmailAsync({ to, subject, text, html }) {
+  // Don't await - let it run in background
+  sendOtpEmail({ to, subject, text, html }).catch((error) => {
+    console.error('Background email sending failed:', error.message);
+    // Log to file or database for retry later if needed
+  });
+
+  return { success: true, message: 'Email queued for sending' };
 }
 
 // Email template for admin notifications
