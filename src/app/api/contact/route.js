@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { sendOtpEmailAsync, getAdminEmailTemplate, getUserThankYouTemplate } from '@/lib/email';
+import { sendOtpEmailAsync, getAdminEmailTemplate } from '@/lib/email';
 
 export async function POST(request) {
   try {
@@ -36,21 +36,10 @@ export async function POST(request) {
       html: adminEmailHtml,
     });
 
-    // Send thank you email to user
-    const userEmailHtml = getUserThankYouTemplate({ name });
-    const userEmailText = `Dear ${name},\n\nThank you for reaching out to Borrowww! We have successfully received your message and our team will review it shortly.\n\nWe understand the importance of your inquiry and will get back to you as soon as possible, typically within 24-48 hours.\n\nIf you have any urgent questions, please feel free to call us at:\nPhone: +91 9560069525 or +91 8264111345\nEmail: info.premierpenny@gmail.com\n\nBest regards,\nBorrowww Team`;
-
-    sendOtpEmailAsync({
-      to: email,
-      subject: 'Thank You for Contacting Borrowww - We Received Your Message',
-      text: userEmailText,
-      html: userEmailHtml,
-    });
-
     // Return immediately without waiting for email
     return NextResponse.json({
       success: true,
-      message: 'Contact form submitted successfully. Please check your email for confirmation.'
+      message: 'Contact form submitted successfully. We will get back to you soon.'
     });
   } catch (error) {
     console.error('Contact form error:', error);
