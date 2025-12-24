@@ -2,10 +2,10 @@ import nodemailer from 'nodemailer';
 
 // Create transporter using SMTP configuration
 const createTransporter = () => {
-  const host = process.env.NEXT_PUBLIC_SMTP_HOST;
-  const user = process.env.NEXT_PUBLIC_SMTP_USER;
-  const pass = process.env.NEXT_PUBLIC_SMTP_PASSWORD;
-  const port = parseInt(process.env.NEXT_PUBLIC_SMTP_PORT || '587');
+  const host = process.env.SMTP_HOST || process.env.NEXT_PUBLIC_SMTP_HOST;
+  const user = process.env.SMTP_USER || process.env.NEXT_PUBLIC_SMTP_USER;
+  const pass = process.env.SMTP_PASSWORD || process.env.NEXT_PUBLIC_SMTP_PASSWORD;
+  const port = parseInt(process.env.SMTP_PORT || process.env.NEXT_PUBLIC_SMTP_PORT || '587');
   const isSecure = port === 465;
 
   // Debug logging (only log host and port, not credentials)
@@ -56,8 +56,15 @@ export async function sendOtpEmail({ to, subject, text, html }, retries = 2) {
       console.log(`[Email] Attempt ${attempt + 1}/${retries + 1} - Connecting to SMTP...`);
       const transporter = createTransporter();
 
+      const fromEmail =
+        process.env.SMTP_FROM_EMAIL ||
+        process.env.NEXT_PUBLIC_FROM_EMAIL ||
+        process.env.SMTP_USER ||
+        process.env.NEXT_PUBLIC_SMTP_USER ||
+        'info.premierpenny@gmail.com';
+
       const mailOptions = {
-        from: process.env.NEXT_PUBLIC_FROM_EMAIL || 'codeshorts007@gmail.com',
+        from: fromEmail,
         to: to,
         subject: subject,
         text: text,
@@ -202,7 +209,7 @@ export function getUserThankYouTemplate({ name }) {
           <p>We understand the importance of your inquiry and will get back to you as soon as possible, typically within 24-48 hours.</p>
           <p>If you have any urgent questions, please feel free to call us at:</p>
           <p><strong>Phone:</strong> +91 9560069525 or +91 8264111345<br>
-          <strong>Email:</strong> codeshorts007@gmail.com</p>
+          <strong>Email:</strong> info.premierpenny@gmail.com</p>
           <p>Best regards,<br>
           <strong>Borrowww Team</strong></p>
         </div>

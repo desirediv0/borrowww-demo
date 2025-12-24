@@ -22,7 +22,7 @@ export async function POST(request) {
       );
     }
 
-    const adminEmail = process.env.NEXT_PUBLIC_TO_EMAIL || process.env.NEXT_PUBLIC_FROM_EMAIL || 'codeshorts007@gmail.com';
+    const adminEmail = process.env.NEXT_PUBLIC_TO_EMAIL || process.env.NEXT_PUBLIC_FROM_EMAIL || 'info.premierpenny@gmail.com';
     const formData = { name, email, phone, message, subject };
 
     // Send emails asynchronously (non-blocking) to avoid timeout
@@ -38,7 +38,7 @@ export async function POST(request) {
 
     // Send thank you email to user
     const userEmailHtml = getUserThankYouTemplate({ name });
-    const userEmailText = `Dear ${name},\n\nThank you for reaching out to Borrowww! We have successfully received your message and our team will review it shortly.\n\nWe understand the importance of your inquiry and will get back to you as soon as possible, typically within 24-48 hours.\n\nIf you have any urgent questions, please feel free to call us at:\nPhone: +91 9560069525 or +91 8264111345\nEmail: codeshorts007@gmail.com\n\nBest regards,\nBorrowww Team`;
+    const userEmailText = `Dear ${name},\n\nThank you for reaching out to Borrowww! We have successfully received your message and our team will review it shortly.\n\nWe understand the importance of your inquiry and will get back to you as soon as possible, typically within 24-48 hours.\n\nIf you have any urgent questions, please feel free to call us at:\nPhone: +91 9560069525 or +91 8264111345\nEmail: info.premierpenny@gmail.com\n\nBest regards,\nBorrowww Team`;
 
     sendOtpEmailAsync({
       to: email,
