@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { sendOtpEmailAsync } from '@/lib/email';
+import { sendOtpEmailAsync, getHomeLoanEmailTemplate } from '@/lib/email';
 
 export async function POST(request) {
   try {
@@ -24,37 +24,27 @@ export async function POST(request) {
       return `${years > 0 ? years + ' year' + (years > 1 ? 's' : '') : ''}${years > 0 && remMonths > 0 ? ' ' : ''}${remMonths > 0 ? remMonths + ' month' + (remMonths > 1 ? 's' : '') : ''}`.trim() || 'Not specified';
     })();
 
+    // Generate HTML email template
+    const emailHtml = getHomeLoanEmailTemplate({
+      name,
+      phone,
+      city,
+      propertyType,
+      loanAmount,
+      duration,
+      monthlyIncome,
+      employmentType,
+      remarks,
+      durationText
+    });
+    const emailText = `Home Loan Inquiry Form Submission\n\nName: ${name}\nPhone: ${phone}\nCity: ${city || 'Not provided'}\nProperty Type: ${propertyType || 'Not provided'}\nLoan Amount: ₹${loanAmount || 'Not provided'}\nLoan Duration: ${durationText} (${duration || 'N/A'} months)\nMonthly Income: ₹${monthlyIncome || 'Not provided'}\nEmployment Type: ${employmentType || 'Not provided'}\nRemarks: ${remarks || 'None'}`;
+
     // Send email asynchronously (non-blocking)
     sendOtpEmailAsync({
       to: adminEmail,
       subject: `Home Loan Inquiry: ${name}`,
-      text: `
-Home Loan Inquiry Form Submission
-
-Name: ${name}
-Phone: ${phone}
-City: ${city || 'Not provided'}
-Property Type: ${propertyType || 'Not provided'}
-Loan Amount: ₹${loanAmount || 'Not provided'}
-Loan Duration: ${durationText} (${duration || 'N/A'} months)
-Monthly Income: ₹${monthlyIncome || 'Not provided'}
-Employment Type: ${employmentType || 'Not provided'}
-Remarks: ${remarks || 'None'}
-      `,
-      html: `
-        <h2>New Home Loan Inquiry</h2>
-        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Phone:</strong> ${phone}</p>
-          <p><strong>City:</strong> ${city || 'Not provided'}</p>
-          <p><strong>Property Type:</strong> ${propertyType || 'Not provided'}</p>
-          <p><strong>Loan Amount:</strong> ₹${loanAmount || 'Not provided'}</p>
-          <p><strong>Loan Duration:</strong> ${durationText} (${duration || 'N/A'} months)</p>
-          <p><strong>Monthly Income:</strong> ₹${monthlyIncome || 'Not provided'}</p>
-          <p><strong>Employment Type:</strong> ${employmentType || 'Not provided'}</p>
-          <p><strong>Remarks:</strong> ${remarks || 'None'}</p>
-        </div>
-      `,
+      text: emailText,
+      html: emailHtml,
     });
 
     return NextResponse.json({ message: 'Home loan inquiry submitted successfully' });

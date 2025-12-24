@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { sendOtpEmailAsync } from '@/lib/email';
+import { sendOtpEmailAsync, getCreditCheckEmailTemplate } from '@/lib/email';
 
 export async function POST(request) {
   try {
@@ -22,25 +22,16 @@ export async function POST(request) {
     // Send email to admin
     const adminEmail = process.env.NEXT_PUBLIC_TO_EMAIL || process.env.NEXT_PUBLIC_FROM_EMAIL || 'info.premierpenny@gmail.com';
 
+    // Generate HTML email template
+    const emailHtml = getCreditCheckEmailTemplate({ firstName, mobileNumber });
+    const emailText = `Credit Check Request\n\nName: ${firstName}\nMobile Number: ${mobileNumber}\nConsent Given: Yes`;
+
     // Send email asynchronously (non-blocking)
     sendOtpEmailAsync({
       to: adminEmail,
       subject: `Credit Check Request: ${firstName}`,
-      text: `
-Credit Check Request
-
-Name: ${firstName}
-Mobile Number: ${mobileNumber}
-Consent Given: Yes
-      `,
-      html: `
-        <h2>New Credit Check Request</h2>
-        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-          <p><strong>Name:</strong> ${firstName}</p>
-          <p><strong>Mobile Number:</strong> ${mobileNumber}</p>
-          <p><strong>Consent Given:</strong> Yes</p>
-        </div>
-      `,
+      text: emailText,
+      html: emailHtml,
     });
 
     return NextResponse.json({ message: 'Credit check request submitted successfully' });
