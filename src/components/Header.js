@@ -35,6 +35,7 @@ export default function Header() {
     { name: 'Loan Against Property', href: '/calculator/loan-against-property' },
     { name: 'EMI Calculator', href: '/calculator/emi' },
     { name: 'Balance Transfer', href: '/calculator/balance-transfer' },
+    { name: 'Blog', href: '/blog/' },
   ];
 
   return (
